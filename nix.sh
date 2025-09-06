@@ -37,8 +37,8 @@ do_git() {
   echo ""
   echo "▶▶▶ Git commit..."
   cd "$PROJECT_PATH"
-  sudo git add .
-  sudo git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
+  git add .
+  git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
 }
 
 do_push() {
