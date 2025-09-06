@@ -5,6 +5,7 @@ set -euo pipefail
 
 # Переменные статуса флагов
 DO_GIT=false
+DO_PUSH=false
 DO_CLEAR=false
 DO_SUDO_CLEAR=false
 DO_BUILD=false
@@ -18,6 +19,7 @@ echo_table() {
 Использование: nix-clean.sh [опции]
 
   -g | -G | --git         Сделать коммит репозитория
+  -p | -P | --push        Сделать коммит и пуш репозитория
   -b | -B | --build       Собрать систему заново
   -c | -C | --clear       Очистка прошлых версий
   -s | -S | --sudo-clear  Глубокая очистка с sudo правами
@@ -37,6 +39,14 @@ do_git() {
   cd "$PROJECT_PATH"
   sudo git add .
   sudo git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
+}
+
+do_push() {
+  do_git
+  echo ""
+  echo "▶▶▶ Git push to remote repository..."
+  cd "$PROJECT_PATH"
+  sudo git push origin main || echo "Ошибка при выполнении пуша в удаленый репозиторий" 
 }
 
 do_clear() {
@@ -73,17 +83,19 @@ fi
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --git)         DO_GIT=true; shift ;;
+    --push)        DO_PUSH=true; shift ;;
     --clear)       DO_CLEAR=true; shift ;;
     --sudo-clear)  DO_SUDO_CLEAR=true; shift ;;
     --build)       DO_BUILD=true; shift ;;
     --reboot)      DO_REBOOT=true; shift ;;
     --help)        echo_table; exit 0 ;;
-    -[gGbBcCsSrRhH]*)
+    -[gGpPbBcCsSrRhH]*)
       opts="${1#-}"
       for (( i=0; i<${#opts}; i++ )); do
         c="${opts:i:1}"
         case "$c" in
           g|G) DO_GIT=true ;;
+          p|P) DO_PUSH=true ;;
           c|C) DO_CLEAR=true ;;
           s|S) DO_SUDO_CLEAR=true ;;
           b|B) DO_BUILD=true ;;
@@ -101,6 +113,7 @@ done
 
 # --- Последовательное выполнение ---
 $DO_GIT        && do_git
+$DO_PUSH       && do_push
 $DO_CLEAR      && do_clear
 $DO_SUDO_CLEAR && do_sudo_clear
 $DO_BUILD      && do_build
