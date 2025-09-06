@@ -41,6 +41,8 @@ do_git() {
   git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
 }
 
+
+
 do_push() {
   do_git
   echo ""
