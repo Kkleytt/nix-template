@@ -100,6 +100,7 @@
       lutris                                    # Запуск Windows игр
       dualsensectl                              # Управление геймпадом DualSense
       trigger-control                           # Управление триггерами геймпада DualSense
+      protontricks                              # Управление Proton
 
 
       ## Social
