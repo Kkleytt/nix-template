@@ -46,7 +46,7 @@ do_push() {
   echo ""
   echo "▶▶▶ Git push to remote repository..."
   cd "$PROJECT_PATH"
-  sudo git push origin main || echo "Ошибка при выполнении пуша в удаленый репозиторий" 
+  git push origin main || echo "Ошибка при выполнении пуша в удаленый репозиторий" 
 }
 
 do_clear() {
