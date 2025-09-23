@@ -43,8 +43,8 @@
       # cartridges                              # Лаунчер для игр (Официальных)
 
 
-      # legcord                                   # Неофициальный Discord клиент
-      # rambox                                    # Менеджер соц-сетей
+      # legcord                                 # Неофициальный Discord клиент
+      # rambox                                  # Менеджер соц-сетей
 
 
       # telegram-desktop                        # Официальный клиент Telegram
@@ -96,15 +96,9 @@
       warehouse                                 # Менеджер пакетов Flatpak
 
 
-      ## Games
-      lutris                                    # Запуск Windows игр
-      dualsensectl                              # Управление геймпадом DualSense
-      trigger-control                           # Управление триггерами геймпада DualSense
-      protontricks                              # Управление Proton
-
-
       ## Social
       materialgram                              # Неофициальный клиент Telegram
+
 
       ## ToDo
       anytype                                   # Аналог Notion
@@ -121,9 +115,7 @@
   services.flatpak.packages = [
     "app.zen_browser.zen"                       # Браузер Zen на базе Firefox
     "app.fotema.Fotema"                         # Менеджер фото
-    "io.github.buonhobo.Katharsis"              # Docker-ориентированный терминал
     "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных
-    "com.github.mtkennerly.ludusavi"            # Бекап сохранений игр
     "org.gnome.Snapshot"                        # Камера
   ];
 
