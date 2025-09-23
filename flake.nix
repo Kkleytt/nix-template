@@ -1,5 +1,5 @@
 {
-  description = "KooL's NixOS-Hyprland"; 
+  description = "Автоматический сборщик системы от Kkleytt"; 
   	
   inputs = {
 		# Нестабильная ветка NixPkgs
@@ -9,10 +9,10 @@
 		nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
 		# Ссылка на установщик Яндекс Музыки
-		yandex-music.url = "github:cucumber-sp/yandex-music-linux";
+		# yandex-music.url = "github:cucumber-sp/yandex-music-linux";
 
 		# Ссылка на темы для Grub2
-		distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
+		# distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
 
 		# Ссылка на тему SDDM
 		silentSDDM = {
@@ -22,11 +22,10 @@
 	
 		# Настройка Hyprland
 		hyprland.url = "github:hyprwm/Hyprland";
-		hyprland-plugins = {
-			url = "github:hyprwm/hyprland-plugins";
-			inputs.hyprland.follows = "hyprland";
-		};
-		# Доустановить Hypgrass
+		# hyprland-plugins = {
+		#	 url = "github:hyprwm/hyprland-plugins";
+		#	 inputs.hyprland.follows = "hyprland";
+		# };
 		
 
     quickshell = {
@@ -58,9 +57,9 @@
 						inherit host;
 					};
 					modules = [ 
-						inputs.yandex-music.nixosModules.default
 						inputs.nix-flatpak.nixosModules.nix-flatpak
-						inputs.distro-grub-themes.nixosModules.${system}.default
+						#inputs.yandex-music.nixosModules.default
+						#inputs.distro-grub-themes.nixosModules.${system}.default
 
 						./hosts/laptop/config.nix 
 						./modules/quickshell.nix

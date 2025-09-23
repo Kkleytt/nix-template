@@ -37,8 +37,8 @@ do_git() {
   echo ""
   echo "▶▶▶ Git commit..."
   cd "$PROJECT_PATH"
-  git add .
-  git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
+  sudo git add .
+  sudo git commit -m "Auto commit with script" || echo "Нет изменений для коммита"
 }
 
 do_push() {
@@ -46,7 +46,7 @@ do_push() {
   echo ""
   echo "▶▶▶ Git push to remote repository..."
   cd "$PROJECT_PATH"
-  git push origin main || echo "Ошибка при выполнении пуша в удаленый репозиторий" 
+  sudo git push origin main || echo "Ошибка при выполнении пуша в удаленый репозиторий" 
 }
 
 do_clear() {
