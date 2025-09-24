@@ -64,6 +64,7 @@
       ## Programming apps (Nvim is base)
       vscodium                                  # VsCode без телеметрии
       zed-editor                                # Быстрый аналог VsCode
+      pycharm-community                         # Бесплатная версия Pycharm
       postman                                   # Авто-тесты для API
       ptyxis                                    # Docker-ориентированный терминал
       devtoolbox                                # Дополнительные функции для программиста

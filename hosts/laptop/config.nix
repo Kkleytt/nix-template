@@ -199,7 +199,7 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
 	    wireplumber.enable = true;
-  	  };
+  	};
 	
     #pulseaudio.enable = false; #unstable
 	  udev.enable = true;
@@ -209,7 +209,7 @@ in {
 	  fstrim = {
       enable = true;
       interval = "weekly";
-      };
+    };
   
     libinput.enable = true;
     rpcbind.enable = false;
