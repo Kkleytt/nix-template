@@ -4,11 +4,21 @@
     ps:
       with ps; [
         pip
-        requests pyquery aiohttp
-        pydantic sqlalchemy redis
-        fastapi uvicorn
-        numpy pandas matplotlib
-        rich faker
+        requests 
+        pyquery 
+        aiohttp
+        pydantic 
+        sqlalchemy
+        asyncpg
+        asyncmy
+        redis
+        fastapi 
+        uvicorn
+        numpy 
+        pandas 
+        matplotlib
+        rich 
+        faker
         ]
     );
 
