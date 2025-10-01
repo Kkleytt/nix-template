@@ -114,7 +114,7 @@ in {
     ## 🧰 Разработка и инструменты
     clang                                     # Компилятор C/C++
     libgcc                                    # Сборка GNU C/C++
-    libstdcxx
+    gccNGPackages_15.libstdcxx
     jq                                        # Парсер JSON
     docker                                    # Docker поддержка
     docker-client                             # GUI обертка вокруг Docker
