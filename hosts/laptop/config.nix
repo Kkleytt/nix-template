@@ -341,6 +341,7 @@ in {
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = false;
+  virtualisation.docker.enable = true;
   virtualisation.podman = {
     enable = false;
     dockerCompat = false;

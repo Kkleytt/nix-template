@@ -11,7 +11,7 @@ DO_SUDO_CLEAR=false
 DO_BUILD=false
 DO_REBOOT=false
 
-PROJECT_PATH="/home/kkleytt/Projects/# System/NixOS"
+PROJECT_PATH="/home/kkleytt/Projects/system/nixos"
 
 # Функция вывода доступных аргументов
 echo_table() {
