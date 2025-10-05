@@ -170,11 +170,11 @@ in {
       enable = true;
       extensions = [
         # Дополнительные языки
-        ms-ceintl.vscode-language-pack-ru
-        ms-ceintl.vscode-language-pack-fr
-        bbenoist.nix
-        zainchen.json
-        streetsidesoftware.code-spell-checker
+        pkgs.vscode-extensionsms-ceintl.vscode-language-pack-ru
+        pkgs.vscode-extensionsms-ceintl.vscode-language-pack-fr
+        pkgs.vscode-extensionsbbenoist.nix
+        pkgs.vscode-extensionszainchen.json
+        pkgs.vscode-extensionsstreetsidesoftware.code-spell-checker
 
         # Python Расширения
         ms-python.python
