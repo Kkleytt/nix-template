@@ -26,6 +26,8 @@
     ps:
       with ps; [
         # Дополнительные языки
+        ms-ceintl.vscode-language-pack-ru
+        ms-ceintl.vscode-language-pack-fr
         bbenoist.nix
         zainchen.json
         streetsidesoftware.code-spell-checker
