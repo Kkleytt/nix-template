@@ -171,6 +171,7 @@ in {
 
   ]) ++ [
 	  python-packages                           # Установка Python библиотек
+    vscode-packages                           # Установка VsCode расширений
   ];
 
 
