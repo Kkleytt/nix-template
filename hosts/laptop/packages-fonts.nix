@@ -195,9 +195,8 @@ in {
         usernamehw.errorlens
         eamodio.gitlens
         ritwickdey.liveserver
-      ]
-
-    }
+      ];
+    };
 
 	  waybar.enable = true;
 	  hyprlock.enable = true;
