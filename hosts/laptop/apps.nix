@@ -74,6 +74,7 @@
       ## Office
       onlyoffice-desktopeditors                 # Аналог Microsoft Office
       obsidian                                  # Полноценный Markdown редактор
+      mailspring                                # Mail клиент
 
 
       ## File system
