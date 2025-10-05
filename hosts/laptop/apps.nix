@@ -63,6 +63,7 @@
 
       ## Programming apps (Nvim is base)
       vscodium                                  # VsCode без телеметрии
+      vscode                                    # Классический VsCode
       zed-editor                                # Быстрый аналог VsCode
       jetbrains.pycharm-community               # Бесплатная версия Pycharm
       postman                                   # Авто-тесты для API
