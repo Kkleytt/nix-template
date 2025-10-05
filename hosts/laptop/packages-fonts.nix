@@ -205,7 +205,6 @@ in {
     neovim.enable = true;
     git.enable = true;
 	  thunar.enable = true;
-    thunderbird.enable = false;
     virt-manager.enable = false;
 
     # steam = {
