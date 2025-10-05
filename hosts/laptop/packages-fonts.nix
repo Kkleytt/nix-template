@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ...}: let {
+{ pkgs, inputs, lib, ...}: let 
 
   python-packages = pkgs.python3.withPackages (
     ps:
@@ -53,7 +53,6 @@
         ritwickdey.liveserver
       ]
   );
-}
 
 in {
 
