@@ -170,31 +170,31 @@ in {
       enable = true;
       extensions = [
         # Дополнительные языки
-        pkgs.vscode-extensionsms-ceintl.vscode-language-pack-ru
-        pkgs.vscode-extensionsms-ceintl.vscode-language-pack-fr
-        pkgs.vscode-extensionsbbenoist.nix
-        pkgs.vscode-extensionszainchen.json
-        pkgs.vscode-extensionsstreetsidesoftware.code-spell-checker
+        pkgs.vscode-extensions.ms-ceintl.vscode-language-pack-ru
+        pkgs.vscode-extensions.ms-ceintl.vscode-language-pack-fr
+        pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.zainchen.json
+        pkgs.vscode-extensions.streetsidesoftware.code-spell-checker
 
         # Python Расширения
-        ms-python.python
-        ms-python.vscode-pylance
-        ms-python.pylint
-        ms-python.mypy-type-checker
-        ms-python.flake8
-        ms-python.black-formatter
-        ms-python.isort
-        ms-python.debugpy
-        njpwerner.autodocstring
+        pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.vscode-extensions.ms-python.pylint
+        pkgs.vscode-extensions.ms-python.mypy-type-checker
+        pkgs.vscode-extensions.ms-python.flake8
+        pkgs.vscode-extensions.ms-python.black-formatter
+        pkgs.vscode-extensions.ms-python.isort
+        pkgs.vscode-extensions.ms-python.debugpy
+        pkgs.vscode-extensions.njpwerner.autodocstring
         
 
         # Полезные расширения
-        formulahendry.code-runner
-        ms-azuretools.vscode-docker
-        ms-azuretools.vscode-containers
-        usernamehw.errorlens
-        eamodio.gitlens
-        ritwickdey.liveserver
+        pkgs.vscode-extensions.formulahendry.code-runner
+        pkgs.vscode-extensions.ms-azuretools.vscode-docker
+        pkgs.vscode-extensions.ms-azuretools.vscode-containers
+        pkgs.vscode-extensions.usernamehw.errorlens
+        pkgs.vscode-extensions.eamodio.gitlens
+        pkgs.vscode-extensions.ritwickdey.liveserver
       ];
     };
 
