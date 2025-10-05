@@ -129,6 +129,9 @@ in {
     docker                                    # Docker поддержка
     docker-client                             # GUI обертка вокруг Docker
     docker-compose                            # Docker-compose поддержка
+    pipenv                                    # Python менеджер пакетов
+    poetry                                    # Python менеджер пакетов
+    uv                                        # Python менеджер пакетов
 
 
     ## 🧙 Разное
