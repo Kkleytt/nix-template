@@ -19,7 +19,6 @@
       # appflowy                                # Аналог Notion
       # folio                                   # Простой Markdown редактор
       # foliate                                 # Читалка книг
-      # thunderbird                             # Mail клиент
       # figma-linux                             # Неофициальный клиент Figma
 
       # sublimetext4                            # Быстрый редактор кода
@@ -74,7 +73,7 @@
       ## Office
       onlyoffice-desktopeditors                 # Аналог Microsoft Office
       obsidian                                  # Полноценный Markdown редактор
-      mailspring                                # Mail клиент
+      thunderbird                               # Mail клиент
 
 
       ## File system
