@@ -250,35 +250,6 @@ in {
     };
   };
 
-  with pkgs.vscode-extensions; [
-    
-    # Дополнительные языки
-    bbenoist.nix
-    zainchen.json
-    streetsidesoftware.code-spell-checker
-
-    # Python Расширения
-    ms-python.python
-    ms-python.vscode-pylance
-    ms-python.pylint
-    ms-python.mypy-type-checker
-    ms-python.flake8
-    ms-python.black-formatter
-    ms-python.isort
-    ms-python.debugpy
-    njpwerner.autodocstring
-    
-
-    # Полезные расширения
-    formulahendry.code-runner
-    ms-azuretools.vscode-docker
-    ms-azuretools.vscode-containers
-    usernamehw.errorlens
-    eamodio.gitlens
-    ritwickdey.liveserver
-
-  ]
-
 
   # zram
   zramSwap = {
