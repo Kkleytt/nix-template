@@ -137,34 +137,6 @@ in {
     ## 🧙 Разное
     polkit_gnome                              # Агент аутентификации
 
-    # VsCode расширения
-    # Дополнительные языки
-    vscode-extensions.ms-ceintl.vscode-language-pack-ru
-    vscode-extensions.ms-ceintl.vscode-language-pack-fr
-    vscode-extensions.bbenoist.nix
-    vscode-extensions.zainchen.json
-    vscode-extensions.streetsidesoftware.code-spell-checker
-
-    # Python Расширения
-    vscode-extensions.ms-python.python
-    vscode-extensions.ms-python.vscode-pylance
-    vscode-extensions.ms-python.pylint
-    vscode-extensions.ms-python.mypy-type-checker
-    vscode-extensions.ms-python.flake8
-    vscode-extensions.ms-python.black-formatter
-    vscode-extensions.ms-python.isort
-    vscode-extensions.ms-python.debugpy
-    vscode-extensions.njpwerner.autodocstring
-    
-
-    # Полезные расширения
-    vscode-extensions.formulahendry.code-runner
-    vscode-extensions.ms-azuretools.vscode-docker
-    vscode-extensions.ms-azuretools.vscode-containers
-    vscode-extensions.usernamehw.errorlens
-    vscode-extensions.eamodio.gitlens
-    vscode-extensions.ritwickdey.liveserver
-
   ]) ++ [
 	  python-packages                           # Установка Python библиотек
   ];
@@ -193,6 +165,39 @@ in {
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
   	  xwayland.enable = true;
     };
+
+    vscode = {
+      enable = true;
+      extensions = [
+        # Дополнительные языки
+        ms-ceintl.vscode-language-pack-ru
+        ms-ceintl.vscode-language-pack-fr
+        bbenoist.nix
+        zainchen.json
+        streetsidesoftware.code-spell-checker
+
+        # Python Расширения
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-python.pylint
+        ms-python.mypy-type-checker
+        ms-python.flake8
+        ms-python.black-formatter
+        ms-python.isort
+        ms-python.debugpy
+        njpwerner.autodocstring
+        
+
+        # Полезные расширения
+        formulahendry.code-runner
+        ms-azuretools.vscode-docker
+        ms-azuretools.vscode-containers
+        usernamehw.errorlens
+        eamodio.gitlens
+        ritwickdey.liveserver
+      ]
+
+    }
 
 	  waybar.enable = true;
 	  hyprlock.enable = true;
