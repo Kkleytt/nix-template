@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ...}: let
+{ pkgs, inputs, lib, ...}: let {
 
   python-packages = pkgs.python3.withPackages (
     ps:
@@ -19,8 +19,8 @@
         matplotlib
         rich 
         faker
-        ]
-    );
+      ]
+  );
 
   vscode-packages = pkgs.vscode-extensions (
     ps:
@@ -53,6 +53,7 @@
         ritwickdey.liveserver
       ]
   );
+}
 
 in {
 
