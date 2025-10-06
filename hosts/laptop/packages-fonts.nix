@@ -5,7 +5,7 @@
       with ps; [
         pip
         requests pyquery aiohttp 
-        sqlalchemy asyncpg asyncmy redis aiormq
+        sqlalchemy asyncpg asyncmy redis aio-pika
         fastapi uvicorn
         numpy pandas matplotlib
         rich 
