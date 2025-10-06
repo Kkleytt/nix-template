@@ -5,13 +5,13 @@
       with ps; [
         pip
         requests pyquery aiohttp 
-        sqlalchemy asyncpg asyncmy redis
+        sqlalchemy asyncpg asyncmy redis aiormq
         fastapi uvicorn
         numpy pandas matplotlib
         rich 
         faker
         pytest pytest-asyncio anyio pytest-tornasync pytest-trio twisted 
-        pydantic
+        pydantic typing
       ]
   );
 
