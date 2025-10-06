@@ -10,7 +10,8 @@
         numpy pandas matplotlib
         rich 
         faker
-        pytest pytest-asyncio pydantic
+        pytest pytest-asyncio anyio pytest-tornasync pytest-trio pytest-twisted 
+        pydantic
       ]
   );
 
