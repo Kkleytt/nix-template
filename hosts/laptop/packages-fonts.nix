@@ -4,7 +4,7 @@
     ps:
       with ps; [
         pip
-        dotenv
+        python-dotenv
         requests pyquery aiohttp 
         sqlalchemy asyncpg asyncmy redis aio-pika
         fastapi uvicorn
