@@ -1,6 +1,6 @@
 { pkgs, inputs, lib, ...}: let 
 
-  python-packages = pkgs.python3.withPackages (
+  python-packages = pkgs.python314.withPackages (
     ps:
       with ps; [
         pip
