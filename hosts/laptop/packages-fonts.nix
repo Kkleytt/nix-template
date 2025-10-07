@@ -1,6 +1,6 @@
 { pkgs, inputs, lib, ...}: let 
 
-  python-packages = pkgs.python314.withPackages (
+  python-packages = pkgs.python3.withPackages (
     ps:
       with ps; [
         pip
@@ -126,6 +126,7 @@ in {
     pipenv                                    # Python менеджер пакетов
     poetry                                    # Python менеджер пакетов
     uv                                        # Python менеджер пакетов
+    python314
 
 
     ## 🧙 Разное
