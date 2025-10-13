@@ -43,7 +43,7 @@ in {
     unzip                                     # CLI архиватор
     ntfs3g									                  # Поддержка NTFS файловых систем
     exfat									                    # Поддержка ExFat файловых системы
-    bc
+    bc                                        # Компилятор для калькулятора 
 
 
     ## CLI утилиты
@@ -63,8 +63,8 @@ in {
 
     ## 🎨 Внешний вид и темы
     gtk-engine-murrine                        # Темы GTK2-GTK3
-    libsForQt5.qtstyleplugin-kvantum
-    kdePackages.qtstyleplugin-kvantum
+    libsForQt5.qtstyleplugin-kvantum          # Поддержка QT стилей
+    kdePackages.qtstyleplugin-kvantum         # Поддержка QT стилей
     libsForQt5.qt5ct                          # Настройка Qt5 тем
     kdePackages.qt6ct                         # Настройка Qt6 тем
     kdePackages.qtwayland                     # Qt поддержка Wayland
@@ -120,7 +120,7 @@ in {
     ## 🧰 Разработка и инструменты
     clang                                     # Компилятор C/C++
     libgcc                                    # Сборка GNU C/C++
-    gccNGPackages_15.libstdcxx
+    gccNGPackages_15.libstdcxx                # Сборка GNU C/C++
     jq                                        # Парсер JSON
     docker                                    # Docker поддержка
     docker-client                             # GUI обертка вокруг Docker
