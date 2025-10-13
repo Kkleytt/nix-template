@@ -57,7 +57,7 @@ in {
     
 
     # Изучить данные инструменты
-    lazyssh
+    # lazyssh
     lazygit
     lazysql
     lazydocker
