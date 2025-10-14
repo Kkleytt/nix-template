@@ -57,22 +57,22 @@ in {
     
 
     # Изучить данные инструменты
-    # lazyssh
-    lazygit
-    lazysql
-    lazydocker
-    lazyjournal
-    ghostty
-    yazi
-    spacedrive
+    # lazyssh # (Не доступен - скорее всего годно)
+    lazygit # (Пока не пользовался - годно)
+    lazysql # (НЕ понял - говно)
+    lazydocker # (Пользовался - крайне годно)
+    lazyjournal # (Пользовался - годно)
+    ghostty # (Пока не пользовался - годно)
+    yazi # (Пользовался - крайне годно)
+    tasktimer
 
     fzf
     zoxide
     fd
     ripgrep
     procs
-    bottom
-    gotty
+    bottom # (Пользовался - крайне годно)
+    gotty # (Пользовался - крайне годно)
     duf
     
 
