@@ -20,6 +20,8 @@
       # folio                                   # Простой Markdown редактор
       # foliate                                 # Читалка книг
       # figma-linux                             # Неофициальный клиент Figma
+      # apostrophe                              # Красивый Markdown редактор
+      # dosage-tracker                          # Напоминалка
 
       # sublimetext4                            # Быстрый редактор кода
       # arduino-ide                             # IDE для работы с Arduino
@@ -28,11 +30,16 @@
       # turtle                                  # Gui для работы с Git
       # textpieces                              # Дополнительные функции для программиста
       # tiny-rdm                                # Gui для работы с Redis
+      # zed-editor                              # Быстрый аналог VsCode
+      # vscodium                                # VsCode без телеметрии
 
+      # gnome-calculator                        # Калькулятор
+      # baobab                                  # Просмотр использования диска
       # gnome-boxes                             # Управление виртуальными машинами
       # deja-dup                                # Бекап файлов
       # turnon                                  # Wake-On-Lan приложение
       # gnome-frog                              # Получение текста из скриншота
+      # mission-center                          # Просмотр нагрузки на ПК
       # crow-translate                          # Переводчик
       # gnome-calendar                          # Календарь
 
@@ -41,18 +48,15 @@
       # heroic                                  # Игровая платформа для Epic Games Store
       # cartridges                              # Лаунчер для игр (Официальных)
 
-
       # legcord                                 # Неофициальный Discord клиент
       # rambox                                  # Менеджер соц-сетей
-
-
-      # telegram-desktop                        # Официальный клиент Telegram
+      # materialgram                            # Неофициальный клиент Telegram
       # vesktop                                 # Неофициальный клеинт Discord
       # cassette                                # Аналог Яндекс Музыки
       # ferdium                                 # Менеджер соц-сетей
       # denaro                                  # Менеджер финансов
-      # planify                                 # Красивые ToDo заметки
       # kuro                                    # Неофициальный клиент Microsoft ToDo
+
 
 
 
@@ -61,9 +65,7 @@
 
 
       ## Programming apps (Nvim is base)
-      vscodium                                  # VsCode без телеметрии
       vscode                                    # Классический VsCode
-      zed-editor                                # Быстрый аналог VsCode
       jetbrains.pycharm-community               # Бесплатная версия Pycharm
       postman                                   # Авто-тесты для API
       ptyxis                                    # Docker-ориентированный терминал
@@ -83,30 +85,24 @@
 
 
       ## GNOME apps
-      gnome-calculator                          # Калькулятор
       gnome-clocks                              # Часы, Таймер, Секундомер
       gnome-secrets                             # Менеджер паролей
       gnome-text-editor                         # Текстовый редактор
       gnome-disk-utility                        # Управление дисками
-      baobab                                    # Просмотр использования диска
-
-
+      
 
       ## System
-      mission-center                            # Просмотр нагрузки на ПК
       kooha                                     # Запись экрана
       warehouse                                 # Менеджер пакетов Flatpak
 
 
       ## Social
-      materialgram                              # Неофициальный клиент Telegram
-
+      telegram-desktop                          # Официальный клиент Telegram
+      
 
       ## ToDo
       anytype                                   # Аналог Notion
-      apostrophe                                # Красивый Markdown редактор
-      dosage-tracker                            # Напоминалка
-
+      
 
       ## Other
       keypunch                                  # Аналог monkeytype
