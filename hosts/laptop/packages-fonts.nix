@@ -14,7 +14,7 @@
         pytest pytest-asyncio anyio pytest-tornasync pytest-trio twisted 
         pydantic typing
         ipython
-        ipykernel
+        ipykernel jupyter notebook
       ]
   );
 
