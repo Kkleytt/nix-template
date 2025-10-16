@@ -15,6 +15,7 @@
         pydantic typing
         ipython
         ipykernel jupyter notebook
+        aiofiles
       ]
   );
 
@@ -27,7 +28,6 @@ in {
     btrfs-progs                               # Утилиты для работы с Btrfs
     curl                                      # загрузка данных по URL
     cpufrequtils                              # Управление частотой CPU
-    # duf                                       # Современный аналог du
     findutils                                 # Find, xargs и др.
     glib                                      # Для работы gsettings
     gsettings-qt                              # Qt‑обёртка для gsettings
