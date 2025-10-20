@@ -25,6 +25,7 @@ in {
     python314
     rustc
     cargo
+    gcc
 
     ## 📦 Базовые системные утилиты
     btrfs-progs                               # Утилиты для работы с Btrfs
@@ -145,8 +146,8 @@ in {
 
     ## 🧰 Разработка и инструменты
     clang                                     # Компилятор C/C++
-    libgcc                                    # Сборка GNU C/C++
-    gccNGPackages_15.libstdcxx                # Сборка GNU C/C++
+    # libgcc                                    # Сборка GNU C/C++
+    # gccNGPackages_15.libstdcxx                # Сборка GNU C/C++
     jq                                        # Парсер JSON
     docker                                    # Docker поддержка
     docker-client                             # GUI обертка вокруг Docker
