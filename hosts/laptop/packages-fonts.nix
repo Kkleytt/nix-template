@@ -1,6 +1,6 @@
 { pkgs, inputs, lib, ...}:
 
-in {
+{
 
   nixpkgs.config.allowUnfree = true;
 
