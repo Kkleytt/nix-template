@@ -38,7 +38,7 @@
         python312Packages.faker                     # Генерация фейковых данных: имена, email, адреса и т.д.
         python312Packages.python-dotenv             # Загрузка переменных окружения из .env-файлов.
         python312Packages.pydantic                  # Валидация данных, DTO, настройки с типизацией. Основа FastAPI.
-        python312Packages.opentelemetry             # Сбор телеметрии (трассировка, метрики) для микросервисов.
+        python312Packages.opentelemetry-sdk         # Сбор телеметрии (трассировка, метрики) для микросервисов.
         python312Packages.loguru                    # Простой и красивый логгер с цветами, ротацией файлов, трассировкой.
         python312Packages.cryptography              # Шифрование, хэши, цифровые подписи, TLS.
         python312Packages.passlib                   # Безопасное хэширование паролей (bcrypt, scrypt, argon2).
