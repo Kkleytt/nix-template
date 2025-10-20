@@ -22,7 +22,7 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
-    python314
+    python313
     rustc
     cargo
     gcc
