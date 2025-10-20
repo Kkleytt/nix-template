@@ -7,105 +7,105 @@
 
       ## OFF
 
-      # vivaldi                                 # Браузер Vivaldi
-      # qutebrowser                             # Браузер для управления без мышки
-      # brave                                   # Браузер Brave
-      # firefox                                 # Браузер Firefox
+        # vivaldi                                   # Браузер Vivaldi
+        # qutebrowser                               # Браузер для управления без мышки
+        # brave                                     # Браузер Brave
+        # firefox                                   # Браузер Firefox
 
-      # morgen                                  # Все в одном: Календарь, Задачи, Заметки, Напоминания
-      # errands                                 # Todo заметки
-      # planify                                 # Красивые ToDo заметки
-      # iotas                                   # Красивые ToDo заметки
-      # appflowy                                # Аналог Notion
-      # folio                                   # Простой Markdown редактор
-      # foliate                                 # Читалка книг
-      # figma-linux                             # Неофициальный клиент Figma
-      # apostrophe                              # Красивый Markdown редактор
-      # dosage-tracker                          # Напоминалка
+        # morgen                                    # Все в одном: Календарь, Задачи, Заметки, Напоминания
+        # errands                                   # Todo заметки
+        # planify                                   # Красивые ToDo заметки
+        # iotas                                     # Красивые ToDo заметки
+        # appflowy                                  # Аналог Notion
+        # folio                                     # Простой Markdown редактор
+        # foliate                                   # Читалка книг
+        # figma-linux                               # Неофициальный клиент Figma
+        # apostrophe                                # Красивый Markdown редактор
+        # dosage-tracker                            # Напоминалка
 
-      # jetbrains.pycharm-community             # Бесплатная версия Pycharm
-      # sublimetext4                            # Быстрый редактор кода
-      # arduino-ide                             # IDE для работы с Arduino
-      # zeal                                    # Документация для программистов
-      # termius                                 # Gui SSH + Sftp клиент
-      # turtle                                  # Gui для работы с Git
-      # textpieces                              # Дополнительные функции для программиста
-      # tiny-rdm                                # Gui для работы с Redis
-      # zed-editor                              # Быстрый аналог VsCode
-      # vscodium                                # VsCode без телеметрии
-      # warehouse                               # Менеджер пакетов Flatpak
+        # jetbrains.pycharm-community               # Бесплатная версия Pycharm
+        # sublimetext4                              # Быстрый редактор кода
+        # arduino-ide                               # IDE для работы с Arduino
+        # zeal                                      # Документация для программистов
+        # termius                                   # Gui SSH + Sftp клиент
+        # turtle                                    # Gui для работы с Git
+        # textpieces                                # Дополнительные функции для программиста
+        # tiny-rdm                                  # Gui для работы с Redis
+        # zed-editor                                # Быстрый аналог VsCode
+        # vscodium                                  # VsCode без телеметрии
+        # warehouse                                 # Менеджер пакетов Flatpak
 
-      # baobab                                  # Просмотр использования диска
-      # gnome-boxes                             # Управление виртуальными машинами
-      # deja-dup                                # Бекап файлов
-      # turnon                                  # Wake-On-Lan приложение
-      # gnome-frog                              # Получение текста из скриншота
-      # mission-center                          # Просмотр нагрузки на ПК
-      # crow-translate                          # Переводчик
-      # gnome-calendar                          # Календарь
+        # baobab                                    # Просмотр использования диска
+        # gnome-boxes                               # Управление виртуальными машинами
+        # deja-dup                                  # Бекап файлов
+        # turnon                                    # Wake-On-Lan приложение
+        # gnome-frog                                # Получение текста из скриншота
+        # mission-center                            # Просмотр нагрузки на ПК
+        # crow-translate                            # Переводчик
+        # gnome-calendar                            # Календарь
 
-      # bottles                                 # Система запуска exe программ на базе Wine
-      # retroarch                               # Менеджер ретро-игр
-      # heroic                                  # Игровая платформа для Epic Games Store
-      # cartridges                              # Лаунчер для игр (Официальных)
+        # bottles                                   # Система запуска exe программ на базе Wine
+        # retroarch                                 # Менеджер ретро-игр
+        # heroic                                    # Игровая платформа для Epic Games Store
+        # cartridges                                # Лаунчер для игр (Официальных)
 
-      # legcord                                 # Неофициальный Discord клиент
-      # rambox                                  # Менеджер соц-сетей
-      # materialgram                            # Неофициальный клиент Telegram
-      # vesktop                                 # Неофициальный клеинт Discord
-      # cassette                                # Аналог Яндекс Музыки
-      # ferdium                                 # Менеджер соц-сетей
-      # denaro                                  # Менеджер финансов
-      # kuro                                    # Неофициальный клиент Microsoft ToDo
+        # legcord                                   # Неофициальный Discord клиент
+        # rambox                                    # Менеджер соц-сетей
+        # materialgram                              # Неофициальный клиент Telegram
+        # vesktop                                   # Неофициальный клеинт Discord
+        # cassette                                  # Аналог Яндекс Музыки
+        # ferdium                                   # Менеджер соц-сетей
+        # denaro                                    # Менеджер финансов
+        # kuro                                      # Неофициальный клиент Microsoft ToDo
 
 
 
 
       ## Store manager
-      flatpak                                   # Менеджер пакетов Flatpak
+        flatpak                                   # Менеджер пакетов Flatpak
 
 
       ## Programming apps (Nvim is base)
-      vscode                                    # Классический VsCode
-      postman                                   # Авто-тесты для API
-      ptyxis                                    # Docker-ориентированный терминал
-      devtoolbox                                # Дополнительные функции для программиста
+        vscode                                    # Классический VsCode
+        postman                                   # Авто-тесты для API
+        ptyxis                                    # Docker-ориентированный терминал
+        devtoolbox                                # Дополнительные функции для программиста
 
 
       ## Office
-      onlyoffice-desktopeditors                 # Аналог Microsoft Office
-      obsidian                                  # Полноценный Markdown редактор
-      thunderbird                               # Mail клиент
+        onlyoffice-desktopeditors                 # Аналог Microsoft Office
+        obsidian                                  # Полноценный Markdown редактор
+        thunderbird                               # Mail клиент
 
 
       ## File system
-      peazip                                    # Минималистичный архиватор
-      pika-backup                               # Бекап системы
-      fragments                                 # Торрент клиент
+        peazip                                    # Минималистичный архиватор
+        pika-backup                               # Бекап системы
+        fragments                                 # Торрент клиент
 
 
       ## GNOME apps
-      gnome-calculator                          # Калькулятор
-      gnome-clocks                              # Часы, Таймер, Секундомер
-      gnome-secrets                             # Менеджер паролей
-      gnome-text-editor                         # Текстовый редактор
-      gnome-disk-utility                        # Управление дисками
+        gnome-calculator                          # Калькулятор
+        gnome-clocks                              # Часы, Таймер, Секундомер
+        gnome-secrets                             # Менеджер паролей
+        gnome-text-editor                         # Текстовый редактор
+        gnome-disk-utility                        # Управление дисками
       
 
       ## System
-      kooha                                     # Запись экрана
+        kooha                                     # Запись экрана
 
 
       ## Social
-      telegram-desktop                          # Официальный клиент Telegram
+        telegram-desktop                          # Официальный клиент Telegram
       
 
       ## ToDo
-      anytype                                   # Аналог Notion
+        anytype                                   # Аналог Notion
       
 
       ## Other
-      keypunch                                  # Аналог monkeytype
+        keypunch                                  # Аналог monkeytype
 
     ];
   };
