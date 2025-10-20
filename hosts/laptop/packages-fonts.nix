@@ -158,7 +158,7 @@ in {
     polkit_gnome                              # Агент аутентификации
 
   ]) ++ [
-	  python-packages                           # Установка Python библиотек
+	  # python-packages                           # Установка Python библиотек
   ];
 
 
