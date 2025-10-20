@@ -1,31 +1,37 @@
-{ pkgs, inputs, lib, ...}: let 
-
-  python-packages = pkgs.python3.withPackages (
-    ps:
-      with ps; [
-        pip
-        python-dotenv
-        requests pyquery aiohttp 
-        sqlalchemy asyncpg asyncmy redis aio-pika
-        fastapi uvicorn
-        numpy pandas matplotlib
-        rich 
-        faker
-        pytest pytest-asyncio anyio pytest-tornasync pytest-trio twisted 
-        pydantic typing
-        aiofiles
-      ]
-  );
+{ pkgs, inputs, lib, ...}:
 
 in {
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
-    python313
+    ## Programming Language
+    # Rust
     rustc
     cargo
+
+    # C / C++
     gcc
+    clang
+
+    # Docker / Docker-compose / Kubernetes
+    docker
+    docker-compose
+
+    # Python
+    python313
+    pip
+    pipx
+    pipenv
+    poetry
+    uv
+    mypy
+    pyright
+    pylint
+
+    # Other
+    jq
+
 
     ## 📦 Базовые системные утилиты
     btrfs-progs                               # Утилиты для работы с Btrfs
@@ -143,26 +149,10 @@ in {
     hyprsunset                                # Изменение цвета экрана в зависимости от времени суток
     libsecret                                 # Хранилище паролей для безопасности приложений
 
-
-    ## 🧰 Разработка и инструменты
-    clang                                     # Компилятор C/C++
-    # libgcc                                    # Сборка GNU C/C++
-    # gccNGPackages_15.libstdcxx                # Сборка GNU C/C++
-    jq                                        # Парсер JSON
-    docker                                    # Docker поддержка
-    docker-client                             # GUI обертка вокруг Docker
-    docker-compose                            # Docker-compose поддержка
-    pipenv                                    # Python менеджер пакетов
-    poetry                                    # Python менеджер пакетов
-    uv                                        # Python менеджер пакетов
-
-
     ## 🧙 Разное
     polkit_gnome                              # Агент аутентификации
 
-  ]) ++ [
-	  # python-packages                           # Установка Python библиотек
-  ];
+  ]);
 
 
   # Установка шрифтов
