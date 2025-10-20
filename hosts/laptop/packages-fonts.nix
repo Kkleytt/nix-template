@@ -20,7 +20,6 @@
 
     # Python
     python313
-    pip
     pipx
     pipenv
     poetry
@@ -28,6 +27,7 @@
     mypy
     pyright
     pylint
+    python313Packages.pip
 
     # Other
     jq
