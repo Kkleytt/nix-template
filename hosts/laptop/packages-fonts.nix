@@ -29,8 +29,37 @@
 
       # Python
         python312                                   # Интерпретатор Python 3.12.
+
         python312Packages.pip                       # Утилита pip для установки пакетов.
         python312Packages.watchfiles                # Перезапускает скрипты при изменении файлов (для разработки).
+        python312Packages.typer                     # Создание CLI-приложений из функций с аннотациями типов. Проще и современнее argparse.
+        python312Packages.structlog                 # Структурированное логирование: логи в JSON, контекст (user_id), интеграция с FastAPI.
+        python312Packages.pendulum                  # Улучшенная работа с датами и временными зонами (альтернатива datetime).
+        python312Packages.faker                     # Генерация фейковых данных: имена, email, адреса и т.д.
+        python312Packages.python-dotenv             # Загрузка переменных окружения из .env-файлов.
+        python312Packages.pydantic                  # Валидация данных, DTO, настройки с типизацией. Основа FastAPI.
+        python312Packages.opentelemetry             # Сбор телеметрии (трассировка, метрики) для микросервисов.
+        python312Packages.loguru                    # Простой и красивый логгер с цветами, ротацией файлов, трассировкой.
+        python312Packages.cryptography              # Шифрование, хэши, цифровые подписи, TLS.
+        python312Packages.passlib                   # Безопасное хэширование паролей (bcrypt, scrypt, argon2).
+        python312Packages.python-jose               # Работа с JWT (JSON Web Tokens) — для аутентификации.
+        python312Packages.numpy                     # Числовые массивы и математические операции.
+        python312Packages.pandas                    # Анализ и обработка табличных данных.
+        python312Packages.polars                    # Быстрее pandas, ленивые вычисления, движок на Rust. Отличен для больших данных.
+        python312Packages.matplotlib                # Базовая визуализация графиков.
+        python312Packages.seaborn                   # Статистические графики поверх matplotlib.
+        python312Packages.plotly                    # Интерактивные, веб-совместимые графики.
+        python312Packages.sqlalchemy                # Мощный ORM и SQL-билдер.
+        python312Packages.asyncpg                   # Асинхронный драйвер для PostgreSQL.
+        python312Packages.asyncmy                   # Асинхронный драйвер для MySQL.
+        python312Packages.redis                     # Клиент для Redis (поддерживает async через redis.asyncio).
+        python312Packages.aio-pika                  # Асинхронная работа с RabbitMQ.
+        python312Packages.fastapi                   # Современный ASGI-фреймворк с автоматической OpenAPI и валидацией.
+        python312Packages.uvicorn                   # ASGI-сервер для запуска FastAPI.
+        python312Packages.aiogram                   # Асинхронный фреймворк для Telegram-ботов.
+        python312Packages.pytest                    # Unit тестирование ПО
+        python312Packages.httpx                     # Мощная замена requests для работы с API
+
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry.
         mypy                                        # Статический анализатор типов.
         ruff                                        # Быстрый линтер и автоисправитель на Rust.
