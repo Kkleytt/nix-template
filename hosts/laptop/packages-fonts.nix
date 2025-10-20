@@ -1,6 +1,6 @@
 { pkgs, inputs, lib, ...}: let 
 
-  python-packages = pkgs.python314.withPackages (
+  python-packages = pkgs.python3.withPackages (
     ps:
       with ps; [
         pip
@@ -22,6 +22,8 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
+    python314
+
     ## 📦 Базовые системные утилиты
     btrfs-progs                               # Утилиты для работы с Btrfs
     curl                                      # загрузка данных по URL
