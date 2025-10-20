@@ -23,6 +23,7 @@
       # apostrophe                              # Красивый Markdown редактор
       # dosage-tracker                          # Напоминалка
 
+      # jetbrains.pycharm-community             # Бесплатная версия Pycharm
       # sublimetext4                            # Быстрый редактор кода
       # arduino-ide                             # IDE для работы с Arduino
       # zeal                                    # Документация для программистов
@@ -32,8 +33,8 @@
       # tiny-rdm                                # Gui для работы с Redis
       # zed-editor                              # Быстрый аналог VsCode
       # vscodium                                # VsCode без телеметрии
+      # warehouse                               # Менеджер пакетов Flatpak
 
-      # gnome-calculator                        # Калькулятор
       # baobab                                  # Просмотр использования диска
       # gnome-boxes                             # Управление виртуальными машинами
       # deja-dup                                # Бекап файлов
@@ -66,7 +67,6 @@
 
       ## Programming apps (Nvim is base)
       vscode                                    # Классический VsCode
-      jetbrains.pycharm-community               # Бесплатная версия Pycharm
       postman                                   # Авто-тесты для API
       ptyxis                                    # Docker-ориентированный терминал
       devtoolbox                                # Дополнительные функции для программиста
@@ -85,6 +85,7 @@
 
 
       ## GNOME apps
+      gnome-calculator                          # Калькулятор
       gnome-clocks                              # Часы, Таймер, Секундомер
       gnome-secrets                             # Менеджер паролей
       gnome-text-editor                         # Текстовый редактор
@@ -93,7 +94,6 @@
 
       ## System
       kooha                                     # Запись экрана
-      warehouse                                 # Менеджер пакетов Flatpak
 
 
       ## Social
@@ -114,7 +114,7 @@
     "app.zen_browser.zen"                       # Браузер Zen на базе Firefox
     "app.fotema.Fotema"                         # Менеджер фото
     "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных
-    "org.gnome.Snapshot"                        # Камера
+    # "org.gnome.Snapshot"                        # Камера
   ];
 
 
