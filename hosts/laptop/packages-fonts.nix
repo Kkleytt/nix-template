@@ -23,6 +23,8 @@ in {
 
   environment.systemPackages = (with pkgs; [
     python314
+    rustc
+    cargo
 
     ## 📦 Базовые системные утилиты
     btrfs-progs                               # Утилиты для работы с Btrfs
