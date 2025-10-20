@@ -268,5 +268,4 @@
       #pkgs.xdg-desktop-portal
     ];
   };
-  services.xdg-desktop-portal-wlr.enable = true;
 }
