@@ -1,7 +1,4 @@
 { pkgs, inputs, ... }: {
-    imports = [
-        inputs.ax-shell.homeManagerModules.default
-    ];
 
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";

@@ -58,6 +58,7 @@
 				};
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
+					inputs.ax-shell.homeManagerModules.default
 					./hosts/laptop/config.nix 
 					./modules/quickshell.nix
 					
