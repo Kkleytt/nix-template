@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+    imports = [
+        inputs.ax-shell.homeManagerModules.default
+    ];
+
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";
 
@@ -8,14 +12,20 @@
         # Ваши пользовательские пакеты
     ];
 
+
+    # Настройка Git
     programs.git = {
         enable = true;
         settings = {
             user = {
                 email = "kkleytt@gmail.com";
-                name = "kkleytt";
+                name = "Kkleytt";
             };
         };
+    };
+
+    programs.ax-shell = {
+        enable = true;
     };
 
     # Другие настройки: fish, starship, alacritty и т.д.

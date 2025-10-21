@@ -220,7 +220,6 @@
 	  hyprlock.enable = true;
     nm-applet.indicator = true;
     neovim.enable = true;
-    git.enable = true;
 	  thunar.enable = true;
     virt-manager.enable = false;
 

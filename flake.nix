@@ -22,6 +22,11 @@
 		# Настройка Hyprland
 		hyprland.url = "github:hyprwm/Hyprland";
 
+		ax-shell = {
+			url = "github:poogas/Ax-Shell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
     	quickshell = {
       		url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
     		inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +60,7 @@
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					./hosts/laptop/config.nix 
 					./modules/quickshell.nix
+					
 					inputs.home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;
