@@ -34,9 +34,5 @@
         };
     };
 
-    programs.ax-shell = {
-        enable = true;
-    };
-
     # Другие настройки: fish, starship, alacritty и т.д.
 }
