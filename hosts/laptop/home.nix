@@ -1,17 +1,19 @@
 { pkgs, inputs, ... }: {
 
-    imports = [
-        inputs.ax-shell.homeManagerModules.default
-    ];
+    # imports = [
+        # inputs.ax-shell.homeManagerModules.default
+    # ];
 
-    programs.ax-shell = {
-        enable = true;
-    };
-
-    wayland.windowManager.hyprland = {
-        enable = true;
-        # ... your hyprland settings
-    };
+    # programs.ax-shell = {
+        # enable = true;
+        # Дополнительные настройки (опционально):
+        # settings = {
+        #   general = {
+        #     opacity = 0.95;
+        #     radius = 12;
+        #   };
+        # };
+    # };
 
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";

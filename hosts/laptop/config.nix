@@ -2,7 +2,7 @@
 # Main default config
 
 
-{ config, pkgs, host, username, options, lib, inputs, system, ...}: let
+{ config, pkgs, host, username, options, lib, system, ...}: let
   
   inherit (import ./variables.nix) keyboardLayout;
     
