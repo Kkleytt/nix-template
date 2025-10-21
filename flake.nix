@@ -59,9 +59,9 @@
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					./hosts/laptop/config.nix 
-					#./modules/quickshell.nix
+					./modules/quickshell.nix
 					
-					inputs.home-manager.nixosModules.home-manager
+					# inputs.home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
