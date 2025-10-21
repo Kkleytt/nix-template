@@ -1,22 +1,22 @@
 { pkgs, ... }: {
-  home.username = "kkleytt";
-  home.homeDirectory = "/home/kkleytt";
+    home.username = "kkleytt";
+    home.homeDirectory = "/home/kkleytt";
 
-  home.stateVersion = "25.11";  # Укажите актуальную версию
+    home.stateVersion = "25.11";  # Укажите актуальную версию
 
-  home.packages = with pkgs; [
-    # Ваши пользовательские пакеты
-    neofetch
-    lazygit
-    yazi
-    gnome-2048
-  ];
+    home.packages = with pkgs; [
+        # Ваши пользовательские пакеты
+    ];
 
-  programs.git = {
-    enable = true;
-    userName = "kkleytt";
-    userEmail = "kkleytt@example.com";
-  };
+    programs.git = {
+        enable = true;
+        settings = {
+            user = {
+                email = "kkleytt@gmail.com";
+                name = "kkleytt";
+            };
+        };
+    };
 
-  # Другие настройки: fish, starship, alacritty и т.д.
+    # Другие настройки: fish, starship, alacritty и т.д.
 }
