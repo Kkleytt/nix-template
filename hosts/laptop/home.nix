@@ -1,5 +1,18 @@
 { pkgs, inputs, ... }: {
 
+    imports = [
+        inputs.ax-shell.homeManagerModules.default
+    ];
+
+    programs.ax-shell = {
+        enable = true;
+    };
+
+    wayland.windowManager.hyprland = {
+        enable = true;
+        # ... your hyprland settings
+    };
+
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";
 
