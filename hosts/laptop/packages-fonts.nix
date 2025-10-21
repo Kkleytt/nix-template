@@ -5,7 +5,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
-    ## Programming Language
+    ## Programming Language & Tools
       # Rust
         rustc                                       # Компилятор языка Rust.
         cargo                                       # Менеджер пакетов и сборки для Rust.
@@ -60,6 +60,7 @@
         python312Packages.pytest                    # Unit тестирование ПО
         python312Packages.httpx                     # Мощная замена requests для работы с API
 
+        isort                                       # Сортировка импортов внутри ПО
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry.
         mypy                                        # Статический анализатор типов.
         ruff                                        # Быстрый линтер и автоисправитель на Rust.
@@ -121,7 +122,6 @@
         ripgrep
         procs
         dooit
-        translate-shell
 
 
 
