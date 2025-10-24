@@ -6,7 +6,7 @@
     imports = [ axShellHomeModule ];
     programs.ax-shell.enable = true;
     programs.ax-shell.package = axShellPackage;
-    programs.ax-shell.extraPackages = [ axShellAux ];
+    # programs.ax-shell.extraPackages = [ axShellAux ];
 
     # Настройка Git
     programs.git = {
