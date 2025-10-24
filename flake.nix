@@ -58,7 +58,7 @@
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
-				specialArgs = { inherit system username host; };
+				specialArgs = { inherit inputs system username host; };
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					./hosts/laptop/config.nix 
