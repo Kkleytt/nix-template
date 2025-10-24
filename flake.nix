@@ -64,7 +64,6 @@
 			laptop = nixpkgs.lib.nixosSystem rec {
 				specialArgs = { 
 					inherit system;
-					inherit inputs;
 					inherit username;
 					inherit host;
 				};
@@ -77,7 +76,10 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${username} = import ./hosts/laptop/home.nix;
+						home-manager.users.${username} = import ./hosts/laptop/home.nix {
+          					inherit pkgs;
+          					axShellHomeModule = homeModules.default;
+        				};
 					}
 				];
 			};

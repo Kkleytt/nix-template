@@ -1,26 +1,7 @@
 { pkgs, inputs, ... }: {
-
-    
-
-    # programs.ax-shell = {
-        # enable = true;
-        # Дополнительные настройки (опционально):
-        # settings = {
-        #   general = {
-        #     opacity = 0.95;
-        #     radius = 12;
-        #   };
-        # };
-    # };
-
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";
-
-    home.stateVersion = "25.11";  # Укажите актуальную версию
-
-    home.packages = with pkgs; [
-        
-    ];
+    home.stateVersion = "25.11";
 
     imports = [
         inputs.ax-shell.homeManagerModules.default
@@ -28,7 +9,6 @@
     programs.ax-shell = {
         enable = true;
     };
-
 
     # Настройка Git
     programs.git = {
@@ -40,6 +20,4 @@
             };
         };
     };
-
-    # Другие настройки: fish, starship, alacritty и т.д.
 }
