@@ -5,14 +5,19 @@
 		# Нестабильная ветка NixPkgs
   		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+		# Установка Home-Manager
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		# Установка WM Hyprland
+		hyprland.url = "github:hyprwm/Hyprland";
+
 		# Ссылка на установщик пакетов Flatpak
 		nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
+		# Установка темы оформления Noctalia 
 		quickshell = {
 			url = "github:outfoxxed/quickshell";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -29,25 +34,7 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		# Настройка Hyprland
-		hyprland.url = "github:hyprwm/Hyprland";
-
-		# ax-shell = {
-			# url = "github:poogas/Ax-Shell";
-			# inputs.nixpkgs.follows = "nixpkgs";
-		# };
-
-
-		caelestia-shell = {
-			url = "github:caelestia-dots/shell";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
-    	quickshell = {
-      		url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-    		inputs.nixpkgs.follows = "nixpkgs";
-    	};
-
+		
 	};
 
   	outputs = inputs@{ self, nixpkgs, ... }:
