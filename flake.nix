@@ -13,6 +13,16 @@
 		# Ссылка на установщик пакетов Flatpak
 		nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
+		quickshell = {
+			url = "github:outfoxxed/quickshell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		noctalia = {
+			url = "github:noctalia-dev/noctalia-shell";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.quickshell.follows = "quickshell";  # Use same quickshell version
+		};
+
 		# Ссылка на тему SDDM
 		silentSDDM = {
 			url = "github:uiriansan/SilentSDDM";

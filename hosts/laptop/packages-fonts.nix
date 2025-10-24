@@ -5,6 +5,9 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
+
+    inputs.noctalia.packages.${system}.default
+    
     ## Programming Language & Tools
       # Rust
         rustc                                       # Компилятор языка Rust.
