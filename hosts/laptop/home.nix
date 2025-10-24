@@ -3,7 +3,7 @@
     home.homeDirectory = "/home/kkleytt";
     home.stateVersion = "25.11";
 
-    home.packages = (with pkgs: [
+    home.packages = (with pkgs; [
         inputs.caelestia-shell.packages.${system}.default
     ]);
 
