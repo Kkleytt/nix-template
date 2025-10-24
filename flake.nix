@@ -59,6 +59,8 @@
 			inherit system;
 			config.allowUnfree = true;
 		};
+
+		homeModules = inputs.ax-shell.homeManagerModules;
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
