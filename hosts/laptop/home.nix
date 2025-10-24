@@ -1,12 +1,7 @@
-{ pkgs, axShellPackage, axShellAux, axShellHomeModule, ... }: {
+{ pkgs, ... }: {
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";
     home.stateVersion = "25.11";
-
-    imports = [ axShellHomeModule ];
-    programs.ax-shell.enable = true;
-    programs.ax-shell.package = axShellPackage;
-    # programs.ax-shell.extraPackages = [ axShellAux ];
 
     # Настройка Git
     programs.git = {
@@ -18,4 +13,5 @@
             };
         };
     };
+
 }

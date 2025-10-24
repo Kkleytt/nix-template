@@ -35,10 +35,6 @@
 			url = "github:caelestia-dots/cli";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		ax-shell = {
-			url = "github:poogas/Ax-Shell";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 
 		# Ссылка на тему SDDM
 		silentSDDM = {
@@ -59,10 +55,6 @@
 			inherit system;
 			config.allowUnfree = true;
 		};
-
-		axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
-		axShellAux = inputs.ax-shell.packages.${system}.ax-send or null;
-		axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
@@ -78,9 +70,6 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.${username} = import ./hosts/laptop/home.nix {
           					inherit pkgs;
-          					axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
-							axShellAux = inputs.ax-shell.packages.${system}.ax-send or null;
-							axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
         				};
 					}
 				];

@@ -5,6 +5,11 @@
     isNormalUser = true;
     packages = with pkgs; [
 
+      hyprshell
+      hyprshot
+      ice-bar
+
+
       ## OFF
 
         # vivaldi                                   # Браузер Vivaldi
