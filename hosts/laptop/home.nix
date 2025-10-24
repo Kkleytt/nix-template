@@ -18,20 +18,4 @@
         };
     };
 
-    programs.caelestia = {
-        enable = true;
-        settings = {
-            bar.status = {
-                showBattery = false;
-            };
-            paths.wallpaperDir = "~/Images";
-        };
-        cli = {
-            enable = true; 
-            settings = {
-                theme.enableGtk = false;
-            };
-        };
-    };
-
 }
