@@ -1,10 +1,10 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, axShellHomeModule, ... }: {
     home.username = "kkleytt";
     home.homeDirectory = "/home/kkleytt";
     home.stateVersion = "25.11";
 
     imports = [
-        inputs.ax-shell.homeManagerModules.default
+        axShellHomeModule
     ];
     programs.ax-shell = {
         enable = true;
