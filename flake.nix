@@ -78,7 +78,9 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.${username} = import ./hosts/laptop/home.nix {
           					inherit pkgs;
-          					axShellPackage axShellAux axShellHomeModule;
+          					axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
+							axShellAux = inputs.ax-shell.packages.${system}.ax-send or null;
+							axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
         				};
 					}
 				];
