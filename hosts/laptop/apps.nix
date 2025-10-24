@@ -7,7 +7,6 @@
 
       hyprshell
       hyprshot
-      ice-bar
 
 
       ## OFF
