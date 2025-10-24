@@ -168,6 +168,8 @@ in {
       };
     };
 
+    power-profiles-daemon.enable = true;
+
     displayManager.sddm = {
       enable = true;
       theme = "catppuccin-mocha";
