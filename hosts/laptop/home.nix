@@ -5,8 +5,8 @@
 
     imports = [ axShellHomeModule ];
     programs.ax-shell.enable = true;
-    programs.ax-shell.package = if axShellPackage != null then axShellPackage else null;
-    programs.ax-shell.extraPackages = lib.filter (p: p != null) [ axShellAux ];
+    programs.ax-shell.package = axShellPackage;
+    programs.ax-shell.extraPackages = [ axShellAux ];
 
     # Настройка Git
     programs.git = {
