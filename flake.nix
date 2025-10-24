@@ -60,7 +60,9 @@
 			config.allowUnfree = true;
 		};
 
-		homeModules = inputs.ax-shell.homeManagerModules;
+		axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
+		axShellAux = inputs.ax-shell.packages.${system}.ax-send or null;
+		axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
@@ -76,8 +78,7 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.${username} = import ./hosts/laptop/home.nix {
           					inherit pkgs;
-          					axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
-  							axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
+          					axShellPackage axShellAux axShellHomeModule;
         				};
 					}
 				];
