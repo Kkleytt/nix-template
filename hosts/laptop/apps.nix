@@ -5,7 +5,7 @@
     isNormalUser = true;
     packages = with pkgs; [
 
-      hyprshell
+      # hyprshell
       hyprshot
 
 

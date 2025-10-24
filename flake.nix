@@ -22,19 +22,19 @@
 			url = "github:outfoxxed/quickshell";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		noctalia = {
-			url = "github:noctalia-dev/noctalia-shell";
-			inputs.nixpkgs.follows = "nixpkgs";
-			inputs.quickshell.follows = "quickshell";  # Use same quickshell version
-		};
+		# noctalia = {
+		# 	url = "github:noctalia-dev/noctalia-shell";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# 	inputs.quickshell.follows = "quickshell";  # Use same quickshell version
+		# };
 		caelestia-shell = {
 			url = "github:caelestia-dots/shell";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		caelestia-cli = {
-			url = "github:caelestia-dots/cli";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		# caelestia-cli = {
+		# 	url = "github:caelestia-dots/cli";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 
 		# Ссылка на тему SDDM
 		silentSDDM = {
@@ -62,7 +62,7 @@
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					./hosts/laptop/config.nix 
-					./modules/quickshell.nix
+					# ./modules/quickshell.nix
 					
 					inputs.home-manager.nixosModules.home-manager
 					{
