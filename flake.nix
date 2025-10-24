@@ -64,11 +64,7 @@
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
-				specialArgs = { 
-					inherit system;
-					inherit username;
-					inherit host;
-				};
+				specialArgs = { inherit system username host; };
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					./hosts/laptop/config.nix 
@@ -80,7 +76,8 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.${username} = import ./hosts/laptop/home.nix {
           					inherit pkgs;
-          					axShellHomeModule = homeModules.default;
+          					axShellPackage = inputs.ax-shell.packages.${system}.ax-shell or inputs.ax-shell.packages.${system}.defaultPackage;
+  							axShellHomeModule = inputs.ax-shell.homeManagerModules.default;
         				};
 					}
 				];
