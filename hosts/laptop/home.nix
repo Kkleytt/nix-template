@@ -1,8 +1,6 @@
 { pkgs, inputs, ... }: {
 
-    # imports = [
-        # inputs.ax-shell.homeManagerModules.default
-    # ];
+    
 
     # programs.ax-shell = {
         # enable = true;
@@ -23,6 +21,13 @@
     home.packages = with pkgs; [
         
     ];
+
+    imports = [
+        inputs.ax-shell.homeManagerModules.default
+    ];
+    programs.ax-shell = {
+        enable = true;
+    };
 
 
     # Настройка Git

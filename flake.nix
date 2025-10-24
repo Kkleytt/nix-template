@@ -35,6 +35,10 @@
 			url = "github:caelestia-dots/cli";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		ax-shell = {
+			url = "github:poogas/Ax-Shell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
 		# Ссылка на тему SDDM
 		silentSDDM = {
