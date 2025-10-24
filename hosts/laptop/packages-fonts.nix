@@ -7,7 +7,6 @@
   environment.systemPackages = (with pkgs; [
 
     # inputs.noctalia.packages.${system}.default
-    # inputs.caelestia-cli.packages.${system}.default
     
     ## Programming Language & Tools
       # Rust

@@ -5,6 +5,7 @@
 
     home.packages = (with pkgs; [
         inputs.caelestia-shell.packages.${system}.default
+        inputs.caelestia-cli.packages.${system}.default
     ]);
 
     # Настройка Git
