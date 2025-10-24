@@ -176,6 +176,7 @@
         hyprland-qt-support
         cliphist                                    # История буфера обмена
         kitty                                       # Терминал
+        power-profiles-daemon                       # Настройка профиля питания
         nwg-displays                                # Настройка дисплеев
         rofi-wayland                                # Лаунчер запуска приложений
         swaynotificationcenter                      # Центр уведомлений
