@@ -42,6 +42,10 @@
         # mission-center                            # Просмотр нагрузки на ПК
         # crow-translate                            # Переводчик
         # gnome-calendar                            # Календарь
+        # gnome-calculator                          # Калькулятор
+        # gnome-clocks                              # Часы, Таймер, Секундомер
+        # kooha                                     # Запись экрана
+        # anytype                                   # Аналог Notion
 
         # bottles                                   # Система запуска exe программ на базе Wine
         # retroarch                                 # Менеджер ретро-игр
@@ -84,25 +88,17 @@
 
 
       ## GNOME apps
-        gnome-calculator                          # Калькулятор
-        gnome-clocks                              # Часы, Таймер, Секундомер
         gnome-secrets                             # Менеджер паролей
         gnome-text-editor                         # Текстовый редактор
         gnome-disk-utility                        # Управление дисками
       
 
       ## System
-        kooha                                     # Запись экрана
-
-
       ## Social
         materialgram                              # Неофициальный клиент Telegram
       
 
       ## ToDo
-        anytype                                   # Аналог Notion
-      
-
       ## Other
         keypunch                                  # Аналог monkeytype
 
@@ -124,8 +120,8 @@
     };
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
-      #      xdg-desktop-portal-kde
-      #      xdg-desktop-portal-gtk
+      xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
     ];
   };
 
