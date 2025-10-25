@@ -4,11 +4,6 @@
   users.users.kkleytt = {
     isNormalUser = true;
     packages = with pkgs; [
-
-      # hyprshell
-      hyprshot
-
-
       ## OFF
 
         # vivaldi                                   # Браузер Vivaldi
@@ -55,7 +50,7 @@
 
         # legcord                                   # Неофициальный Discord клиент
         # rambox                                    # Менеджер соц-сетей
-        # materialgram                              # Неофициальный клиент Telegram
+        # telegram-desktop                          # Официальный клиент Telegram
         # vesktop                                   # Неофициальный клеинт Discord
         # cassette                                  # Аналог Яндекс Музыки
         # ferdium                                   # Менеджер соц-сетей
@@ -101,7 +96,7 @@
 
 
       ## Social
-        telegram-desktop                          # Официальный клиент Telegram
+        materialgram                              # Неофициальный клиент Telegram
       
 
       ## ToDo
@@ -118,7 +113,6 @@
     "app.zen_browser.zen"                       # Браузер Zen на базе Firefox
     "app.fotema.Fotema"                         # Менеджер фото
     "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных
-    # "org.gnome.Snapshot"                        # Камера
   ];
 
 
