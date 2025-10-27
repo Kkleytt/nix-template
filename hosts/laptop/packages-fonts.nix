@@ -109,6 +109,8 @@
         bc                                          # Компилятор для калькулятора 
         yazi                                        # Файловый менеджер
         inotify-tools                               # Наблюдатель за файлами
+        mpv                                         # Стандартный Аудио-Видео проигрыватель
+        mpvScripts.mpris
 
 
     ## CLI утилиты
@@ -222,8 +224,6 @@
     };
 
     vscode.enable = true;
-	  waybar.enable = true;
-	  hyprlock.enable = true;
     nm-applet.indicator = true;
     neovim.enable = true;
 	  thunar.enable = true;
