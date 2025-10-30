@@ -5,8 +5,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = (with pkgs; [
-
-    # inputs.noctalia.packages.${system}.default
     
     ## Programming Language & Tools
       # Rust
@@ -134,8 +132,7 @@
 
 
     ## 🖥️ Мониторинг и диагностика
-        # inxi                                        # Системная информация
-        # nvtopPackages.full                          # Мониторинг Nvidia GPU
+        nvtopPackages.full                          # Мониторинг Nvidia GPU
 
 
     ## 🎨 Внешний вид и темы
@@ -152,7 +149,7 @@
     ## 🎧 Аудио и мультимедиа
         pamixer                                     # Управление громкостью (CLI)
         pavucontrol                                 # Управление PulseAudio/PipeWire
-        pulseaudio                                  # Оригинальный PulseAudio для работы Swaync
+        pulseaudio                                  # Оригинальный PulseAudio
         playerctl                                   # Управление медиаплеерами
         yt-dlp                                      # Загрузка видео/аудио
         brightnessctl                               # Управление яркостью экрана
@@ -171,7 +168,6 @@
 
     ## 🌐 Сеть и интернет
         networkmanagerapplet                        # GUI для NetworkManager
-        # rofi-network-manager                        # Rofi интерфейс для сетей
         bluez                                       # Bluetooth стэк
         bluez-tools                                 # Дополниетльные функции Bluetooth
 
@@ -183,7 +179,8 @@
         power-profiles-daemon                       # Настройка профиля питания
         nwg-displays                                # Настройка дисплеев
         rofi-wayland                                # Лаунчер запуска приложений
-        swaynotificationcenter                      # Центр уведомлений
+        # swaynotificationcenter                      # Центр уведомлений swaync
+        dunst
         swww                                        # Обои в Wayland
         wl-clipboard                                # Буфер обмена Wayland
         wlogout                                     # Экран выхода
