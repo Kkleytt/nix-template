@@ -115,6 +115,7 @@ in {
          nvidiaBusID = "";
     };
   };
+  programs.nix-ld.enable = true;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
