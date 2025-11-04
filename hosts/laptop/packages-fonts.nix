@@ -127,8 +127,6 @@
         ripgrep
         procs
         dooit
-        
-
 
 
     ## 🖥️ Мониторинг и диагностика
@@ -179,8 +177,6 @@
         power-profiles-daemon                       # Настройка профиля питания
         nwg-displays                                # Настройка дисплеев
         rofi-wayland                                # Лаунчер запуска приложений
-        # swaynotificationcenter                      # Центр уведомлений swaync
-        dunst
         swww                                        # Обои в Wayland
         wl-clipboard                                # Буфер обмена Wayland
         wlogout                                     # Экран выхода
@@ -222,6 +218,7 @@
     };
 
     vscode.enable = true;
+    uv.enable = true;
     nm-applet.indicator = true;
     neovim.enable = true;
 	  thunar.enable = true;
