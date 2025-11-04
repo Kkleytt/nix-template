@@ -20,5 +20,4 @@
     };
 
     programs.uv.enable = true;
-
 }

@@ -62,7 +62,7 @@
         python312Packages.httpx                     # Мощная замена requests для работы с API
 
         isort                                       # Сортировка импортов внутри ПО
-        uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry.
+        # uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry.
         mypy                                        # Статический анализатор типов.
         ruff                                        # Быстрый линтер и автоисправитель на Rust.
         black                                       # Форматер кода без настроек.
