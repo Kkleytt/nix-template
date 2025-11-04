@@ -218,7 +218,6 @@
     };
 
     vscode.enable = true;
-    uv.enable = true;
     nm-applet.indicator = true;
     neovim.enable = true;
 	  thunar.enable = true;

@@ -19,4 +19,6 @@
         };
     };
 
+    programs.uv.enable = true;
+
 }
