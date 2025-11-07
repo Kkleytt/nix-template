@@ -34,7 +34,6 @@
         # vscodium                                  # VsCode без телеметрии
         # warehouse                                 # Менеджер пакетов Flatpak
 
-        # baobab                                    # Просмотр использования диска
         # gnome-boxes                               # Управление виртуальными машинами
         # deja-dup                                  # Бекап файлов
         # turnon                                    # Wake-On-Lan приложение
@@ -88,6 +87,7 @@
 
 
       ## GNOME apps
+        baobab                                    # Просмотр использования диска
         gnome-secrets                             # Менеджер паролей
         gnome-text-editor                         # Текстовый редактор
         gnome-disk-utility                        # Управление дисками
