@@ -72,6 +72,7 @@
         postman                                   # Авто-тесты для API
         ptyxis                                    # Docker-ориентированный терминал
         devtoolbox                                # Дополнительные функции для программиста
+        qwen-code                                 # AI агент в режиме консоли Qwen
 
 
       ## Office
