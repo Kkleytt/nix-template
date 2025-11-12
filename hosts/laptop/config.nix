@@ -298,7 +298,7 @@ in {
   security = { 
     rtkit.enable = false;
     soteria.enable = true;
-    polkit.enable = false;
+    polkit.enable = true;
     polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
        if (
