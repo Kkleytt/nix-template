@@ -61,9 +61,9 @@
 				specialArgs = { inherit inputs system username host; };
 				modules = [ 
 					inputs.nix-flatpak.nixosModules.nix-flatpak
-					./hosts/laptop/config.nix 
-					./modules/quickshell.nix
 					inputs.home-manager.nixosModules.home-manager
+					./hosts/${host}/config.nix 
+					./modules/quickshell.nix
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;

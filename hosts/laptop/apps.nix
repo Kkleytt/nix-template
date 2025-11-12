@@ -72,7 +72,7 @@
         postman                                   # Авто-тесты для API
         ptyxis                                    # Docker-ориентированный терминал
         devtoolbox                                # Дополнительные функции для программиста
-        qwen-code                                 # AI агент в режиме консоли Qwen
+        # qwen-code                                 # AI агент в режиме консоли Qwen [не работает так как находимся на стабильной ветке]
 
 
       ## Office
@@ -102,6 +102,12 @@
       ## ToDo
       ## Other
         keypunch                                  # Аналог monkeytype
+
+
+
+      # Временное тестирование
+      pkg-config
+      cairo
 
     ];
   };
