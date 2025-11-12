@@ -111,8 +111,8 @@
       gobject-introspection
       dart-sass
       tesseract
-      tesseract-data-eng
-      tesseract-data-rus
+      # tesseract-data-eng
+      # tesseract-data-rus
 
     ];
   };
