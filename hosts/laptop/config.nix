@@ -1,7 +1,3 @@
-# 💫 https://github.com/JaKooLit 💫 #
-# Main default config
-
-
 { config, pkgs, host, username, options, lib, system, ...}: let
   
   inherit (import ./variables.nix) keyboardLayout;
@@ -223,9 +219,7 @@ in {
   	#hardware.openrgb.motherboard = "amd";
 
 	  fwupd.enable = true;
-
 	  upower.enable = true;
-    
     gnome.gnome-keyring.enable = true;
     
     #printing = {
@@ -241,14 +235,20 @@ in {
     #  openFirewall = true;
     #};
     
-    #ipp-usb.enable = true;
+    ipp-usb.enable = true;
     
     syncthing = {
       enable = true;
+      package = pkgs.syncthing;
       user = "${username}";
       dataDir = "/home/${username}";
       configDir = "/home/${username}/.config/syncthing";
     };
+    # /nix/store/762fz43japj55bxs8503rn8lkyxdlljc-syncthing-1.30.0/bin/syncthing \
+    # -no-browser \
+    # -gui-address=127.0.0.1:8384 \
+    # -config=/home/kkleytt/.config/syncthing \
+    # -data=/home/kkleytt/.config/syncthing
   };
 
 
