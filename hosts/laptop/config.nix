@@ -128,8 +128,6 @@ in {
 
   # Set your time zone.
   services.automatic-timezoned.enable = true; #based on IP location
-  
-  #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   # time.timeZone = "Europe/Moscow"; # Set local timezone
 
   # Select internationalisation properties.
@@ -298,9 +296,9 @@ in {
 
   # Security / Polkit
   security = { 
-    rtkit.enable = true;
+    rtkit.enable = false;
     soteria.enable = true;
-    polkit.enable = true;
+    polkit.enable = false;
     polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
        if (
