@@ -108,6 +108,7 @@
       # Временное тестирование
       pkg-config
       cairo
+      gobject-introspection
 
     ];
   };
