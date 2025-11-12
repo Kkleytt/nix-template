@@ -102,20 +102,6 @@
       ## ToDo
       ## Other
         keypunch                                  # Аналог monkeytype
-
-
-
-      # Временное тестирование
-      cairo
-      cairo.dev
-      gobject-introspection
-      glib
-      pkg-config
-      dart-sass
-      tesseract
-      # tesseract-data-eng
-      # tesseract-data-rus
-
     ];
   };
 
@@ -126,7 +112,7 @@
   ];
 
 
-  # Required to install flatpak
+  # Необходимо для установки Flatpack пакетов
   xdg.portal = {
     enable = true;
     config = {
@@ -134,8 +120,7 @@
     };
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
-      #xdg-desktop-portal-kde
-      #xdg-desktop-portal-gtk
+      xdg-desktop-portal-gtk
     ];
   };
 

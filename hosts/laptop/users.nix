@@ -66,7 +66,7 @@ in
         alias cls='clear'
 
         # Подключение по SSH к серверу (Имя @ IP -p Порт)
-        alias ssh-srv='ssh kkleytt@46.160.250.162 -p 1900'
+        alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
 
         source <(fzf --zsh);
         HISTFILE=~/.zsh_history;
