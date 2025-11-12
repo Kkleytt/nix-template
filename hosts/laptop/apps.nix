@@ -106,9 +106,11 @@
 
 
       # Временное тестирование
-      pkg-config
       cairo
+      cairo.dev
       gobject-introspection
+      glib
+      pkg-config
       dart-sass
       tesseract
       # tesseract-data-eng
