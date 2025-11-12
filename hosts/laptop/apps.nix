@@ -109,6 +109,10 @@
       pkg-config
       cairo
       gobject-introspection
+      dart-sass
+      tesseract
+      tesseract-data-eng
+      tesseract-data-rus
 
     ];
   };
