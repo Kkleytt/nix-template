@@ -17,16 +17,11 @@
 		# Ссылка на установщик пакетов Flatpak
 		nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
-		# Установка темы оформления Noctalia 
+		# Установка темы оформления Caelestia shell 
 		quickshell = {
 			url = "github:outfoxxed/quickshell";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		# noctalia = {
-		# 	url = "github:noctalia-dev/noctalia-shell";
-		# 	inputs.nixpkgs.follows = "nixpkgs";
-		# 	inputs.quickshell.follows = "quickshell";  # Use same quickshell version
-		# };
 		caelestia-shell = {
 			url = "github:caelestia-dots/shell";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -34,21 +29,13 @@
 		caelestia-cli = {
 			url = "github:caelestia-dots/cli";
 			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
-		# Ссылка на тему SDDM
-		silentSDDM = {
-			url = "github:uiriansan/SilentSDDM";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
-		
+		};	
 	};
 
   	outputs = inputs@{ self, nixpkgs, ... }:
     let
 		system = "x86_64-linux";
-		host = "laptop";
+		host = "mobile";
 		username = "kkleytt";
 		
 		pkgs = import nixpkgs {
@@ -67,7 +54,7 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${username} = import ./hosts/laptop/home.nix {
+						home-manager.users.${username} = import ./hosts/${host}/home.nix {
           					inherit inputs pkgs;
         				};
 					}

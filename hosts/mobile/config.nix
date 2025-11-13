@@ -1,19 +1,19 @@
-# 💫 https://github.com/JaKooLit 💫 #
-# Main default config
-
-
-# NOTE!!! : Packages and Fonts are configured in packages-&-fonts.nix
-
-
-{ config, pkgs, host, username, options, lib, inputs, system, ...}: let
+{ config, pkgs, host, username, options, lib, system, ...}: let
   
   inherit (import ./variables.nix) keyboardLayout;
     
-  in {
+in {
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
+
+
   imports = [
     ./hardware.nix
     ./users.nix
-    ./packages-fonts.nix
+    ./packages-fonts.nix                      # Установка шрифтов и обязательных пакетов
+    ./apps.nix                                # Установка доп приложений из NixPkgs
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -37,7 +37,7 @@
 
     # This is for OBS Virtual Cam Support
     #kernelModules = [ "v4l2loopback" ];
-    #  extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    # extraModulePackages = [ config.boot.kernelPackages.hid-playstation ];
     
     initrd = { 
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
@@ -58,7 +58,7 @@
 	    canTouchEfiVariables = true;
   	  };
 
-    loader.timeout = 5;    
+    loader.timeout = 5; 
   			
     # Bootloader GRUB
     #loader.grub = {
@@ -111,6 +111,7 @@
          nvidiaBusID = "";
     };
   };
+  programs.nix-ld.enable = true;
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
@@ -123,9 +124,7 @@
 
   # Set your time zone.
   services.automatic-timezoned.enable = true; #based on IP location
-  
-  #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  #time.timeZone = "Asia/Seoul"; # Set local timezone
+  # time.timeZone = "Europe/Moscow"; # Set local timezone
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -143,22 +142,42 @@
   };
 
 
+  environment.systemPackages = [(
+    pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      font  = "Noto Sans";
+      fontSize = "24";
+      background = "/home/kkleytt/.config/rofi/.current_wallpaper";
+      loginBackground = true;
+    }
+  )];
+
+
   # Services to start
   services = {
     xserver = {
-      enable = false;
+      enable = true;
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
       };
     };
+
+    power-profiles-daemon.enable = true;
+
+    displayManager.sddm = {
+      enable = true;
+      theme = "catppuccin-mocha";
+      wayland.enable = true;
+      package = pkgs.kdePackages.sddm;
+    };
     
     greetd = {
-      enable = true;
+      enable = false;
       settings = {
         default_session = {
           user = username;
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         };
       };
     };
@@ -177,7 +196,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
 	    wireplumber.enable = true;
-  	  };
+  	};
 	
     #pulseaudio.enable = false; #unstable
 	  udev.enable = true;
@@ -187,25 +206,20 @@
 	  fstrim = {
       enable = true;
       interval = "weekly";
-      };
+    };
   
     libinput.enable = true;
-
     rpcbind.enable = false;
     nfs.server.enable = false;
-  
     openssh.enable = true;
-    flatpak.enable = false;
-	
+    flatpak.enable = true;
   	blueman.enable = true;
   	
   	#hardware.openrgb.enable = true;
   	#hardware.openrgb.motherboard = "amd";
 
 	  fwupd.enable = true;
-
 	  upower.enable = true;
-    
     gnome.gnome-keyring.enable = true;
     
     #printing = {
@@ -221,23 +235,17 @@
     #  openFirewall = true;
     #};
     
-    #ipp-usb.enable = true;
+    ipp-usb.enable = true;
     
     # syncthing = {
-    #  enable = false;
-    #  user = "${username}";
-    #  dataDir = "/home/${username}";
-    #  configDir = "/home/${username}/.config/syncthing";
+    #   enable = true;
+    #   package = pkgs.syncthing;
+    #   user = "${username}";
+    #   dataDir = "/home/${username}";
+    #   configDir = "/home/${username}/.config/syncthing";
     # };
+  };
 
-  };
-  
-  systemd.services.flatpak-repo = {
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
 
   # zram
   zramSwap = {
@@ -283,10 +291,11 @@
 
   # Security / Polkit
   security = { 
-    rtkit.enable = true;
+    rtkit.enable = false;
+    soteria.enable = true;
     polkit.enable = true;
     polkit.extraConfig = ''
-     polkit.addRule(function(action, subject) {
+    polkit.addRule(function(action, subject) {
        if (
          subject.isInGroup("users")
            && (
@@ -328,6 +337,7 @@
 
   # Virtualization / Containers
   virtualisation.libvirtd.enable = false;
+  virtualisation.docker.enable = true;
   virtualisation.podman = {
     enable = false;
     dockerCompat = false;
@@ -358,5 +368,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
