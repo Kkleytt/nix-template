@@ -23,8 +23,8 @@
 
       # Javascript
         nodejs_24                                   # Интерпретатор Node.js версии 24 (актуальная LTS на 2025).
-        nodePackages.ts-node                        # Позволяет запускать .ts файлы без предварительной компиляции.
-        nodePackages.prettier                       # Форматер для JS/TS/JSON/CSS и др.
+        # nodePackages.ts-node                        # Позволяет запускать .ts файлы без предварительной компиляции.
+        # nodePackages.prettier                       # Форматер для JS/TS/JSON/CSS и др.
         pnpm                                        # Быстрый и экономичный менеджер пакетов для Node.js.
         typescript                                  # Компилятор и типизация для TypeScript.
         eslint                                      # Линтер для JavaScript/TypeScript.
@@ -75,6 +75,9 @@
         lazygit                                     # TUI для Git (коммиты, ветки, история).
         lazydocker                                  # TUI для управления контейнерами.
         lazyjournal                                 # TUI для просмотра Linux журнала
+        lazynpm
+        lazyssh
+        lazysql
         openpomodoro-cli                            # TUI для Pomodoro-таймера
 
       # Shell
