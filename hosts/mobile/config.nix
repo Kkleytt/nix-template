@@ -15,9 +15,9 @@ in {
     ./packages-fonts.nix                      # Установка шрифтов и обязательных пакетов
     ./apps.nix                                # Установка доп приложений из NixPkgs
     ../../modules/amd-drivers.nix
-    ../../modules/nvidia-drivers.nix
-    ../../modules/nvidia-prime-drivers.nix
-    ../../modules/intel-drivers.nix
+    # ../../modules/nvidia-drivers.nix
+    # ../../modules/nvidia-prime-drivers.nix
+    # ../../modules/intel-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
   ];
@@ -59,21 +59,6 @@ in {
   	  };
 
     loader.timeout = 5; 
-  			
-    # Bootloader GRUB
-    #loader.grub = {
-	    #enable = true;
-	    #  devices = [ "nodev" ];
-	    #  efiSupport = true;
-      #  gfxmodeBios = "auto";
-	    #  memtest86.enable = true;
-	    #  extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
-	    #  configurationName = "${host}";
-  	  #	 };
-
-    # Bootloader GRUB theme, configure below
-
-    ## -end of BOOTLOADERS----- ##
   
     # Make /tmp a tmpfs
     tmp = {
@@ -93,12 +78,6 @@ in {
     
     plymouth.enable = true;
   };
-
-  # GRUB Bootloader theme. Of course you need to enable GRUB above.. duh! and also, enable it on flake.nix
-  #distro-grub-themes = {
-  #  enable = true;
-  #  theme = "nixos";
-  #};
 
   # Extra Module Options
   drivers = {
@@ -254,7 +233,7 @@ in {
 	  memoryPercent = 30;
 	  swapDevices = 1;
     algorithm = "zstd";
-    };
+  };
 
   powerManagement = {
   	enable = true;
