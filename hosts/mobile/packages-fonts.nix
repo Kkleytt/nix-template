@@ -5,9 +5,6 @@
 { pkgs, inputs, lib, ...}:
 
 {
-
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = (with pkgs; [
     
     ## Programming Language & Tools
