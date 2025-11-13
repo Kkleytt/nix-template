@@ -82,13 +82,13 @@ in {
   # Extra Module Options
   drivers = {
     amdgpu.enable = true;
-    intel.enable = true;
-    nvidia.enable = false;
-    nvidia-prime = {
-       enable = false;
-         intelBusID = "";
-         nvidiaBusID = "";
-    };
+    # intel.enable = true;
+    # nvidia.enable = false;
+    # nvidia-prime = {
+    #    enable = false;
+    #      intelBusID = "";
+    #      nvidiaBusID = "";
+    # };
   };
   programs.nix-ld.enable = true;
   vm.guest-services.enable = false;

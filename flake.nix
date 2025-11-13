@@ -51,6 +51,7 @@
 					inputs.home-manager.nixosModules.home-manager
 					./hosts/${host}/config.nix 
 					./modules/quickshell.nix
+					{ nixpkgs.pkgs = pkgs; }
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
