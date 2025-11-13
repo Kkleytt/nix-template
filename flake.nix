@@ -52,7 +52,7 @@
 			laptop = nixpkgs.lib.nixosSystem rec {
 				specialArgs = { inherit inputs system username host; };
 				modules = [ 
-					(import "${nixpkgs}/nixos/modules/misc/nixpkgs/read-only.nix")
+					# (import "${nixpkgs}/nixos/modules/misc/nixpkgs/read-only.nix")
 					{ nixpkgs.pkgs = pkgs; }
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					inputs.home-manager.nixosModules.home-manager
