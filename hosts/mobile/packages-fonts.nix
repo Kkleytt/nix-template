@@ -181,7 +181,7 @@
         kitty                                       # Терминал
         power-profiles-daemon                       # Настройка профиля питания
         nwg-displays                                # Настройка дисплеев
-        rofi-wayland                                # Лаунчер запуска приложений
+        rofi                                # Лаунчер запуска приложений
         mpvpaper                                    #
         hyprpaper                                   #
         wl-clipboard                                # Буфер обмена Wayland
