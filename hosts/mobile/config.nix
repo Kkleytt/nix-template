@@ -3,12 +3,6 @@
   inherit (import ./variables.nix) keyboardLayout;
     
 in {
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
-  ];
-
-
   imports = [
     ./hardware.nix
     ./users.nix
@@ -41,7 +35,7 @@ in {
     
     initrd = { 
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-      kernelModules = [ ];
+      kernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
     };
 
     # Needed For Some Steam Games

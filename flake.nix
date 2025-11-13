@@ -40,18 +40,24 @@
 		
 		pkgs = import nixpkgs {
 			inherit system;
-			config.allowUnfree = true;
+			config = {
+				allowUnfree = true;
+				permittedInsecurePackages = [ 
+					"libsoup-2.74.3" 
+				];
+			};
 		};
 	in {
 		nixosConfigurations = {
 			laptop = nixpkgs.lib.nixosSystem rec {
-				specialArgs = { inherit inputs pkgs system username host; };
+				specialArgs = { inherit inputs system username host; };
 				modules = [ 
+					(import "${nixpkgs}/nixos/modules/misc/nixpkgs/read-only.nix")
+					{ nixpkgs.pkgs = pkgs; }
 					inputs.nix-flatpak.nixosModules.nix-flatpak
 					inputs.home-manager.nixosModules.home-manager
 					./hosts/${host}/config.nix 
 					./modules/quickshell.nix
-					{ nixpkgs.pkgs = pkgs; }
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
