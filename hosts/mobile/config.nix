@@ -300,5 +300,5 @@ in {
   # For Hyprland QT Support
   environment.sessionVariables.QML_IMPORT_PATH = "${pkgs.hyprland-qt-support}/lib/qt-6/qml";
 
-  stdenv.hostPlatform.system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
