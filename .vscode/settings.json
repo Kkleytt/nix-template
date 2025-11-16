@@ -1,3 +1,6 @@
 {
-  "vscodeTodo.enableWideView": true
+  "vscodeTodo.enableWideView": true,
+  "workbench.colorCustomizations": {
+    "editorGhostText.foreground": "#FF47E9"
+  }
 }

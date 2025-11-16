@@ -18,6 +18,4 @@
             };
         };
     };
-
-    programs.uv.enable = true;
 }

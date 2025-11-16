@@ -194,29 +194,15 @@ in {
 	  fwupd.enable = true;
 	  upower.enable = true;
     gnome.gnome-keyring.enable = true;
-    
-    #printing = {
-    #  enable = false;
-    #  drivers = [
-        # pkgs.hplipWithPlugin
-    #  ];
-    #};
-    
-    #avahi = {
-    #  enable = true;
-    #  nssmdns4 = true;
-    #  openFirewall = true;
-    #};
+
+    displayManager.sddm = {
+      enable = true;
+      theme = "catppuccin-mocha";
+      wayland.enable = true;
+      package = pkgs.kdePackages.sddm;
+    };
     
     ipp-usb.enable = true;
-    
-    # syncthing = {
-    #   enable = true;
-    #   package = pkgs.syncthing;
-    #   user = "${username}";
-    #   dataDir = "/home/${username}";
-    #   configDir = "/home/${username}/.config/syncthing";
-    # };
   };
 
 

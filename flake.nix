@@ -30,6 +30,12 @@
 			url = "github:caelestia-dots/cli";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};	
+
+		# Ссылка на тему SDDM
+		# silentSDDM = {
+		# 	url = "github:uiriansan/SilentSDDM";
+		# 	inputs.nixpkgs.follows = "nixpkgs";
+		# };
 	};
 
   	outputs = inputs@{ self, nixpkgs, ... }:
@@ -70,4 +76,3 @@
 		};
 	};
 }
-   
