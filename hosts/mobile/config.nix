@@ -3,7 +3,7 @@ let
   inherit (import ./variables.nix) keyboardLayout;
 
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
-    theme = "rei"; # можно выбрать rei, catppuccin-mocha, или другой конфиг из configs/
+    theme = "catppuccin-macchiato"; # можно выбрать rei, catppuccin-mocha, или другой конфиг из configs/
   };
     
 in {
