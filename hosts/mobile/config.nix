@@ -1,4 +1,4 @@
-{ config, pkgs, host, username, options, lib, system, ...}: 
+{ config, pkgs, host, username, options, lib, system, inputs, ...}: 
 let
   inherit (import ./variables.nix) keyboardLayout;
 
