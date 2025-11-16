@@ -124,13 +124,13 @@ in {
     enable = true;
     package = pkgs.kdePackages.sddm; # Qt6 версия
     theme = sddm-theme.pname;
-    wayland.enable = true;
+    wayland.enable = false;
     extraPackages = sddm-theme.propagatedBuildInputs;
     settings.General = {
       GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
       InputMethod = "qtvirtualkeyboard";
     };
-    settings.x11 = {
+    settings.X11 = {
       InputMethod = "qtvirtualkeyboard";
     };
   };
