@@ -55,7 +55,7 @@
 		};
 	in {
 		nixosConfigurations = {
-			laptop = nixpkgs.lib.nixosSystem rec {
+			mobile = nixpkgs.lib.nixosSystem rec {
 				specialArgs = { inherit inputs system username host; };
 				modules = [ 
 					# (import "${nixpkgs}/nixos/modules/misc/nixpkgs/read-only.nix")
