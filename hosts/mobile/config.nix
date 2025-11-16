@@ -132,7 +132,7 @@ in {
     };
     settings.x11 = {
       InputMethod = "qtvirtualkeyboard";
-    }
+    };
   };
   # NOTE:
 
