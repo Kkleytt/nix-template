@@ -194,13 +194,6 @@ in {
 	  fwupd.enable = true;
 	  upower.enable = true;
     gnome.gnome-keyring.enable = true;
-
-    displayManager.sddm = {
-      enable = true;
-      theme = "catppuccin-mocha";
-      wayland.enable = true;
-      package = pkgs.kdePackages.sddm;
-    };
     
     ipp-usb.enable = true;
   };
