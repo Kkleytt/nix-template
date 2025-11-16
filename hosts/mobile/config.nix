@@ -1,6 +1,10 @@
-{ config, pkgs, host, username, options, lib, system, ...}: let
-  
+{ config, pkgs, host, username, options, lib, system, ...}: 
+let
   inherit (import ./variables.nix) keyboardLayout;
+
+  sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
+    theme = "rei"; # можно выбрать rei, catppuccin-mocha, или другой конфиг из configs/
+  };
     
 in {
   imports = [
@@ -97,11 +101,7 @@ in {
 
   # Set your time zone.
   services.automatic-timezoned.enable = true; #based on IP location
-  # time.timeZone = "Europe/Moscow"; # Set local timezone
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -114,16 +114,24 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-
-  environment.systemPackages = [(
-    pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      font  = "Noto Sans";
-      fontSize = "24";
-      background = "/home/kkleytt/.config/rofi/.current_wallpaper";
-      loginBackground = true;
-    }
-  )];
+  # NOTE: Подключение темы SDDM 
+  qt.enable = true;
+  environment.systemPackages = [
+    sddm-theme
+    sddm-theme.test # бинарь для проверки темы без перезагрузки
+  ];
+  services.displayManager.sddm = {
+    enable = true;
+    package = pkgs.kdePackages.sddm; # Qt6 версия
+    theme = sddm-theme.pname;
+    wayland.enable = true;
+    extraPackages = sddm-theme.propagatedBuildInputs;
+    settings.General = {
+      GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
+      InputMethod = "qtvirtualkeyboard";
+    };
+  };
+  # NOTE:
 
 
   # Services to start
@@ -137,13 +145,6 @@ in {
     };
 
     power-profiles-daemon.enable = true;
-
-    displayManager.sddm = {
-      enable = true;
-      theme = "catppuccin-mocha";
-      wayland.enable = true;
-      package = pkgs.kdePackages.sddm;
-    };
     
     greetd = {
       enable = false;
