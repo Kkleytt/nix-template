@@ -65,7 +65,7 @@ do_build() {
   echo ""
   echo "▶▶▶ Пересборка системы..."
   cd "$PROJECT_PATH"
-  sudo nixos-rebuild switch --flake .#laptop
+  sudo nixos-rebuild switch --flake .#mobile
 }
 
 do_reboot() {

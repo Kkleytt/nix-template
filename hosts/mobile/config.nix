@@ -130,6 +130,9 @@ in {
       GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
       InputMethod = "qtvirtualkeyboard";
     };
+    settings.x11 = {
+      InputMethod = "qtvirtualkeyboard";
+    }
   };
   # NOTE:
 
