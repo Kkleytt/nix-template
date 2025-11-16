@@ -299,6 +299,6 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # For Hyprland QT Support
   environment.sessionVariables.QML_IMPORT_PATH = "${pkgs.hyprland-qt-support}/lib/qt-6/qml";
-  
-  system.stateVersion = "25.05"; # Did you read the comment?
+
+  stdenv.hostPlatform.system.stateVersion = "25.05"; # Did you read the comment?
 }
