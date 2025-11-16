@@ -171,7 +171,7 @@ in {
 	    wireplumber.enable = true;
   	};
 	
-    #pulseaudio.enable = false; #unstable
+    pulseaudio.enable = false;
 	  udev.enable = true;
 	  envfs.enable = true;
 	  dbus.enable = true;
@@ -218,14 +218,6 @@ in {
   #  extraBackends = [ pkgs.sane-airscan ];
   #  disabledDefaultBackends = [ "escl" ];
   #};
-
-  # Extra Logitech Support
-  hardware = { 
-     logitech.wireless.enable = false;
-     logitech.wireless.enableGraphical = false;
-  }; 
-
-  services.pulseaudio.enable = false; # stable branch
 
   # Bluetooth
   hardware = {
@@ -288,7 +280,7 @@ in {
   };
 
   # Virtualization / Containers
-  virtualisation.libvirtd.enable = false;
+  virtualisation.libvirtd.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.podman = {
     enable = false;
@@ -307,18 +299,6 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # For Hyprland QT Support
   environment.sessionVariables.QML_IMPORT_PATH = "${pkgs.hyprland-qt-support}/lib/qt-6/qml";
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  
   system.stateVersion = "25.05"; # Did you read the comment?
 }
