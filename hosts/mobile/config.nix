@@ -127,9 +127,13 @@ in {
     wayland.enable = true;
     extraPackages = sddm-theme.propagatedBuildInputs;
     settings.General = {
-      GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard";
+      GreeterEnvironment = "QML2_IMPORT_PATH=${sddm-theme}/share/sddm/themes/${sddm-theme.pname}/components/,QT_IM_MODULE=qtvirtualkeyboard,QT_SCALE_FACTOR=2";
       InputMethod = "qtvirtualkeyboard";
     };
+    settings.Keyboard = {
+      Layouts = "us,ru";
+      Options = "grp:alt_shift_toggle";
+    }
   };
   # NOTE:
 
