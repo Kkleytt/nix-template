@@ -133,7 +133,7 @@ in {
     settings.Keyboard = {
       Layouts = "us,ru";
       Options = "grp:alt_shift_toggle";
-    }
+    };
   };
   # NOTE:
 
