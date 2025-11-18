@@ -179,14 +179,18 @@
       # kuro                                        # Неофициальный клиент Microsoft ToDo
     ]);
 
-    services.flatpak = {
-      enable = true;
-      packages = [
-        "app.zen_browser.zen"        # Браузер Zen на базе Firefox
-        "app.fotema.Fotema"          # Менеджер фото
-        "io.beekeeperstudio.Studio"  # Управление SQL Базами Данных
-      ];
-    };
+
+    # Активационный шаг: добавляем Flathub и ставим приложения для пользователя
+    home.activation.flatpakUserApps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+
+      ${pkgs.flatpak}/bin/flatpak install -y --user flathub \
+        app.zen_browser.zen \
+        app.fotema.Fotema \
+        io.beekeeperstudio.Studio
+    '';
+
+    
 
     programs = {
       
