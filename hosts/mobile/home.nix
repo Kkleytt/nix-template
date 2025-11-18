@@ -177,20 +177,7 @@
       # ferdium                                     # Менеджер соц-сетей
       # denaro                                      # Менеджер финансов
       # kuro                                        # Неофициальный клиент Microsoft ToDo
-    ]);
-
-
-    # Активационный шаг: добавляем Flathub и ставим приложения для пользователя
-    home.activation.flatpakUserApps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
-
-      ${pkgs.flatpak}/bin/flatpak install -y --user flathub \
-        app.zen_browser.zen \
-        app.fotema.Fotema \
-        io.beekeeperstudio.Studio
-    '';
-
-    
+    ]); 
 
     programs = {
       
