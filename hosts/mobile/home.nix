@@ -3,7 +3,7 @@
     home.homeDirectory = "/home/kkleytt";
     home.stateVersion = "25.11";
 
-    home.packages = with pkgs; [
+    home.packages = (with pkgs; [
         ## Caelestia
         inputs.caelestia-shell.packages.${system}.default
         inputs.caelestia-cli.packages.${system}.default
@@ -26,7 +26,7 @@
         dooit
         calcurse
         syncthing
-    ];
+    ]);
 
     # Настройка Git
     programs.git = {
