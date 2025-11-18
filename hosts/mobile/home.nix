@@ -17,6 +17,7 @@
       #### Python
         python313                                   # Интерпретатор Python 3.12
         python313Packages.jupyter-core              # Инструмент для написания кода по секицям
+        python313Packages.pip                       # Базовый установщик пакетов
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry
         mypy                                        # Статический анализатор типов
         ruff                                        # Быстрый линтер и автоисправитель на Rust
