@@ -27,11 +27,7 @@
     ];
   };
 
-  services.flatpak.packages = [
-    "app.zen_browser.zen"                       # Браузер Zen на базе Firefox
-    "app.fotema.Fotema"                         # Менеджер фото
-    "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных
-  ];
+  
 
 
   # Необходимо для установки Flatpack пакетов

@@ -179,6 +179,12 @@
       # kuro                                        # Неофициальный клиент Microsoft ToDo
     ]);
 
+    services.flatpak.packages = [
+      "app.zen_browser.zen"                       # Браузер Zen на базе Firefox
+      "app.fotema.Fotema"                         # Менеджер фото
+      "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных
+    ];
+
     programs = {
       
       # Настройка Git
