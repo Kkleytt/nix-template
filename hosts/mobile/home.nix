@@ -50,7 +50,6 @@
         postman                                     # Авто-тесты для API
         devtoolbox                                  # Дополнительные функции для программиста
         ptyxis                                      # Docker-ориентированный терминал
-        beekeeper-studio                            # Управление SQL базами данных
         # qwen-code                                   # AI агент в режиме консоли Qwen [не работает так как находимся на стабильной ветке]
         # termius                                     # Gui SSH + Sftp клиент
         # turtle                                      # Gui для работы с Git
