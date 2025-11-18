@@ -99,7 +99,8 @@
         libsecret                                   # Хранилище паролей для безопасности приложений
 
     ## 🧙 Разное
-        polkit_gnome                                # Агент аутентификации        
+        polkit_gnome                                # Агент аутентификации  
+        flatpak                                     # Менеджер пакетов Flatpak      
   ]);
 
 
@@ -113,36 +114,14 @@
       font-awesome
       terminus_font
       victor-mono
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.fantasque-sans-mono
     ];
   };
 
   # Настройка программ
   programs = {
-	  hyprland = {
-      enable = true;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  	  xwayland.enable = true;
-    };
-
-    vscode.enable = true;
     nm-applet.indicator = true;
-    neovim.enable = true;
-	  thunar.enable = true;
     virt-manager.enable = false;
-
-    xwayland.enable = true;
-
-    dconf.enable = true;
-    seahorse.enable = true;
     fuse.userAllowOther = true;
-    mtr.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
   };
 
   # Глобальная настройка GIT
