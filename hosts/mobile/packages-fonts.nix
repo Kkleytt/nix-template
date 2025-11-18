@@ -190,8 +190,18 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    config.common.default = [ "gtk" ];
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-hyprland
     ];
   };
+  services.flatpak.enable = true;
+
+  services.flatpak.packages = [ 
+    "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
+    "app.fotema.Fotema"                         # Менеджер фото 
+    "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
+  ];
 }

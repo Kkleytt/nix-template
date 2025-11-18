@@ -68,7 +68,7 @@
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 						home-manager.users.${username} = import ./hosts/${host}/home.nix {
-							inherit inputs pkgs system lib;
+							inherit inputs pkgs system;
 						};
 					}
 				];
