@@ -193,21 +193,7 @@
         };
       };
 
-      # Настройки Hyprland
-      hyprland = {
-        enable = true;
-        portalPackage = pkgs.xdg-desktop-portal-hyprland;
-        xwayland.enable = true;
-      };
-
-      dconf.enable = true;
-      seahorse.enable = true;
-      mtr.enable = true;
-
-      gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
+      
     };
 
     
