@@ -2,7 +2,7 @@
 # данный файл запускает модуль /hosts/mobile/config.nix (данный модуль самостоятельно ничего не делает)
 # только распредялет обязаности по дочерним модулям вроде этого
 
-{ pkgs, inputs, lib, ...}:
+{ pkgs, inputs, ...}:
 
 {
   environment.systemPackages = (with pkgs; [
