@@ -180,15 +180,6 @@
       # kuro                                        # Неофициальный клиент Microsoft ToDo
     ]);
 
-
-    # Шрифты (Fonts)
-    fontconfig.enable = true; # обязательно включаем fontconfig
-    home.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.fantasque-sans-mono
-    ];
-
     programs = {
       
       # Настройка Git
