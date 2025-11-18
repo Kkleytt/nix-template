@@ -3,11 +3,13 @@
     home.homeDirectory = "/home/kkleytt";
     home.stateVersion = "25.11";
 
-    home.packages = with pkgs; [
-        # Установка оболочки Caelestia
-            inputs.caelestia-shell.packages.${system}.default
-            inputs.caelestia-cli.packages.${system}.default
+    # Установка оболочки Caelestia
+    home.packages = (with pkgs; [
+        inputs.caelestia-shell.packages.${system}.default
+        inputs.caelestia-cli.packages.${system}.default
+    ]);
 
+    home.packages = with pkgs; [
         ## CLI утилиты
             fastfetch                                   # Вывод информативной табличке о системе
             eza                                         # Улучшенный ls (Вывод содержимого директорий)
