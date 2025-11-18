@@ -1,9 +1,9 @@
 {
-  	description = "Автоматический сборщик системы от Kkleytt"; 
-  	
-  	inputs = {
+	description = "Автоматический сборщик системы от Kkleytt"; 
+
+	inputs = {
 		# Нестабильная ветка NixPkgs
-  		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
 		# Установка Home-Manager
 		home-manager = {
@@ -38,7 +38,7 @@
 		};
 	};
 
-  	outputs = inputs@{ self, nixpkgs, ... }:
+	outputs = inputs@{ self, nixpkgs, ... }:
     let
 		system = "x86_64-linux";
 		host = "mobile";
@@ -67,9 +67,9 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${username} = import ./hosts/${host}/home.nix {
-          					inherit inputs pkgs;
-        				};
+						home-manager.users.${username} = { system, pkgs, inputs, ... }: {
+							imports = [ ./hosts/${host}/home.nix ];
+						};
 					}
 				];
 			};

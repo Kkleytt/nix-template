@@ -3,7 +3,7 @@ let
   inherit (import ./variables.nix) keyboardLayout;
 
   sddm-theme = inputs.silentSDDM.packages.${pkgs.system}.default.override {
-    theme = "catppuccin-macchiato"; # можно выбрать rei, catppuccin-mocha, или другой конфиг из configs/
+    theme = "catppuccin-macchiato";
   };
     
 in {
@@ -20,51 +20,36 @@ in {
     ../../modules/local-hardware-clock.nix
   ];
 
-  # BOOT related stuff
+  # Настройка boot 
   boot = {
     kernelPackages = pkgs.linuxPackages_zen; # zen Kernel
-    #kernelPackages = pkgs.linuxPackages_latest; # Kernel 
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"
-      "systemd.mask=dev-tpmrm0.device" #this is to mask that stupid 1.5 mins systemd bug
+      "systemd.mask=dev-tpmrm0.device"
       "nowatchdog" 
-      "modprobe.blacklist=sp5100_tco" #watchdog for AMD
-      "modprobe.blacklist=iTCO_wdt" #watchdog for Intel
- 	  ];
-
-    # This is for OBS Virtual Cam Support
-    #kernelModules = [ "v4l2loopback" ];
-    # extraModulePackages = [ config.boot.kernelPackages.hid-playstation ];
+      "modprobe.blacklist=sp5100_tco" # Наблюдатель AMD
+      # "modprobe.blacklist=iTCO_wdt" # Наблюдатель Intel
+    ];
     
     initrd = { 
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
     };
 
-    # Needed For Some Steam Games
-    #kernel.sysctl = {
-    #  "vm.max_map_count" = 2147483642;
-    #};
-
-    ## BOOT LOADERS: NOTE USE ONLY 1. either systemd or grub  
-    # Bootloader SystemD
     loader.systemd-boot.enable = true;
-  
     loader.efi = {
-	    #efiSysMountPoint = "/efi"; #this is if you have separate /efi partition
-	    canTouchEfiVariables = true;
-  	  };
-
-    loader.timeout = 5; 
+      canTouchEfiVariables = true;
+    };
+    loader.timeout = 10; 
   
-    # Make /tmp a tmpfs
+    # Создание /tmp как tmpfs
     tmp = {
       useTmpfs = false;
       tmpfsSize = "30%";
-      };
+    };
     
-    # Appimage Support
+    # Параметры иконок для приложений
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
       interpreter = "${pkgs.appimage-run}/bin/appimage-run";
@@ -77,7 +62,7 @@ in {
     plymouth.enable = true;
   };
 
-  # Extra Module Options
+  # Драйвера
   drivers = {
     amdgpu.enable = true;
     # intel.enable = true;
@@ -92,15 +77,15 @@ in {
   vm.guest-services.enable = false;
   local.hardware-clock.enable = false;
 
-  # networking
+  # Настройки сетей
   networking = {
     networkmanager.enable = true;
     hostName = "${host}";
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
   }; 
 
-  # Set your time zone.
-  services.automatic-timezoned.enable = true; #based on IP location
+  # Настройки региона
+  services.automatic-timezoned.enable = true; # Часовой пояс на основе IP-адреса
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
@@ -114,15 +99,14 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  # NOTE: Подключение темы SDDM 
   qt.enable = true;
   environment.systemPackages = [
     sddm-theme
-    sddm-theme.test # бинарь для проверки темы без перезагрузки
+    sddm-theme.test
   ];
   services.displayManager.sddm = {
     enable = true;
-    package = pkgs.kdePackages.sddm; # Qt6 версия
+    package = pkgs.kdePackages.sddm;
     theme = sddm-theme.pname;
     wayland.enable = true;
     extraPackages = sddm-theme.propagatedBuildInputs;
@@ -135,10 +119,9 @@ in {
       Options = "grp:alt_shift_toggle";
     };
   };
-  # NOTE:
 
 
-  # Services to start
+  # Сервисы для авто-загрузки
   services = {
     xserver = {
       enable = true;
@@ -165,23 +148,23 @@ in {
       autodetect = true;
     };
     
-	  gvfs.enable = true;
-	  tumbler.enable = true;
+    gvfs.enable = true;
+    tumbler.enable = true;
 
-	  pipewire = {
+    pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-	    wireplumber.enable = true;
-  	};
+      wireplumber.enable = true;
+    };
 	
     pulseaudio.enable = false;
-	  udev.enable = true;
-	  envfs.enable = true;
-	  dbus.enable = true;
+    udev.enable = true;
+    envfs.enable = true;
+    dbus.enable = true;
 
-	  fstrim = {
+    fstrim = {
       enable = true;
       interval = "weekly";
     };
@@ -191,13 +174,14 @@ in {
     nfs.server.enable = false;
     openssh.enable = true;
     flatpak.enable = true;
-  	blueman.enable = true;
-  	
-  	#hardware.openrgb.enable = true;
-  	#hardware.openrgb.motherboard = "amd";
+    blueman.enable = true;
 
-	  fwupd.enable = true;
-	  upower.enable = true;
+    # Включение функции подсветки компонентов
+    #hardware.openrgb.enable = true;
+    #hardware.openrgb.motherboard = "amd";
+
+    fwupd.enable = true;
+    upower.enable = true;
     gnome.gnome-keyring.enable = true;
     
     ipp-usb.enable = true;
@@ -206,16 +190,16 @@ in {
 
   # zram
   zramSwap = {
-	  enable = true;
-	  priority = 100;
-	  memoryPercent = 30;
-	  swapDevices = 1;
+    enable = true;
+    priority = 100;
+    memoryPercent = 30;
+    swapDevices = 1;
     algorithm = "zstd";
   };
 
   powerManagement = {
-  	enable = true;
-	  cpuFreqGovernor = "schedutil";
+    enable = true;
+    cpuFreqGovernor = "schedutil";
   };
 
   #hardware.sane = {
@@ -226,47 +210,47 @@ in {
 
   # Bluetooth
   hardware = {
-  	bluetooth = {
-	    enable = true;
-	    powerOnBoot = true;
-	    settings = {
-		    General = {
-		      Enable = "Source,Sink,Media,Socket";
-		      Experimental = true;
-		    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true;
+        };
       };
     };
   };
 
-  # Security / Polkit
+  # Настройки Polkit Менеджера
   security = { 
     rtkit.enable = false;
     soteria.enable = true;
     polkit.enable = true;
     polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {
-       if (
-         subject.isInGroup("users")
-           && (
-             action.id == "org.freedesktop.login1.reboot" ||
-             action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-             action.id == "org.freedesktop.login1.power-off" ||
-             action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-           )
-         )
-       {
-         return polkit.Result.YES;
-       }
+        if (
+          subject.isInGroup("users")
+            && (
+              action.id == "org.freedesktop.login1.reboot" ||
+              action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+              action.id == "org.freedesktop.login1.power-off" ||
+              action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+            )
+          )
+        {
+          return polkit.Result.YES;
+        }
     })
   '';
- };
+  };
   security.pam.services.swaylock = {
     text = ''
       auth include login
     '';
   };
 
-  # Cachix, Optimization settings and garbage collection automation
+  # Кэширование, оптимизация и очистка системы
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -284,7 +268,7 @@ in {
     };
   };
 
-  # Virtualization / Containers
+  # Виртуализация, Docker и Podman
   virtualisation.libvirtd.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.podman = {
