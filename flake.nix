@@ -56,7 +56,7 @@
 	in {
 		nixosConfigurations = {
 			mobile = nixpkgs.lib.nixosSystem rec {
-				specialArgs = { inherit inputs system username host pkgs; };
+				specialArgs = { inherit inputs system username host; };
 				modules = [ 
 					# (import "${nixpkgs}/nixos/modules/misc/nixpkgs/read-only.nix")
 					{ nixpkgs.pkgs = pkgs; }
@@ -67,8 +67,8 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${username} = { system, pkgs, inputs, ... }: {
-							imports = [ ./hosts/${host}/home.nix ];
+						home-manager.users.${username} = import ./hosts/${host}/home.nix {
+							inherit inputs pkgs system;
 						};
 					}
 				];
