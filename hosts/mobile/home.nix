@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }: {
+{ pkgs, inputs, system, lib, ... }: {
   home.username = "kkleytt";
   home.homeDirectory = "/home/kkleytt";
   home.stateVersion = "25.11";
