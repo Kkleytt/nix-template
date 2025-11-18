@@ -182,14 +182,12 @@
 
 
     # Шрифты (Fonts)
-    fonts = {
     fontconfig.enable = true; # обязательно включаем fontconfig
-    packages = with pkgs; [
+    home.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.fantasque-sans-mono
     ];
-  };
 
     programs = {
       
