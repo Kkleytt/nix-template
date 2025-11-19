@@ -174,5 +174,6 @@
   imports = [
     ./configs/git.nix                   # Настройка Git
     ./configs/zsh.nix                   # Настройка Zsh
+    ./configs/hyprland.nix              # Настройка Hyprland
   ];
 }
