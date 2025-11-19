@@ -2,7 +2,11 @@
   home.username = "kkleytt";
   home.homeDirectory = "/home/kkleytt";
   home.stateVersion = "25.11";
-  home-manager.backupFileExtension = "backup";
+  
+  # Настройка Home Manager
+  home-manager = {
+    backupFileExtension = "backup";
+  };
 
 
   # Приложения (Apps)
