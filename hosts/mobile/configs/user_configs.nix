@@ -3,12 +3,31 @@
   # Hyprland
   # Копируем всю папку hyprland, но без scheme (как раньше)
   home.file.".config/hypr".source = ./hyprland;
-  home.activation.fixHyprPermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    chmod -R u+w ~/.config/hypr
-    find ~/.config/hypr -type f -name "*.sh" -exec chmod +x {} \;
-    find ~/.config/hypr/scripts -type f -exec chmod +x {} \; 2>/dev/null || true
-    find ~/.config/hypr/UserScripts -type f -exec chmod +x {} \; 2>/dev/null || true
-  '';
+  # home.activation.fixHyprPermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #   chmod -R u+w ~/.config/hypr
+  #   find ~/.config/hypr -type f -name "*.sh" -exec chmod +x {} \;
+  #   find ~/.config/hypr/scripts -type f -exec chmod +x {} \; 2>/dev/null || true
+  #   find ~/.config/hypr/UserScripts -type f -exec chmod +x {} \; 2>/dev/null || true
+  # '';
+
+
+  # home.file.".config/hypr/animations".source = ./hyprland/animations;
+  # home.file.".config/hypr/configs".source = ./hyprland/configs;
+  # home.file.".config/hypr/Monitor_Profiles".source = ./hyprland/Monitor_Profiles;
+  # home.file.".config/hypr/scripts".source = ./hyprland/scripts;
+  # home.file.".config/hypr/UserConfigs".source = ./hyprland/UserConfigs;
+  # home.file.".config/hypr/UserScripts".source = ./hyprland/UserScripts;
+  # home.file.".config/hypr/wallpaper_effects".source = ./hyprland/wallpaper_effects;
+  # home.file.".config/hypr/wallust".source = ./hyprland/wallust;
+  # home.file.".config/hypr/application-style.conf".source = ./hyprland/application-style.conf;
+  # home.file.".config/hypr/hypridle.conf".source = ./hyprland/hypridle.conf;
+  # home.file.".config/hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
+  # home.file.".config/hypr/hyprlock-1080p.conf".source = ./hyprland/hyprlock-1080p.conf;
+  # home.file.".config/hypr/hyprlock.conf".source = ./hyprland/hyprlock.conf;
+  # home.file.".config/hypr/hyprpaper.conf".source = ./hyprland/hyprpaper.conf;
+  # home.file.".config/hypr/initial-boot.sh".source = ./hyprland/initial-boot.sh;
+  # home.file.".config/hypr/monitors.conf".source = ./hyprland/monitors.conf;
+  # home.file.".config/hypr/workspaces.conf".source = ./hyprland/workspaces.conf;
 
   # Rofi
 
