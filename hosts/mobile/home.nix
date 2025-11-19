@@ -196,7 +196,7 @@
         theme = "agnoster"; 
       };
       
-      autosuggestions.enable = true;
+      # autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
       
       promptInit = ''
