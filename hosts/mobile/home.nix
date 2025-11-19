@@ -190,7 +190,7 @@
     zsh = {
       enable = true;
       
-      initExtra = ''
+      initContent = ''
         fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
         #pokemon colorscripts like. Make sure to install krabby package
