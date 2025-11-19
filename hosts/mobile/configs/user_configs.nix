@@ -2,18 +2,16 @@
 {
   # Hyprland
   # Копируем всю папку hyprland, но без scheme (как раньше)
+
   home.file.".config/hypr" = {
     source = ./hyprland;
     recursive = true;
-
-    # Это ключ: меняем права ПОСЛЕ того, как Nix всё скопировал
     onChange = ''
-      ${config.lib.shell} -c "
-        chmod -R u+w $HOME/.config/hypr || true
-        find $HOME/.config/hypr -type f -name '*.sh' -exec chmod +x {} \; || true
-        find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
-        find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
-      "
+      chmod -R u+w $HOME/.config/hypr || true
+      find $HOME/.config/hypr -type f -name "*.sh" -exec chmod +x {} \; || true
+      find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
+      find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
+      find $HOME/.config/hypr -type f -name "*.conf" -exec chmod 777 {}; || true
     '';
   };
 
