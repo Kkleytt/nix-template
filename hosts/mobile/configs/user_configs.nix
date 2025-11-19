@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   # Hyprland
   home.activation.hyprProfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
