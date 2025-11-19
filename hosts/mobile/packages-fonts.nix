@@ -129,50 +129,7 @@
     virt-manager.enable = false;
     fuse.userAllowOther = true;
   };
-
-  # Глобальная настройка GIT
-  environment.etc."gitconfig".text = lib.mkForce ''
-    [user]
-      name  = Kkleytt
-      email = kkleytt@gmail.com
-
-    [url "git@github.com:"]
-      insteadOf = https://github.com/
-
-    [push]
-      autoSetupRemote = true
-
-    [credential]
-      helper = cache --timeout=3600
-  '';
-  system.activationScripts.generateSshKey.text = ''
-    echo "=== Проверка SSH-ключа для пользователя kkleytt ==="
-
-    # 1) Создать директорию, если её нет
-    if [ ! -d /home/kkleytt/.ssh ]; then
-      mkdir -m 700 /home/kkleytt/.ssh
-      chown kkleytt:users /home/kkleytt/.ssh
-    fi
-
-    # 2) Сгенерировать ключ, если ещё нет
-    if [ ! -f /home/kkleytt/.ssh/id_ed25519 ]; then
-      /run/current-system/sw/bin/ssh-keygen \
-        -t ed25519 \
-        -f /home/kkleytt/.ssh/id_ed25519 \
-        -N "" \
-        -C "kkleytt@nixos"
-
-      chown kkleytt:users /home/kkleytt/.ssh/id_ed25519*
-      chmod 600 /home/kkleytt/.ssh/id_ed25519*
-
-      echo
-      echo "👉 Публичный ключ:"
-      cat /home/kkleytt/.ssh/id_ed25519.pub
-      echo
-      echo "Скопируйте его и добавьте в GitHub: https://github.com/settings/keys"
-    fi
-  '';
-
+  
   # Extra Portal Configuration
   xdg.portal = {
     enable = true;
