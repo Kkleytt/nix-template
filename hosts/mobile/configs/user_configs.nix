@@ -2,13 +2,17 @@
 {
   # Hyprland
   # Копируем всю папку hyprland, но без scheme (как раньше)
-  home.file.".config/hypr".source = ./hyprland;
-  # home.activation.fixHyprPermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
-  #   chmod -R u+w ~/.config/hypr
-  #   find ~/.config/hypr -type f -name "*.sh" -exec chmod +x {} \;
-  #   find ~/.config/hypr/scripts -type f -exec chmod +x {} \; 2>/dev/null || true
-  #   find ~/.config/hypr/UserScripts -type f -exec chmod +x {} \; 2>/dev/null || true
-  # '';
+  home.file.".config/hypr" = {
+    source = ./hyprland;
+    recursive = true;              # важно для папок
+    # Эта магия делает файлы записываемыми сразу при копировании
+    onChange = ''
+      chmod -R u+w $HOME/.config/hypr || true
+      find $HOME/.config/hypr -type f -name "*.sh" -exec chmod +x {} \; || true
+      find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
+      find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
+    '';
+  };
 
 
   # home.file.".config/hypr/animations".source = ./hyprland/animations;
