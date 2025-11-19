@@ -2,7 +2,7 @@
 {
   # Hyprland
   home.file.".config/hypr".source = ./hyprland;
-  home.file.".config/hypr/variables.json".text = ''
+  home.file.".config/hypr/scheme/current.json".text = ''
     { "primary": "#ffffff" }
   '';
 
