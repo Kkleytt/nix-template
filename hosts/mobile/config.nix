@@ -11,7 +11,6 @@ in {
     ./hardware.nix
     ./users.nix
     ./packages-fonts.nix                      # Установка шрифтов и обязательных пакетов
-    ./apps.nix                                # Установка доп приложений из NixPkgs
     ../../modules/amd-drivers.nix
     # ../../modules/nvidia-drivers.nix
     # ../../modules/nvidia-prime-drivers.nix

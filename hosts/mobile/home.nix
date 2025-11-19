@@ -84,24 +84,7 @@
       celluloid                                   # Видео плеер на базе MPV
       gnome-sound-recorder                        # Запись аудио
       syncthing                                   # P2P синхронизация файлов без серверов
-      
-
-    ## WIKI: Стоит изучить данные утилиты в кратчайшие сроки и начать ими пользоваться для продуктивного использования системы
-      # yazi                                        # Файловый менеджер
-      # ripgrep                                     # Быстрый поиск текста в файлах 
-      # atuin                                       # Расширенная история команд
-      # zoxide                                      # Умный cd с запоминанием директорий
-      # tldr                                        # Красивый вывод информации о команде (аналог man)
-      # fd                                          # Быстрый поиск файлов (аналог find)
-      # httpx                                       # Дружелюбная альтернатива curl для тестирования API
-      # lazygit                                     # TUI для Git (коммиты, ветки, история)
-      # lazydocker                                  # TUI для управления контейнерами
-      # lazyjournal                                 # TUI для просмотра Linux журнала
-      # lazyssh                                     # TUI для работы с SSH подключениями
-      # lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
-      # dooit                                       # TUI ToDo список задач
-      # calcurse                                    # TUI календарь со списком задач
-    ## WIKI:
+    
 
     ## Browsers
       # vivaldi                                     # Браузер Vivaldi
@@ -131,8 +114,7 @@
       # errands                                     # Todo заметки
       # planify                                     # Красивые ToDo заметки
       # iotas                                       # Красивые ToDo заметки
-      # dosage-tracker                              # Напоминалка
-
+      # kuro                                        # Неофициальный клиент Microsoft ToDo
 
 
     ## File system & Backups utils
@@ -157,7 +139,6 @@
       # gnome-calendar                              # Календарь
       # gnome-calculator                            # Калькулятор
       # gnome-clocks                                # Часы, Таймер, Секундомер
-      # kooha                                       # Запись экрана
       
 
     ## Games
@@ -173,27 +154,41 @@
       # rambox                                      # Менеджер соц-сетей
       # telegram-desktop                            # Официальный клиент Telegram
       # vesktop                                     # Неофициальный клеинт Discord
-      # cassette                                    # Аналог Яндекс Музыки
       # ferdium                                     # Менеджер соц-сетей
       # denaro                                      # Менеджер финансов
-      # kuro                                        # Неофициальный клиент Microsoft ToDo
-    ]); 
+  
 
-    programs = {
-      
-      # Настройка Git
-      git = {
-        enable = true;
-        settings = {
-          user = {
-            email = "kkleytt@gmail.com";
-            name = "Kkleytt";
-          };
+    ## WIKI: Стоит изучить данные утилиты в кратчайшие сроки и начать ими пользоваться для продуктивного использования системы
+      # yazi                                        # Файловый менеджер
+      # ripgrep                                     # Быстрый поиск текста в файлах 
+      # atuin                                       # Расширенная история команд
+      # zoxide                                      # Умный cd с запоминанием директорий
+      # tldr                                        # Красивый вывод информации о команде (аналог man)
+      # fd                                          # Быстрый поиск файлов (аналог find)
+      # httpx                                       # Дружелюбная альтернатива curl для тестирования API
+      # lazygit                                     # TUI для Git (коммиты, ветки, история)
+      # lazydocker                                  # TUI для управления контейнерами
+      # lazyjournal                                 # TUI для просмотра Linux журнала
+      # lazyssh                                     # TUI для работы с SSH подключениями
+      # lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
+      # dooit                                       # TUI ToDo список задач
+      # calcurse                                    # TUI календарь со списком задач
+    ## WIKI:
+  ]); 
+
+  programs = {
+    
+    # Настройка Git
+    git = {
+      enable = true;
+      settings = {
+        user = {
+          email = "kkleytt@gmail.com";
+          name = "Kkleytt";
         };
       };
-
-      
     };
 
-    
+
+  };
 }
