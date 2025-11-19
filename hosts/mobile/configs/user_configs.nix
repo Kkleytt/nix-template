@@ -11,7 +11,7 @@
       find $HOME/.config/hypr -type f -name "*.sh" -exec chmod +x {} \; || true
       find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
       find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
-      find $HOME/.config/hypr -type f -name "*.conf" -exec chmod 777 {}; || true
+      find $HOME/.config/hypr -type f -name "*.conf" -exec chmod 777 {} \; || true
     '';
   };
 
