@@ -7,7 +7,7 @@
     # autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    initExtra = ''
+    initContent = ''
       fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
       # ls (просмотр директории)

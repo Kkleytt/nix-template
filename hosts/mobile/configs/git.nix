@@ -22,11 +22,14 @@
 
     ssh = {
       enable = true;
-      matchBlocks = {
-        "github.com" = {
-          user = "git";
-          identityFile = "~/.ssh/id_ed25519";
-        };
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        user = "kkleytt";
+        identityFile = "~/.ssh/id_ed25519";
+      };
+      matchBlocks."github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519";
       };
     };
   };
