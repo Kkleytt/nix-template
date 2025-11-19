@@ -5,7 +5,7 @@
   home.file.".config/hypr".source = builtins.filterSource
     (path: _: baseNameOf path != "scheme") ./hyprland;
 
-  // Делаем все файлы и папки внутри ~/.config/hypr записываемыми и исполняемыми где нужно
+  #  Делаем все файлы и папки внутри ~/.config/hypr записываемыми и исполняемыми где нужно
   home.activation.fixHyprPermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
     chmod -R u+w ~/.config/hypr
     find ~/.config/hypr -type f -name "*.sh" -exec chmod +x {} \;
