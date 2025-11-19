@@ -4,13 +4,16 @@
   # Копируем всю папку hyprland, но без scheme (как раньше)
   home.file.".config/hypr" = {
     source = ./hyprland;
-    recursive = true;              # важно для папок
-    # Эта магия делает файлы записываемыми сразу при копировании
+    recursive = true;
+
+    # Это ключ: меняем права ПОСЛЕ того, как Nix всё скопировал
     onChange = ''
-      chmod -R u+w $HOME/.config/hypr || true
-      find $HOME/.config/hypr -type f -name "*.sh" -exec chmod +x {} \; || true
-      find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
-      find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
+      ${config.lib.shell} -c "
+        chmod -R u+w $HOME/.config/hypr || true
+        find $HOME/.config/hypr -type f -name '*.sh' -exec chmod +x {} \; || true
+        find $HOME/.config/hypr/scripts -type f -exec chmod +x {} \; || true
+        find $HOME/.config/hypr/UserScripts -type f -exec chmod +x {} \; || true
+      "
     '';
   };
 
