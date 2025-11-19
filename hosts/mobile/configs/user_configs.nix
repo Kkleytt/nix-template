@@ -1,6 +1,10 @@
 { ... }:
 {
   # Hyprland
+  home.activation.hyprProfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    mkdir -p ~/.config/hypr
+  '';
+
   home.file.".config/hypr/animations".source              = ./hyprland/animations;
   home.file.".config/hypr/configs".source                 = ./hyprland/configs;
   home.file.".config/hypr/Monitor_Profiles".source        = ./hyprland/Monitor_Profiles;
