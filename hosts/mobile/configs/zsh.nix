@@ -15,6 +15,7 @@
       alias ll='eza -lh --icons --group-directories-first --color=always'
       alias la='eza -lha --icons --group-directories-first --color=always'
       alias lt='eza --tree --icons --group-directories-first --color=always'
+      alias cat='bat'
 
       # clear (очистка терминала)
       alias cls='clear'

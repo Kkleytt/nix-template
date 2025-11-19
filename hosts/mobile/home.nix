@@ -70,9 +70,7 @@
       lazyssh                                     # TUI для работы с SSH подключениями
       lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
       dooit                                       # TUI ToDo список задач
-      calcurse                                    # TUI календарь со списком задач
-      ripgrep                                     # 
-      
+      calcurse                                    # TUI календарь со списком задач      
       rich-cli                                    # Красивый вывод JSON/текста с цветами и таблицами
 
     ## Необязательные приложения
