@@ -1,4 +1,5 @@
 #!/bin/bash
+# GENERATE by NixOS config
 
 # Get the current battery percentage
 battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)

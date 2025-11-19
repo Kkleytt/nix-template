@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# GENERATE by NixOS config
 
 # --- CONFIG ---
 CACHE_FILE="$HOME/.config/hypr/scheme/variables-new.json"
