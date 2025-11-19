@@ -34,7 +34,20 @@ in
   }; 
   
   environment.shells = with pkgs; [ zsh ];
-  environment.systemPackages = with pkgs; [ lsd fzf ]; 
+  environment.systemPackages = with pkgs; [ 
+    fastfetch                               # Красивый вывод информации о системе
+    fzf                                     # Быстрый поиск файлов и директорий
+    ripgrep                                 # Быстрый поиск текста в файлах 
+    fd                                      # Быстрый поиск файлов (аналог find)
+    curl                                    # Загрузка данных по URL
+    wget                                    # Загрузка файлов по URL
+    eza                                     # Красивая замена ls
+    zoxide                                  # Умный cd с запоминанием директорий
+    tldr                                    # Красивый вывод информации о команде (аналог man)
+    bat                                     # Красивый вывод файлов в консоль
+    jq                                      # Обработка JSON в терминале
+    atuin                                   # Расширенная история команд
+  ]; 
     
   programs = {
   # Zsh configuration
