@@ -38,14 +38,14 @@ in
     
   programs = {
   # Zsh configuration
-	  zsh = {
-    	enable = true;
-	  	enableCompletion = true;
+    zsh = {
+      enable = true;
+      enableCompletion = true;
       ohMyZsh = {
         enable = true;
         plugins = ["git"];
         theme = "agnoster"; 
-      	};
+      };
       
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
@@ -57,12 +57,6 @@ in
         #krabby random --no-mega --no-gmax --no-regional --no-title -s; 
 
         # ls (просмотр директории)
-        # alias ls='lsd'
-        # alias l='ls -l'
-        # alias la='ls -a'
-        # alias lla='ls -la'
-        # alias lt='ls --tree'
-
         alias ls='eza --icons --group-directories-first --color=always'
         alias ll='eza -lh --icons --group-directories-first --color=always'
         alias la='eza -lha --icons --group-directories-first --color=always'
@@ -82,5 +76,5 @@ in
         setopt appendhistory;
         '';
       };
-   };
+  };
 }
