@@ -173,49 +173,8 @@
     ## WIKI:
   ]); 
 
-  programs = {
-    
-    # Настройка Git
-    git = {
-      enable = true;
-      settings = {
-        user = {
-          email = "kkleytt@gmail.com";
-          name = "Kkleytt";
-        };
-      };
-    };
-
-    # Настройка Zsh и консоли
-    zsh = {
-      enable = true;
-      
-      initContent = ''
-        fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
-
-        #pokemon colorscripts like. Make sure to install krabby package
-        #krabby random --no-mega --no-gmax --no-regional --no-title -s; 
-
-        # ls (просмотр директории)
-        alias ls='eza --icons --group-directories-first --color=always'
-        alias ll='eza -lh --icons --group-directories-first --color=always'
-        alias la='eza -lha --icons --group-directories-first --color=always'
-        alias lt='eza --tree --icons --group-directories-first --color=always'
-
-
-        # clear (очистка терминала)
-        alias cls='clear'
-
-        # ssh (подключение к серверу)
-        alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
-
-        source <(fzf --zsh);
-        HISTFILE=~/.zsh_history;
-        HISTSIZE=10000;
-        SAVEHIST=10000;
-        setopt appendhistory;
-      '';
-    };
-
-  };
+  imports = [
+    ./configs/git.nix                   # Настройка Git
+    ./configs/zsh.nix                   # Настройка Zsh
+  ];
 }
