@@ -48,4 +48,17 @@ in
     jq                                      # Обработка JSON в терминале
     atuin                                   # Расширенная история команд
   ]; 
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "agnoster"; 
+    };
+    
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+};
 }

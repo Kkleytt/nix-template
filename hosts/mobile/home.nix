@@ -189,17 +189,8 @@
     # Настройка Zsh и консоли
     zsh = {
       enable = true;
-      enableCompletion = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git"];
-        theme = "agnoster"; 
-      };
       
-      # autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      
-      promptInit = ''
+      initExtra = ''
         fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
         #pokemon colorscripts like. Make sure to install krabby package
