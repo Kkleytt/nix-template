@@ -30,7 +30,7 @@
         vlc                                         # Стандартный аудио проигрыватель
 
     ## 🖥️ Мониторинг и диагностика
-        btop                                        # Красивый вывод метрик устройства
+        # btop                                        # Красивый вывод метрик устройства
         bottom                                      # Красивый вывод метрик устройства
         duf                                         # Простой вывод информации о дисках
         # nvtopPackages.full                          # Мониторинг Nvidia GPU
@@ -128,6 +128,11 @@
     nm-applet.indicator = true;
     virt-manager.enable = false;
     fuse.userAllowOther = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    };
   };
   
   # Extra Portal Configuration

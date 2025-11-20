@@ -8,6 +8,7 @@
     ## Caelestia
       inputs.caelestia-shell.packages.${system}.default
       inputs.caelestia-cli.packages.${system}.default
+      rofi                                          # Лаунчер запуска приложений
 
     ## Programming Language & Tools
       #### Virtualization  
@@ -16,10 +17,23 @@
         kubernetes                                  # Оркестрирование множеством контейнеров на разных хост-машинах
 
       #### Python
-        jupyter-all                                 # Python ядро + поддержка создания Notebook
+      # Отдельный чистый Python 3.14
+      python314
+
+      # JupyterLab, который сам потянет всё нужное и будет использовать твой python314
+        (python314.withPackages (ps: with ps; [
+          jupyterlab
+          ipykernel
+          httpx
+        ]))
+        # jupyter-all                                 # Python ядро + поддержка создания Notebook
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry
         mypy                                        # Статический анализатор типов
         ruff                                        # Быстрый линтер и автоисправитель на Rust
+        # python3
+        # python312
+        # python313
+        # python314
 
       #### Rust
         rustc                                       # Компилятор языка Rust.
@@ -32,17 +46,17 @@
         eslint                                      # Линтер для JavaScript/TypeScript
       
       #### C / C++
-        gcc                                         # Компилятор GNU для C/C++.
-        # clang                                       # Альтернативный компилятор от LLVM — быстрее, лучше ошибки.
+        clang                                       # Альтернативный компилятор от LLVM — быстрее, лучше ошибки.
+        # gcc                                         # Компилятор GNU для C/C++.
 
       #### Editors
         neovim                                      # Улучшенный редактор кода NeoVim
         vscode                                      # Классический VsCode
-        # vscodium                                    # 
+        zed-editor                                  # Быстрый аналог VsCode
+        # vscodium                                    # VsCode без телеметрии и слежки
         # jetbrains.pycharm-community                 # Бесплатная версия Pycharm
         # sublimetext4                                # Быстрый редактор кода
         # arduino-ide                                 # IDE для работы с Arduino
-        # zed-editor                                  # Быстрый аналог VsCode
 
 
 
@@ -64,114 +78,111 @@
         
 
     ## ClI utils
-      lazygit                                     # TUI для Git (коммиты, ветки, история)
-      lazydocker                                  # TUI для управления контейнерами
-      lazyjournal                                 # TUI для просмотра Linux журнала
-      lazyssh                                     # TUI для работы с SSH подключениями
-      lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
-      dooit                                       # TUI ToDo список задач
-      calcurse                                    # TUI календарь со списком задач      
-      rich-cli                                    # Красивый вывод JSON/текста с цветами и таблицами
+      lazygit                                       # TUI для Git (коммиты, ветки, история)
+      lazydocker                                    # TUI для управления контейнерами
+      lazyjournal                                   # TUI для просмотра Linux журнала
+      lazyssh                                       # TUI для работы с SSH подключениями
+      lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
+      dooit                                         # TUI ToDo список задач
+      calcurse                                      # TUI календарь со списком задач      
+      rich-cli                                      # Красивый вывод JSON/текста с цветами и таблицами
 
     ## Необязательные приложения
-      rofi                                        # Лаунчер запуска приложений
-      amberol                                     # Музыкальный плеер
-      celluloid                                   # Видео плеер на базе MPV
-      gnome-sound-recorder                        # Запись аудио
-      syncthing                                   # P2P синхронизация файлов без серверов
     
 
     ## Browsers
-      # vivaldi                                     # Браузер Vivaldi
-      # qutebrowser                                 # Браузер для управления без мышки
-      # brave                                       # Браузер Brave
-      # firefox                                     # Браузер Firefox
+      brave                                         # Браузер Brave
+      # vivaldi                                       # Браузер Vivaldi
+      # qutebrowser                                   # Браузер для управления без мышки
+      # firefox                                       # Браузер Firefox
       
 
     ## Office
-      onlyoffice-desktopeditors                   # Аналог Microsoft Office
-      thunderbird                                 # Mail клиент
-      # figma-linux                                 # Неофициальный клиент Figma
+      amberol                                       # Музыкальный плеер
+      celluloid                                     # Видео плеер на базе MPV
+      onlyoffice-desktopeditors                     # Аналог Microsoft Office
+      thunderbird                                   # Mail клиент
+      # figma-linux                                   # Неофициальный клиент Figma
 
 
     ## Notepads & Read apps
-      obsidian                                    # Полноценный Markdown редактор
-      keypunch                                    # Аналог monkeytype
-      # anytype                                     # Аналог Notion
-      # apostrophe                                  # Красивый Markdown редактор
-      # appflowy                                    # Аналог Notion
-      # folio                                       # Простой Markdown редактор
-      # foliate                                     # Читалка книг
+      obsidian                                      # Полноценный Markdown редактор
+      keypunch                                      # Аналог monkeytype
+      # anytype                                       # Аналог Notion
+      # apostrophe                                    # Красивый Markdown редактор
+      # appflowy                                      # Аналог Notion
+      # folio                                         # Простой Markdown редактор
+      # foliate                                       # Читалка книг
 
 
     ## ToDo & Time control apps
-      # morgen                                      # Все в одном: Календарь, Задачи, Заметки, Напоминания
-      # errands                                     # Todo заметки
-      # planify                                     # Красивые ToDo заметки
-      # iotas                                       # Красивые ToDo заметки
-      # kuro                                        # Неофициальный клиент Microsoft ToDo
+      # morgen                                        # Все в одном: Календарь, Задачи, Заметки, Напоминания
+      # errands                                       # Todo заметки
+      # planify                                       # Красивые ToDo заметки
+      # iotas                                         # Красивые ToDo заметки
+      # kuro                                          # Неофициальный клиент Microsoft ToDo
 
 
     ## File system & Backups utils
       xfce.thunar
-      yazi                                        # Файловый менеджер
-      peazip                                      # Минималистичный архиватор
-      pika-backup                                 # Бекап системы
-      fragments                                   # Торрент клиент
-      # deja-dup                                    # Бекап файлов
+      yazi                                          # Файловый менеджер
+      peazip                                        # Минималистичный архиватор
+      pika-backup                                   # Бекап системы
+      fragments                                     # Торрент клиент
+      syncthing                                     # P2P синхронизация файлов без серверов
+      # deja-dup                                      # Бекап файлов
 
 
     ## Standart apps in other shell
-      baobab                                      # Просмотр использования диска
-      gnome-secrets                               # Менеджер паролей
-      gnome-text-editor                           # Текстовый редактор
-      gnome-disk-utility                          # Управление дисками
-      # gnome-boxes                                 # Управление виртуальными машинами
-      # turnon                                      # Wake-On-Lan приложение
-      # gnome-frog                                  # Получение текста из скриншота
-      # mission-center                              # Просмотр нагрузки на ПК
-      # crow-translate                              # Переводчик
-      # gnome-calendar                              # Календарь
-      # gnome-calculator                            # Калькулятор
-      # gnome-clocks                                # Часы, Таймер, Секундомер
+      baobab                                        # Просмотр использования диска
+      gnome-secrets                                 # Менеджер паролей
+      gnome-disk-utility                            # Управление дисками
+      gnome-sound-recorder                          # Запись аудио
+      # gnome-text-editor                             # Текстовый редактор
+      # gnome-boxes                                   # Управление виртуальными машинами
+      # turnon                                        # Wake-On-Lan приложение
+      # gnome-frog                                    # Получение текста из скриншота
+      # mission-center                                # Просмотр нагрузки на ПК
+      # crow-translate                                # Переводчик
+      # gnome-calendar                                # Календарь
+      # gnome-calculator                              # Калькулятор
+      # gnome-clocks                                  # Часы, Таймер, Секундомер
       
 
     ## Games
-      # bottles                                     # Система запуска exe программ на базе Wine
-      # retroarch                                   # Менеджер ретро-игр
-      # heroic                                      # Игровая платформа для Epic Games Store
-      # cartridges                                  # Лаунчер для игр (Официальных)
+      # bottles                                       # Система запуска exe программ на базе Wine
+      # retroarch                                     # Менеджер ретро-игр
+      # heroic                                        # Игровая платформа для Epic Games Store
+      # cartridges                                    # Лаунчер для игр (Официальных)
     
     
     ## Social
-      materialgram                                # Неофициальный клиент Telegram
-      # legcord                                     # Неофициальный Discord клиент
-      # rambox                                      # Менеджер соц-сетей
-      # telegram-desktop                            # Официальный клиент Telegram
-      # vesktop                                     # Неофициальный клеинт Discord
-      # ferdium                                     # Менеджер соц-сетей
-      # denaro                                      # Менеджер финансов
+      materialgram                                  # Неофициальный клиент Telegram
+      # legcord                                       # Неофициальный Discord клиент
+      # rambox                                        # Менеджер соц-сетей
+      # telegram-desktop                              # Официальный клиент Telegram
+      # vesktop                                       # Неофициальный клеинт Discord
+      # ferdium                                       # Менеджер соц-сетей
+      # denaro                                        # Менеджер финансов
   
 
     ## WIKI: Стоит изучить данные утилиты в кратчайшие сроки и начать ими пользоваться для продуктивного использования системы
-      # yazi                                        # Файловый менеджер
-      # ripgrep                                     # Быстрый поиск текста в файлах 
-      # atuin                                       # Расширенная история команд
-      # zoxide                                      # Умный cd с запоминанием директорий
-      # tldr                                        # Красивый вывод информации о команде (аналог man)
-      # fd                                          # Быстрый поиск файлов (аналог find)
-      # httpx                                       # Дружелюбная альтернатива curl для тестирования API
-      # lazygit                                     # TUI для Git (коммиты, ветки, история)
-      # lazydocker                                  # TUI для управления контейнерами
-      # lazyjournal                                 # TUI для просмотра Linux журнала
-      # lazyssh                                     # TUI для работы с SSH подключениями
-      # lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
-      # dooit                                       # TUI ToDo список задач
-      # calcurse                                    # TUI календарь со списком задач
+      # yazi                                          # Файловый менеджер
+      # ripgrep                                       # Быстрый поиск текста в файлах 
+      # atuin                                         # Расширенная история команд
+      # zoxide                                        # Умный cd с запоминанием директорий
+      # tldr                                          # Красивый вывод информации о команде (аналог man)
+      # fd                                            # Быстрый поиск файлов (аналог find)
+      # httpx                                         # Дружелюбная альтернатива curl для тестирования API
+      # lazygit                                       # TUI для Git (коммиты, ветки, история)
+      # lazydocker                                    # TUI для управления контейнерами
+      # lazyjournal                                   # TUI для просмотра Linux журнала
+      # lazyssh                                       # TUI для работы с SSH подключениями
+      # lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
+      # dooit                                         # TUI ToDo список задач
+      # calcurse                                      # TUI календарь со списком задач
     ## WIKI:
   ]); 
-
-  
 
   imports = [
     ./configs/git.nix                   # Настройка Git
