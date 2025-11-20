@@ -162,6 +162,8 @@
     # Настройка Jupyter
     jupyter = {
       enable = true;
+      # Generate password in terminal - `python3 -c "from jupyter_server.auth import passwd; print(passwd())"`
+      password = "argon2:$argon2id$v=19$m=10240,t=10,p=8$S0ykdta+ysLy5ZrTwHJx8g$01/XNcbuu+APIYo7PMwujdZ+bxTfgsQUjXXgVJxoyrw";
     };
   };
 }
