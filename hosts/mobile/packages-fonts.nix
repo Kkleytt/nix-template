@@ -173,7 +173,7 @@
 
       # Additional packages to use with kernel
       extraPackages = [
-        pkgs.python3.pkgs.redis
+        pkgs.python313Packages.redis
       ];
     };
   };
