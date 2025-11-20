@@ -185,11 +185,6 @@
           "-f" "{connection_file}"
         ];
       };
-    in {
-      base  = mk "base"  "Default Python 3.13" [];
-      study = mk "study" "Study Python 3.13" [ numpy pandas matplotlib ];
-      ml    = mk "ml"    "Machine Learning Python 3.13" [ torch torchvision torchaudio scikit-learn ];
-};
     };
   };
 }
