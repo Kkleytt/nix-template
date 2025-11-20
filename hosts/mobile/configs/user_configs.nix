@@ -3,7 +3,10 @@
   # Hyprland
   home.file.".config/hypr/animations".source                    = ./hyprland/animations;
   home.file.".config/hypr/configs".source                       = ./hyprland/configs;
+  home.file.".config/hypr/Monitor_Profiles".source              = ./hyprland/Monitor_Profiles;
+  home.file.".config/hypr/scripts".source                       = ./hyprland/scripts;
   home.file.".config/hypr/UserConfigs".source                   = ./hyprland/UserConfigs;
+  home.file.".config/hypr/UserScripts".source                   = ./hyprland/UserScripts;
   home.file.".config/hypr/application-style.conf".source        = ./hyprland/application-style.conf;
   home.file.".config/hypr/hypridle.conf".source                 = ./hyprland/hypridle.conf;
   home.file.".config/hypr/hyprland.conf".source                 = ./hyprland/hyprland.conf;
