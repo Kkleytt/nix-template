@@ -128,11 +128,6 @@
     nm-applet.indicator = true;
     virt-manager.enable = false;
     fuse.userAllowOther = true;
-
-    thunar = {
-      enable = true;
-      # plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
-    };
   };
   
   # Extra Portal Configuration

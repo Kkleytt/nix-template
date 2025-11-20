@@ -113,6 +113,7 @@
 
 
     ## File system & Backups utils
+      thunar
       yazi                                        # Файловый менеджер
       peazip                                      # Минималистичный архиватор
       pika-backup                                 # Бекап системы
@@ -175,6 +176,6 @@
   imports = [
     ./configs/git.nix                   # Настройка Git
     ./configs/zsh.nix                   # Настройка Zsh
-    ./configs/user_configs.nix          # Настройка локальных конфигов пользователя
+    #./configs/user_configs.nix          # Настройка локальных конфигов пользователя
   ];
 }

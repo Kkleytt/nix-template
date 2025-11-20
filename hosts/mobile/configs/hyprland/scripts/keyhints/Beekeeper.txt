@@ -1,1 +1,15 @@
-/nix/store/wpmpz99mybbzb2qdwvr51a90fsn1kx7q-home-manager-files/.config/hypr/scripts/keyhints/Beekeeper.txt
+
+Ctrl + T                    ; Открыть новую вкладку        
+Ctrl + Shift + T            ; Отменить закрытие вкладки    
+Ctrl + W                    ; Закрыть вкладку              
+Ctrl + P                    ; Быстрый поиск по вкладкам    
+Ctrl + F                    ; Поиск по вкладке             
+Ctrl + R                    ; Поиск и замена по вкладке    
+Alt + S                     ; Вкл/Выкл боковое меню        
+Ctrl + Space                ; Автозавершение кода          
+Ctrl + Return               ; Запуск SQL скрипта           
+Ctrl + Shift + Return       ; Запуск SQL кода (выделенное) 
+Ctrl + Shift + Q            ; Отключится от БД             
+Ctrl + Shift + R            ; Перезапустить окно           
+
+

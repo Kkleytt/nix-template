@@ -1,1 +1,11 @@
-/nix/store/wpmpz99mybbzb2qdwvr51a90fsn1kx7q-home-manager-files/.config/hypr/scripts/RestartShell.sh
+#!/usr/bin/env bash
+
+# Убиваем все запущенные процессы caelestia-shell
+pkill -f caelestia
+caelestia-shell kill
+
+# Небольшая пауза, чтобы процесс точно завершился (опционально)
+sleep 1
+
+# Запускаем caelestia-shell в фоне
+caelestia-shell &
