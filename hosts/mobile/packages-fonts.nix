@@ -187,12 +187,11 @@
           ];
         };
       in {
-        base  = mk "base"  "Default Python 3.13" (ps: []);
-        study = mk "study" "Study Python 3.13" (ps: with ps; [ numpy pandas matplotlib ]);
-        ml    = mk "ml"    "Machine Learning Python 3.13" (ps: with ps; [ torch torchvision torchaudio scikit-learn ]);
+        base  = mk "base"   "Default Python"                    (ps: []);
+        study = mk "study"  "Study Python"                      (ps: with ps; [ redis rabbitmq sqlalchemy kafka celery asyncpg asyncmy ]);
+        ml    = mk "ml"     "Machine Learning Python"           (ps: with ps; [ torch torchvision torchaudio scikit-learn ]);
+        db    = mk "db"     "Python for databases"              (ps: with ps; [ redis rabbitmq sqlalchemy asyncpg asyncmy ]);
       };
     };
   };
-
-  
 }
