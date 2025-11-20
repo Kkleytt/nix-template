@@ -177,6 +177,7 @@
           env = pkgs.python313.withPackages (ps: with ps; [ redis ipykernel jupyterlab ]);
         in {
           displayName = "Python 3 с redis";
+          language = "python";
           argv = [
             "${env.interpreter}"
             "-m" "ipykernel_launcher"
