@@ -162,8 +162,19 @@
     # Настройка Jupyter
     jupyter = {
       enable = true;
+
       # Generate password in terminal - `python3 -c "from jupyter_server.auth import passwd; print(passwd())"`
+      # This password is `Fedoskin010220053666!`
       password = "argon2:$argon2id$v=19$m=10240,t=10,p=8$S0ykdta+ysLy5ZrTwHJx8g$01/XNcbuu+APIYo7PMwujdZ+bxTfgsQUjXXgVJxoyrw";
+      
+      # Connect with url - `http://127.0.0.1:8888`
+      ip = "localhost";
+      port = 8888;
+
+      # Additional packages to use with kernel
+      extraPackages = [
+        pkgs.python3.pkgs.redis
+      ];
     };
   };
 }
