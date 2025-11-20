@@ -172,24 +172,26 @@
       port = 8888;
 
       # Additional packages to use with kernel
-      kernels = let
-        mk = name: display: extraPkgs: {
-          inherit display;
-          language = "python";
-          argv = let
-            packages = ps: with ps; [ ipykernel jupyterlab ] ++ extraPkgs;
-            env = pkgs.python313.withPackages packages;
-          in [
-            "${env.interpreter}"
-            "-m" "ipykernel_launcher"
-            "-f" "{connection_file}"
-          ];
-        };
-      in {
-        base  = mk "base"  "Default Python 3.13" [];
-        study = mk "study" "Study Python 3.13" [ numpy pandas matplotlib ];
-        ml    = mk "ml"    "Machine Learning Python 3.13" [ torch torchvision torchaudio scikit-learn ];
-      };
     };
+  };
+
+  services.jupyter.kernels = let
+    basePackages = ps: with ps; [ ipykernel jupyterlab ];
+
+    mk = name: display: extra: {
+      inherit display;
+      language = "python";
+      argv = let
+        env = pkgs.python313.withPackages (ps: (basePackages ps) ++ (extra ps));
+      in [
+        "${env.interpreter}"
+        "-m" "ipykernel_launcher"
+        "-f" "{connection_file}"
+      ];
+    };
+  in {
+    base  = mk "base"  "Default Python 3.13" (ps: []);
+    study = mk "study" "Study Python 3.13" (ps: with ps; [ numpy pandas matplotlib ]);
+    ml    = mk "ml"    "Machine Learning Python 3.13" (ps: with ps; [ torch torchvision torchaudio scikit-learn ]);
   };
 }
