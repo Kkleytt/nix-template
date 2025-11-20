@@ -172,9 +172,7 @@
       port = 8888;
 
       # Additional packages to use with kernel
-      extraPackages = [
-        pkgs.python313Packages.redis
-      ];
+      extraPackages = ps: [ ps.redis ];
     };
   };
 }
