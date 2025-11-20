@@ -172,18 +172,16 @@
       port = 8888;
 
       # Additional packages to use with kernel
-      kernels = {
-        python3 = let
-          env = pkgs.python313.withPackages (ps: with ps; [ redis ipykernel jupyterlab ]);
-        in {
-          displayName = "Python 3 с redis";
+      kernels = let
+        mk = name: display: extra: {
+          inherit display;
           language = "python";
-          argv = [
-            "${env.interpreter}"
-            "-m" "ipykernel_launcher"
-            "-f" "{connection_file}"
-          ];
+          argv = [ "${(pkgs.python313.withPackages (ps: with ps; [ipykernel jupyterlab] ++ extra ps)).interpreter}" "-m" "ipykernel_launcher" "-f" "{connection_file}" ];
         };
+      in {
+        base   = mk "base"   "Default Python 3.13" [];
+        study  = mk "study"  "Study Python 3.13" [numpy pandas matplotlib];
+        ml     = mk "ml"     "Machine Learning Python 3.13" [torch torchvision torchaudio scikit-learn];
       };
     };
   };
