@@ -134,6 +134,7 @@
       plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
     };
   };
+
   
   # Extra Portal Configuration
   xdg.portal = {
@@ -146,11 +147,21 @@
       pkgs.xdg-desktop-portal-hyprland
     ];
   };
-  services.flatpak.enable = true;
 
-  services.flatpak.packages = [ 
-    "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
-    "app.fotema.Fotema"                         # Менеджер фото 
-    "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
-  ];
+  services = {
+    # Установка Flatpak пакетов
+    flatpak = {
+      enable = true;
+      packages = [
+        "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
+        "app.fotema.Fotema"                         # Менеджер фото 
+        "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
+      ];
+    };
+
+    # Настройка Jupyter
+    jupyter = {
+      enable = true;
+    };
+  };
 }

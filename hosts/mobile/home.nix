@@ -17,15 +17,6 @@
         kubernetes                                  # Оркестрирование множеством контейнеров на разных хост-машинах
 
       #### Python
-      # Отдельный чистый Python 3.14
-      python314
-
-      # JupyterLab, который сам потянет всё нужное и будет использовать твой python314
-        (python314.withPackages (ps: with ps; [
-          jupyterlab
-          ipykernel
-          httpx
-        ]))
         # jupyter-all                                 # Python ядро + поддержка создания Notebook
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry
         mypy                                        # Статический анализатор типов
@@ -33,7 +24,7 @@
         # python3
         # python312
         # python313
-        # python314
+        python314
 
       #### Rust
         rustc                                       # Компилятор языка Rust.
