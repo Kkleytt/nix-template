@@ -190,7 +190,7 @@
         base  = mk "base"   "Default Python"                    (ps: []);
         study = mk "study"  "Study Python"                      (ps: with ps; [ redis aio-pika sqlalchemy aiokafka celery asyncpg asyncmy httpx ]);
         ml    = mk "ml"     "Machine Learning Python"           (ps: with ps; [ torch torchvision torchaudio scikit-learn ]);
-        db    = mk "db"     "Python for databases"              (ps: with ps; [ redis sqlalchemy asyncpg asyncmy sqlite-anyio ]);
+        db    = mk "db"     "Python for databases"              (ps: with ps; [ redis sqlalchemy asyncpg asyncmy ]);
         web   = mk "web"    "Python for web"                    (ps: with ps; [ redis sqlalchemy asyncpg aiokafka fastapi httpx pyjwt ]);
       };
     };
