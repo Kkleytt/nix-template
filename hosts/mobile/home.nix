@@ -113,7 +113,7 @@
 
 
     ## File system & Backups utils
-      thunar
+      xfce.thunar
       yazi                                        # Файловый менеджер
       peazip                                      # Минималистичный архиватор
       pika-backup                                 # Бекап системы
