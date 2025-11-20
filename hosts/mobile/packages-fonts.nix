@@ -172,7 +172,18 @@
       port = 8888;
 
       # Additional packages to use with kernel
-      extraPackages = with pkgs.python3Packages; [ redis ];
+      kernels = {
+        python3 = let
+          env = pkgs.python313.withPackages (ps: with ps; [ redis ipykernel jupyterlab ]);
+        in {
+          displayName = "Python 3 с redis";
+          argv = [
+            "${env.interpreter}"
+            "-m" "ipykernel_launcher"
+            "-f" "{connection_file}"
+          ];
+        };
+      };
     };
   };
 }
