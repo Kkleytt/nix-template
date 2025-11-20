@@ -171,6 +171,14 @@
     ## WIKI:
   ]); 
 
+  programs = {
+    thunar = {
+      enable = true;
+    
+      plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    };
+  };
+
   imports = [
     ./configs/git.nix                   # Настройка Git
     ./configs/zsh.nix                   # Настройка Zsh
