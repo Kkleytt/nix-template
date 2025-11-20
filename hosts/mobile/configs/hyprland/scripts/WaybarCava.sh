@@ -1,0 +1,1 @@
+/nix/store/wpmpz99mybbzb2qdwvr51a90fsn1kx7q-home-manager-files/.config/hypr/scripts/WaybarCava.sh
