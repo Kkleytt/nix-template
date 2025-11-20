@@ -172,7 +172,7 @@
       port = 8888;
 
       # Additional packages to use with kernel
-      extraPackages = ps: [ ps.redis ];
+      extraPackages = ps: with ps; [ redis numpy pandas httpx ];
     };
   };
 }
