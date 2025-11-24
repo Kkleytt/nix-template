@@ -109,16 +109,41 @@
     enable = true;
     settings = {
       add_newline = false;
+      format = "$directory$git_branch$git_status$nodejs$rust$python$golang$fill$cmd_duration$line_break$character";
+
+      directory = {
+        truncation_length = 0;     # полный путь всегда
+        truncate_to_repo = false;
+        style = "bold blue";
+      };
+
+      git_branch = {
+        format = "[$symbol$branch]($style) ";
+        symbol = " ";
+        style = "bold purple";
+      };
+
+      git_status = {
+        format = "[$all_status$ahead_behind]($style) ";
+        style = "bold red";
+      };
+
+      fill = { symbol = " "; };
+
+      nodejs = { symbol = " "; style = "bold green"; };
+      rust   = { symbol = "🦀 "; style = "bold red"; };
+      python = { symbol = "🐍 "; style = "bold yellow"; };
+      golang = { symbol = "🐹 "; style = "bold cyan"; };
+
+      cmd_duration = {
+        format = "[$duration](bold yellow) ";
+        min_time = 2000;
+      };
+
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol   = "[➜](bold red)";
       };
-      git_branch.style = "bold purple";
-      directory.read_only = "🔒";
-      nodejs.symbol = " ";
-      rust.symbol   = "🦀 ";
-      python.symbol = "🐍 ";
-      golang.symbol = "🐹 ";
     };
   };
 
