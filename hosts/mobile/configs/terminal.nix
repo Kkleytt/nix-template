@@ -38,6 +38,4 @@
       setopt appendhistory
     '';
   };
-
-  environment.shells = with pkgs; [ zsh ];
 }
