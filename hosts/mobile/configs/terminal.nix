@@ -44,6 +44,7 @@
 
     plugins = [
       { name = "fzf-tab"; src = pkgs.zsh-fzf-tab; }
+      { name = "autosuggestions";  src = pkgs.zsh-autosuggestions; }
     ];
 
     initContent = lib.mkMerge [
@@ -62,6 +63,10 @@
       '')
 
       (lib.mkOrder 600 ''
+        # Автоподсказки — теперь точно работают
+        source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70,bold"
+
         # Fastfetch при старте
         [[ -f ${config.xdg.configHome}/fastfetch/config-compact.jsonc ]] &&
           fastfetch -c ${config.xdg.configHome}/fastfetch/config-compact.jsonc
@@ -105,99 +110,59 @@
   };
 
   # ────────────────────── Starship ──────────────────────
-    programs.starship = {
+  programs.starship = {
     enable = true;
-    enableZshIntegration = true;
 
     settings = {
       add_newline = false;
       scan_timeout = 10;
 
-      format = lib.concatStrings [
-        "$directory"
-        "$git_branch$git_status"
-        "$nodejs$rust$golang$python$bun$deno"
-        "$fill"
-        "$cmd_duration"
-        "$character"
-      ];
+      format = "$directory$git_branch$git_state$git_status$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
 
       fill.symbol = " ";
 
-      # ─────── Путь с фоном + умное сокращение до имени проекта ───────
+      # Путь с фоном + сокращение до имени проекта + рабочие substitutions
       directory = {
+        format = "[ 󰉖 $path ]($style) ";
+        style = "bg:#1e1e2e fg:#cba6f7 bold";
         truncation_length = 8;
         truncate_to_repo = true;
-        format = "[  $path ]($style) ";
-        style = "bg:#1e1e2e fg:#cdd6f4 bold";        # Catppuccin Mocha стиль (можно поменять)
-        truncation_symbol = "…/";
 
-        # Когда мы в git-репо — показываем только имя папки (имя проекта)
-        # Когда НЕ в git-репо — показываем полный путь
-        fish_style_pwd_dir_length = 0;
-        use_logical_path = false;
-
+        # ← Вот так правильно делают substitutions в 2025
         substitutions = {
-          "~/Projects" = "󰉋 Proj";
-          "~/Documents" = "󰈙 Docs";
-          "~/Downloads" = " DL";
-          "~" = "";
+          "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
+          "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
+          "${config.home.homeDirectory}/Downloads" = "  DL";
+          "${config.home.homeDirectory}" = "  Home";
         };
       };
 
-      # ─────── Git ветка с фоном ───────
+      # Только одна самая важная иконка (никакого мусора)
+      git_status = {
+        format = "[ $conflicted$staged$deleted$renamed$modified$untracked$stashed$ahead_behind ]($style)";
+        style = "bg:#313244 fg:#f38ba8 bold";
+        conflicted = "✘"; ahead = "⇡"; behind = "⇣"; diverged = "⇕";
+        untracked = "?"; stashed = "$"; modified = "!"; staged = "+"; renamed = "»"; deleted = "✘";
+        # Если всё чисто — вообще ничего не показывается
+        up_to_date = "";
+      };
+
       git_branch = {
         format = "[  $branch ]($style) ";
         style = "bg:#313244 fg:#a6e3a1 bold";
       };
 
-      git_status = {
-        format = "[$all_status$ahead_behind]($style) ";
-        style = "bg:#313244 fg:#f38ba8";
-        conflicted = "✘";
-        ahead = "⇡";
-        behind = "⇣";
-        diverged = "⇕";
-        untracked = "?";
-        stashed = "$";
-        modified = "!";
-        staged = "+";
-        renamed = "»";
-        deleted = "✘";
-      };
+      # Языки — без "via", с цветными фонами
+      nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold) ";
+      rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold) ";
+      python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold) ";
+      golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold) ";
 
-      # ─────── Языки с красивыми фонами и без текста "via" ───────
-      nodejs = {
-        format = "[  $version ](bg:#313244 fg:#a6e3a1 bold) ";
-        version_format = "$major.$minor";
-      };
-      rust = {
-        format = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold) ";
-        version_format = "$major.$minor";
-      };
-      python = {
-        format = "[  $version ](bg:#313244 fg:#cba6f7 bold) ";
-        version_format = "$major.$minor";
-        pyenv_prefix = "";
-      };
-      golang = {
-        format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold) ";
-        version_format = "$major.$minor";
-      };
-      bun = {
-        format = "[ 󰛥 $version ](bg:#313244 fg:#f9e2af bold) ";
-      };
-      deno = {
-        format = "[ 󰴱 $version ](bg:#313244 fg:#a6e3a1 bold) ";
-      };
-
-      # ─────── Время выполнения команды (только если > 2 сек) ───────
       cmd_duration = {
-        format = "[  $duration ](bg:#313244 fg:#cdd6f4 bold) ";
+        format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
         min_time = 2000;
       };
 
-      # ─────── Стрелочка ───────
       character = {
         success_symbol = "[ ➜ ](bold green)";
         error_symbol   = "[ ➜ ](bold red)";
