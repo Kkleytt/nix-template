@@ -128,40 +128,43 @@
       fill.symbol = " ";
 
       directory = {
-        format = "[ 󰉖 $path ]($style) ";
+        format = "[ 󰉖 $path ]($style)";
         style = "bg:#1e1e2e fg:#cba6f7 bold";
         truncation_length = 8;
         truncate_to_repo = true;
+        fish_style_pwd_dir_length = 0;
 
         substitutions = {
-          "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
-          "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
-          "${config.home.homeDirectory}/Загрузки" = "  DL";
-          "${config.home.homeDirectory}/.confog" = " CFG";
-          "${config.home.homeDirectory}" = "  Home";
+          "${config.home.homeDirectory}/Projects" = "󰉋 Proj";
+          "${config.home.homeDirectory}/Documents" = "󰈙 Docs";
+          "${config.home.homeDirectory}/Загрузки" = " DL";
+          "${config.home.homeDirectory}/.config" = " CFG";
+          "${config.home.homeDirectory}" = "";
         };
       };
 
       # Только одна самая важная иконка (никакого мусора)
-      git_status = {
-        format = "[ $conflicted$staged$deleted$renamed$modified$untracked$stashed$ahead_behind ]($style)";
-        style = "bg:#313244 fg:#f38ba8 bold";
-        ahead = "⇡"; 
-        behind = "⇣"; 
-        diverged = "⇕";
-        modified = "!"; 
-        conflicted = ""; 
-        untracked = ""; 
-        stashed = ""; 
-        staged = ""; 
-        renamed = ""; 
-        deleted = "";
-        up_to_date = "";
-      };
+      git_branch.format = "[  $branch ]($style)";
+      git_branch.style = "bg:#313244 fg:#a6e3a1 bold";
 
-      git_branch = {
-        format = "[  $branch ]($style) ";
-        style = "bg:#313244 fg:#a6e3a1 bold";
+      git_status = {
+        format = "[$conflicted$staged$deleted$modified$untracked$ahead_behind]($style)";
+        style = "bg:#313244 fg:#f38ba8 bold";
+
+        # Приоритеты: только самая важная вещь
+        conflicted = "✘";
+        staged     = "●";
+        deleted    = "✘";
+        modified   = "✚";
+        untracked  = "…";
+        ahead      = "⇡$count";
+        behind     = "⇣$count";
+        diverged   = "⇕";
+
+        # Всё остальное — пусто, чтобы не было квадрата
+        renamed = "";
+        stashed = "";
+        up_to_date = "";
       };
 
       # Языки — без "via", с цветными фонами
