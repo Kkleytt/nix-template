@@ -189,7 +189,7 @@
 
 
     # ─────── OS ───────
-      os.disabled             = false;
+      os.disabled             = true;
       os.format               = "[ $symbol](bg:surface0 fg:lavender)()";
 
 
@@ -239,7 +239,7 @@
         format                = "[\($hash$tag\)]($style)[ ]()";
         style                 = "bg:green";
         commit_hash_length    = 8;
-        tag_symbol            = " \uf412 ";
+        tag_symbol            = "  ";
         tag_disabled          = false;
         disabled              = false;
       };
@@ -251,6 +251,7 @@
       };
       git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
       git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
+      git_status_disabled     = true;
 
 
     # ─────── Языки ───────
