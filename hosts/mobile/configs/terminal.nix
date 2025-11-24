@@ -125,38 +125,35 @@
       scan_timeout = 10;
 
       format = lib.concatStrings [
-        # Начало
-        "[░▒▓](#a3aed2)"
-        "[  ](bg:#a3aed2 fg:#1e1e2e bold)"
+        # Path
+        "$directory"
 
-        # Путь (розовый)
-        "[](bg:#f5c2e7 fg:#a3aed2)"
-        "[ 󰉖 $path ](bg:#f5c2e7 fg:#1e1e2e bold)"
+        # GIT
+        "$git_branch"
+        "$git_status"
 
-        # Git ветка (зелёный)
-        "[](bg:#a6e3a1 fg:#f5c2e7)"
-        "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)"
-
-        # Git статус (красный, только если есть изменения)
-        "[$all_status$ahead_behind|](bg:#f38ba8 fg:#1e1e2e bold)"
-
-        # Docker (синий)
+        # Languages
         "$docker_context"
-
-        # Языки
-        "$python"
         "$nodejs"
         "$rust"
+        "$python"
         "$golang"
+        "$bun"
+        "$deno"
+        "$angular"
         "$java"
         "$php"
+        "$ruby"
+        "$elixir"
+        "$haskell"
 
-        # Время выполнения (серый)
+        # Fill
+        "$fill"
+
+        # Right
         "$cmd_duration"
-
-        # Конец + ввод
-        "[ ](fg:#1e1e2e)"
         "$character"
+
       ];
       fill.symbol = " ";
 
@@ -185,9 +182,9 @@
       };
 
       # Git
-      git_branch.format = "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)";
+      git_branch.format = "[  $branch ](bg:#0d1d0c fg:#a6e3a1 bold)";
       git_branch.only_attached = true;
-      git_status.format = "[$all_status$ahead_behind|](bg:#f38ba8 fg:#1e1e2e bold)";
+      git_status.format = "[$all_status$ahead_behind|](bg:#0d1d0c fg:#a6e3a1 bold)";
       git_status = {
         conflicted = "🏳 ";
         up_to_date = " ";
