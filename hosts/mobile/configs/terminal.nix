@@ -29,7 +29,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    dotDir = "${config.xdg.Home}/.zshrc";
+    dotDir = "$HOME/.zshrc";
 
     history = {
       expireDuplicatesFirst = true;
