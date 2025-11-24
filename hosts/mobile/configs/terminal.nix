@@ -125,110 +125,183 @@
 
     palette = "catppuccin_mocha";
 
-    # ─────── Формат (всё в одну строку) ───────
-    format = lib.concatStrings [
-      "[╭─](bg:surface0 fg:lavender)"
-      "$directory"
-      "$git_branch"
-      "$git_status"
-      "$python"
-      "$nodejs"
-      "$rust"
-      "$golang"
-      "$docker_context"
-      "$fill"
-      "$cmd_duration"
-      "$battery"
-      "$time"
-      "[](bg:crust fg:surface0)"
-      "$character"
-    ];
+    # ─────── Format ───────
+      format = lib.concatStrings [
+        # OS
+        "[╭─](surface0)"
+        "$os"
 
-    fill.symbol = " ";
+        # Username + Hostname
+        "[ ](bg:lavender fg:surface0"
+        "$username"
+        "$hostname"
 
-    # ─────── Путь ───────
-    directory = {
-      format = "[ 󰉖 $path ](bg:mauve fg:crust bold)";
-      truncation_length = 5;
-      truncate_to_repo = true;
-      read_only = "";
-    };
+        #  Path
+        "[](bg:peach fg:lavender)"
+        "[  ](bg:peach fg:surface0)"
+        "$directory"
+
+        #  Git
+        "[ ](bg:peach)"
+        "[](bg:green fg:peach)"
+        "$git_branch"
+        "$git_status"
+        "$git_commit"
+        "$git_metrics"
+
+        # Languages
+        "[](fg:green bg:yellow)"
+        "$c"
+        "$rust"
+        "$golang"
+        "$nodejs"
+        "$php"
+        "$java"
+        "$kotlin"
+        "$haskell"
+        "$python"
+        "$docker_context"
+        "$conda"
+
+        # Fill
+        "[](fg:sapphire)"
+        "$fill"
+
+        # Status
+        "[](fg:red)"
+        "$status"
+
+        # Duration
+        "[](fg:lavender bg:red)"
+        "$cmd_duration"
+        # Time + Battery
+        "[](bg:lavender fg:surface0)"
+        "$time"
+        "$battery"
+        
+        # Arrows
+        "[─╮](fg:surface0)"
+        "$line_break"
+        "[╰─](surface0)"
+        "$character"
+      ];
+      right_format = "[─╯](surface0)";
+
+    # ─────── OS ───────
+      os.format = "[ $symbol]($style)()";
+      os.style = "bg:surface0 fg:lavender";
+      os.disabled = false;
+
+    # ─────── Fill ───────
+      fill.symbol = " ";
+      fill.style = "bold subtext1";
+
+    # ─────── Path ───────
+      directory = {
+        style = "bg:peach fg:surface0";
+        format = "[$path]($style)[$read_only]($read_only_style)";
+        truncation_length = 3;
+        truncation_symbol = "~/";
+        read_only = " 🔒";
+        read_only_style = "bg:peach";
+      };
 
     # ─────── Git ───────
-    git_branch.format = "[  $branch ](bg:green fg:crust bold)";
-    git_status.format = "[$all_status$ahead_behind](bg:green fg:crust)";
+      git_commit = {
+        format = "[\($hash$tag\)]($style)[ ]()";
+        style = "bg:green";
+        commit_hash_length = 8;
+        tag_symbol = " \uf412 ";
+        tag_disabled = false;
+        disabled = false;
+      };
+      git_metrics = {
+        format = "[\[+$added/]($added_style)[-$deleted\]]($deleted_style)[ ](bg:green)";
+        added_style = "bg:green fg:crust";
+        deleted_style = "bg:green fg:crust";
+        disabled = false;
+      };
+      git_branch.format = "[[  $branch ](fg:crust bg:green)](bg:green)";
+      git_status.format = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
 
     # ─────── Языки ───────
-    python.format   = "[  $version ($virtualenv) ](bg:yellow fg:crust)";
-    nodejs.format   = "[ 󰛦 $version ](bg:yellow fg:crust)";
-    rust.format     = "[ 󱗼 $version ](bg:yellow fg:crust)";
-    golang.format   = "[ 󰟓 $version ](bg:yellow fg:crust)";
-    docker_context.format = "[ 󰡨 $context ](bg:sapphire fg:crust)";
+      nodejs.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      c.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      rust.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      golang.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      php.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      java.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      kotlin.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      haskell.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      python.format = "[[ ( $version)(\(#$virtualenv\)) ](fg:crust bg:yellow)](bg:yellow)";
+      docker_context.format = "[[ $symbol( $context) ](fg:crust bg:sapphire)](bg:yellow)";
 
-    # ─────── Время выполнения ───────
-    cmd_duration = {
-      format = "[  $duration ](bg:overlay0 fg:text)";
-      min_time = 2000;
-    };
+    # ─────── Status ───────
+      status = {
+        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+        success_symbol = "";
+        disabled = false;
+        map_symbol = false;
+      };
 
-    # ─────── Батарея ───────
-    battery = {
-      format = "[ $percentage% $symbol ](bg:surface1 fg:green)";
-      full_symbol = "󰂄";
-      charging_symbol = "󰂄";
-      discharging_symbol = "󰂃";
+    # ─────── Time ───────
+      time.format = "[ $time ](bg:surface0 fg:lavender)";
+      time.disabled = false;
 
-      display = [
-        { threshold = 100; style = "bg:surface1 fg:green"; }
-      ];
-    };
+    # ─────── Duration ───────
+      cmd_duration = {
+        show_milliseconds = true;
+        format = "[ took [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
+        disabled = false;
+        show_notifications = false;
+        min_time_to_notify = 45000;
+      };
 
-    # ─────── Время ───────
-    time = {
-      disabled = false;
-      format = "[  $time ](bg:surface1 fg:lavender)";
-      time_format = "%H:%M";
-    };
-
-    # ─────── Стрелка ввода ───────
-    character = {
-      success_symbol = "[ ❯ ](bold green)";
-      error_symbol = "[ ✘ ](bold red)";
-    };
+    # ─────── Battery ───────
+      battery = {
+        format = "[ \ueab5 $symbol$percentage]($style)";
+        full_symbol = "󰁹 ";
+        charging_symbol = "󰂄 ";
+        discharging_symbol = "󰂃 ";
+        unknown_symbol = "󰁽? ";
+        empty_symbol = "󰂎 ";
+        disabled = false;
+        display = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
+      };
 
     # ─────── Username + Hostname только при SSH ───────
-    username.show_always = false;
-    hostname.ssh_only = true;
+      username.show_always = false;
+      hostname.ssh_only = true;
 
     # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
-    palettes.catppuccin_mocha = {
-      rosewater = "#f5e0dc";
-      flamingo  = "#f2cdcd";
-      pink      = "#f5c2e7";
-      mauve     = "#cba6f7";
-      red       = "#f38ba8";
-      maroon    = "#eba0ac";
-      peach     = "#fab387";
-      yellow    = "#f9e2af";
-      green     = "#a6e3a1";
-      teal      = "#94e2d5";
-      sky       = "#89dceb";
-      sapphire  = "#74c7ec";
-      blue      = "#89b4fa";
-      lavender  = "#b4befe";
-      text      = "#cdd6f4";
-      subtext1  = "#bac2de";
-      subtext0  = "#a6adc8";
-      overlay2  = "#9399b2";
-      overlay1  = "#7f849c";
-      overlay0  = "#6c7086";
-      surface2  = "#585b70";
-      surface1  = "#45475a";
-      surface0  = "#313244";
-      base      = "#1e1e2e";
-      mantle    = "#181825";
-      crust     = "#11111b";
-    };
+      palettes.catppuccin_mocha = {
+        rosewater = "#f5e0dc";
+        flamingo  = "#f2cdcd";
+        pink      = "#f5c2e7";
+        mauve     = "#cba6f7";
+        red       = "#f38ba8";
+        maroon    = "#eba0ac";
+        peach     = "#fab387";
+        yellow    = "#f9e2af";
+        green     = "#a6e3a1";
+        teal      = "#94e2d5";
+        sky       = "#89dceb";
+        sapphire  = "#74c7ec";
+        blue      = "#89b4fa";
+        lavender  = "#b4befe";
+        text      = "#cdd6f4";
+        subtext1  = "#bac2de";
+        subtext0  = "#a6adc8";
+        overlay2  = "#9399b2";
+        overlay1  = "#7f849c";
+        overlay0  = "#6c7086";
+        surface2  = "#585b70";
+        surface1  = "#45475a";
+        surface0  = "#313244";
+        base      = "#1e1e2e";
+        mantle    = "#181825";
+        crust     = "#11111b";
+      };
   };
 };
 
