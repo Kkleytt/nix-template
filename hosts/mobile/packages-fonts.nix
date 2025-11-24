@@ -204,7 +204,7 @@
         study = mk "study"  "Study Python"                      (ps: with ps; [ aio-pika aiokafka celery asyncmy ]);
         ml    = mk "ml"     "Machine Learning Python"           (ps: with ps; [ torch torchvision torchaudio scikit-learn numpy pandas matplotlib seaborn plotly ]);
         web   = mk "web"    "Python for web"                    (ps: with ps; [ aiokafka pyjwt asyncmy uvicorn aiomysql alembic ]);
-        cli   = mk "cli"    "CLI / TUI Python"                  (ps: with ps; [ typer rich textual colorama ])
+        cli   = mk "cli"    "CLI / TUI Python"                  (ps: with ps; [ typer rich textual colorama ]);
       };
     };
   };
