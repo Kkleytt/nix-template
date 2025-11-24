@@ -105,44 +105,102 @@
   };
 
   # ────────────────────── Starship ──────────────────────
-  programs.starship = {
+    programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+
     settings = {
       add_newline = false;
-      format = "$directory$git_branch$git_status$nodejs$rust$python$golang$fill$cmd_duration$line_break$character";
+      scan_timeout = 10;
 
+      format = lib.concatStrings [
+        "$directory"
+        "$git_branch$git_status"
+        "$nodejs$rust$golang$python$bun$deno"
+        "$fill"
+        "$cmd_duration"
+        "$character"
+      ];
+
+      fill.symbol = " ";
+
+      # ─────── Путь с фоном + умное сокращение до имени проекта ───────
       directory = {
-        truncation_length = 0;     # полный путь всегда
-        truncate_to_repo = false;
-        style = "bold blue";
+        truncation_length = 8;
+        truncate_to_repo = true;
+        format = "[  $path ]($style) ";
+        style = "bg:#1e1e2e fg:#cdd6f4 bold";        # Catppuccin Mocha стиль (можно поменять)
+        truncation_symbol = "…/";
+
+        # Когда мы в git-репо — показываем только имя папки (имя проекта)
+        # Когда НЕ в git-репо — показываем полный путь
+        fish_style_pwd_dir_length = 0;
+        use_logical_path = false;
+
+        substitutions = {
+          "~/Projects" = "󰉋 Proj";
+          "~/Documents" = "󰈙 Docs";
+          "~/Downloads" = " DL";
+          "~" = "";
+        };
       };
 
+      # ─────── Git ветка с фоном ───────
       git_branch = {
-        format = "[$symbol$branch]($style) ";
-        symbol = " ";
-        style = "bold purple";
+        format = "[  $branch ]($style) ";
+        style = "bg:#313244 fg:#a6e3a1 bold";
       };
 
       git_status = {
         format = "[$all_status$ahead_behind]($style) ";
-        style = "bold red";
+        style = "bg:#313244 fg:#f38ba8";
+        conflicted = "✘";
+        ahead = "⇡";
+        behind = "⇣";
+        diverged = "⇕";
+        untracked = "?";
+        stashed = "$";
+        modified = "!";
+        staged = "+";
+        renamed = "»";
+        deleted = "✘";
       };
 
-      fill = { symbol = " "; };
+      # ─────── Языки с красивыми фонами и без текста "via" ───────
+      nodejs = {
+        format = "[  $version ](bg:#313244 fg:#a6e3a1 bold) ";
+        version_format = "$major.$minor";
+      };
+      rust = {
+        format = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold) ";
+        version_format = "$major.$minor";
+      };
+      python = {
+        format = "[  $version ](bg:#313244 fg:#cba6f7 bold) ";
+        version_format = "$major.$minor";
+        pyenv_prefix = "";
+      };
+      golang = {
+        format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold) ";
+        version_format = "$major.$minor";
+      };
+      bun = {
+        format = "[ 󰛥 $version ](bg:#313244 fg:#f9e2af bold) ";
+      };
+      deno = {
+        format = "[ 󰴱 $version ](bg:#313244 fg:#a6e3a1 bold) ";
+      };
 
-      nodejs = { symbol = " "; style = "bold green"; };
-      rust   = { symbol = "🦀 "; style = "bold red"; };
-      python = { symbol = "🐍 "; style = "bold yellow"; };
-      golang = { symbol = "🐹 "; style = "bold cyan"; };
-
+      # ─────── Время выполнения команды (только если > 2 сек) ───────
       cmd_duration = {
-        format = "[$duration](bold yellow) ";
+        format = "[  $duration ](bg:#313244 fg:#cdd6f4 bold) ";
         min_time = 2000;
       };
 
+      # ─────── Стрелочка ───────
       character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol   = "[➜](bold red)";
+        success_symbol = "[ ➜ ](bold green)";
+        error_symbol   = "[ ➜ ](bold red)";
       };
     };
   };
