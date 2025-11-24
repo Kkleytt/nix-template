@@ -118,228 +118,226 @@
   # ────────────────────── Starship ──────────────────────
 
   programs.starship = {
-  enable = true;
-  settings = {
-    add_newline = false;
-    command_timeout = 500;
+    enable = true;
+    settings = {
+      add_newline = false;
+      command_timeout = 500;
 
-    palette = "catppuccin_mocha";
+      palette = "catppuccin_mocha";
 
-    # ─────── Format ───────
-      format = lib.concatStrings [
-        # OS
-        "[╭─](surface0)"
-        "$os"
+      # ─────── Format ───────
+        format = lib.concatStrings [
+          # OS
+          "[╭─](surface0)"
+          "$os"
 
-        # Username + Hostname
-        # "[ ](bg:lavender fg:surface0)"
-        "$username"
-        "$hostname"
+          # Username + Hostname
+          # "[ ](bg:lavender fg:surface0)"
+          "$username"
+          "$hostname"
 
-        #  Path
-        "[](bg:peach fg:lavender)"
-        "$directory"
+          #  Path
+          "$directory"
 
-        #  Git
-        "[ ](bg:peach)"
-        "[](bg:green fg:peach)"
-        "$git_branch"
-        "$git_status"
-        "$git_commit"
-        "$git_metrics"
+          #  Git
+          "$git_branch"
+          # "$git_status"
+          "$git_commit"
+          "$git_metrics"
 
-        # Languages
-        "[](fg:green bg:yellow)"
-        "$c"
-        "$rust"
-        "$golang"
-        "$nodejs"
-        "$php"
-        "$java"
-        "$kotlin"
-        "$haskell"
-        "$python"
-        "$docker_context"
-        "$conda"
+          # Languages
+          "[](fg:green bg:yellow)"
+          "$c"
+          "$rust"
+          "$golang"
+          "$nodejs"
+          "$php"
+          "$java"
+          "$kotlin"
+          "$haskell"
+          "$python"
+          "$docker_context"
+          "$conda"
 
-        # Fill
-        "[](fg:sapphire)"
-        "$fill"
+          # Fill
+          "[](fg:sapphire)"
+          "$fill"
 
-        # Status
-        "[](fg:red)"
-        "$status"
+          # Status
+          "[](fg:red)"
+          "$status"
 
-        # Duration
-        "[](fg:lavender bg:red)"
-        "$cmd_duration"
+          # Duration
+          "[](fg:lavender bg:red)"
+          "$cmd_duration"
 
-        # Time + Battery
-        "[](bg:lavender fg:surface0)"
-        "$time"
-        "$battery"
-        
-        # Arrows
-        "[─╮](fg:surface0)"
-        "$line_break"
-        "[╰─](surface0)"
-        "$character"
-      ];
-      right_format            = "[─╯](surface0)";
+          # Time + Battery
+          "[](bg:lavender fg:surface0)"
+          "$time"
+          "$battery"
+          
+          # Arrows
+          "[─╮](fg:surface0)"
+          "$line_break"
+          "[╰─](surface0)"
+          "$character"
+        ];
+        right_format            = "[─╯](surface0)";
+        narrow_format           = "$directory$git_branch$character";
 
 
-    # ─────── OS ───────
-      os.disabled             = true;
-      os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
+      # ─────── OS ───────
+        os.disabled             = true;
+        os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
 
 
-    # ─────── Username + Hostname только при SSH ───────
-      username = {
-        show_always           = false;
-        format                = "[$user]($style)";
-        style_user            = "bg:lavender fg:surface0";
-        style_root            = "bg:lavender fg:surface0 bold";
-      };
-      hostname = {
-        disabled              = false;
-        format                = "[@$hostname](bg:lavender fg:surface0)";
-        ssh_only              = true;
-        ssh_symbol            = "";
-        # trim_at               = ".companyname.com";
-      };
-
-
-    # ─────── Path ───────
-      directory = {
-        style                 = "bg:peach fg:surface0";
-        format                = "[ $path]($style)[$read_only]($read_only_style)";
-        truncation_length     = 3;
-        read_only             = " 🔒";
-        read_only_style       = "bg:peach";
-        # truncation_symbol     = "~/";
-
-        substitutions = {
-          "Загрузки"          = "  ";
-          "Downloads"         = "  ";
-          "Pictures"          = " 󰉏 ";
-          "Documents"         = " 󰈙 ";
-          "Music"             = " 󰎈 ";
-          "Videos"            = "  ";
-          "Wallpapers"        = " 🖼 ";
-          "Obsidian"          = "  ";
-          "Projetcs"          = "  ";
-          ".config"           = "  ";
-          ".local"            = " 󰜚 ";
+      # ─────── Username + Hostname только при SSH ───────
+        username = {
+          show_always           = false;
+          format                = "[$user]($style)";
+          style_user            = "bg:lavender fg:surface0";
+          style_root            = "bg:lavender fg:surface0 bold";
         };
-      };
+        hostname = {
+          disabled              = false;
+          format                = "[@$hostname](bg:lavender fg:surface0)";
+          ssh_only              = true;
+          ssh_symbol            = "";
+          # trim_at               = ".companyname.com";
+        };
 
 
-    # ─────── Git ───────
-      git_commit = {
-        format                = "[\($hash$tag\)]($style)[ ]()";
-        style                 = "bg:green";
-        commit_hash_length    = 8;
-        tag_symbol            = "  ";
-        tag_disabled          = false;
-        disabled              = false;
-      };
-      git_metrics = {
-        format                = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
-        added_style           = "bg:green fg:crust";
-        deleted_style         = "bg:green fg:crust";
-        disabled              = false;
-      };
-      git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
-      git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
-      git_status_disabled     = true;
+      # ─────── Path ───────
+        directory = {
+          style                 = "bg:peach fg:surface0";
+          format                = "[ $path]($style)[$read_only]($read_only_style)";
+          truncation_length     = 3;
+          read_only             = " 🔒";
+          read_only_style       = "bg:peach";
+          # truncation_symbol     = "~/";
+
+          substitutions = {
+            "Загрузки"          = "  ";
+            "Downloads"         = "  ";
+            "Pictures"          = " 󰉏 ";
+            "Documents"         = " 󰈙 ";
+            "Music"             = " 󰎈 ";
+            "Videos"            = "  ";
+            "Wallpapers"        = " 🖼 ";
+            "Obsidian"          = "  ";
+            "Projetcs"          = "  ";
+            ".config"           = "  ";
+            ".local"            = " 󰜚 ";
+          };
+        };
 
 
-    # ─────── Языки ───────
-      nodejs.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      c.format                = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      rust.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      golang.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      php.format              = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      java.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      kotlin.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      haskell.format          = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
-      docker_context.format   = "[[ $symbol( $context) ](fg:crust bg:sapphire)](bg:yellow)";
+      # ─────── Git ───────
+        git_commit = {
+          format                = "[\($hash$tag\)]($style)[ ]()";
+          style                 = "bg:green";
+          commit_hash_length    = 8;
+          tag_symbol            = "  ";
+          tag_disabled          = false;
+          disabled              = false;
+        };
+        git_metrics = {
+          format                = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
+          added_style           = "bg:green fg:crust";
+          deleted_style         = "bg:green fg:crust";
+          disabled              = false;
+        };
+        git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
+        git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
+        git_status_disabled     = true;
 
 
-    # ─────── Fill ───────
-      fill.symbol             = " ";
-      fill.style              = "bold subtext1";
+      # ─────── Языки ───────
+        nodejs.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        c.format                = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        rust.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        golang.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        php.format              = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        java.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        kotlin.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        haskell.format          = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
+        docker_context.format   = "[[ ( $context) ](fg:crust bg:sapphire)](bg:yellow)";
 
 
-    # ─────── Status ───────
-      status = {
-        disabled              = false;
-        map_symbol            = false;
-        format                = "[ 󰃤 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
-        success_symbol        = "";
-      };
+      # ─────── Fill ───────
+        fill.symbol             = " ";
+        fill.style              = "bold subtext1";
 
 
-    # ─────── Duration ───────
-      cmd_duration = {
-        disabled              = false;
-        format                = "[ [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
-        show_milliseconds     = true;
-        show_notifications    = false;
-      };
+      # ─────── Status ───────
+        status = {
+          disabled              = false;
+          map_symbol            = false;
+          format                = "[ 󰃤 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+          success_symbol        = "";
+        };
 
 
-    # ─────── Time ───────
-      time.disabled           = false;
-      time.format             = "[ $time ](bg:surface0 fg:lavender)";
+      # ─────── Duration ───────
+        cmd_duration = {
+          disabled              = false;
+          format                = "[ [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
+          show_milliseconds     = true;
+          show_notifications    = false;
+        };
 
 
-    # ─────── Battery ───────
-      battery = {
-        disabled              = false;
-        format                = "[ $symbol $percentage ]($style)";
-        full_symbol           = "󰁹";
-        charging_symbol       = "󰂄";
-        discharging_symbol    = "󰂃";
-        unknown_symbol        = "󰁽?";
-        empty_symbol          = "󰂎";
-        display               = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
-      };
+      # ─────── Time ───────
+        time.disabled           = false;
+        time.format             = "[ $time ](bg:surface0 fg:lavender)";
 
-    
 
-    # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
-      palettes.catppuccin_mocha = {
-        rosewater = "#f5e0dc";
-        flamingo  = "#f2cdcd";
-        pink      = "#f5c2e7";
-        mauve     = "#cba6f7";
-        red       = "#f38ba8";
-        maroon    = "#eba0ac";
-        peach     = "#fab387";
-        yellow    = "#f9e2af";
-        green     = "#a6e3a1";
-        teal      = "#94e2d5";
-        sky       = "#89dceb";
-        sapphire  = "#74c7ec";
-        blue      = "#89b4fa";
-        lavender  = "#b4befe";
-        text      = "#cdd6f4";
-        subtext1  = "#bac2de";
-        subtext0  = "#a6adc8";
-        overlay2  = "#9399b2";
-        overlay1  = "#7f849c";
-        overlay0  = "#6c7086";
-        surface2  = "#585b70";
-        surface1  = "#45475a";
-        surface0  = "#313244";
-        base      = "#1e1e2e";
-        mantle    = "#181825";
-        crust     = "#11111b";
-      };
+      # ─────── Battery ───────
+        battery = {
+          disabled              = false;
+          format                = "[ $symbol $percentage ]($style)";
+          full_symbol           = "󰁹";
+          charging_symbol       = "󰂄";
+          discharging_symbol    = "󰂃";
+          unknown_symbol        = "󰁽?";
+          empty_symbol          = "󰂎";
+          display               = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
+        };
+
+      
+
+      # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
+        palettes.catppuccin_mocha = {
+          rosewater = "#f5e0dc";
+          flamingo  = "#f2cdcd";
+          pink      = "#f5c2e7";
+          mauve     = "#cba6f7";
+          red       = "#f38ba8";
+          maroon    = "#eba0ac";
+          peach     = "#fab387";
+          yellow    = "#f9e2af";
+          green     = "#a6e3a1";
+          teal      = "#94e2d5";
+          sky       = "#89dceb";
+          sapphire  = "#74c7ec";
+          blue      = "#89b4fa";
+          lavender  = "#b4befe";
+          text      = "#cdd6f4";
+          subtext1  = "#bac2de";
+          subtext0  = "#a6adc8";
+          overlay2  = "#9399b2";
+          overlay1  = "#7f849c";
+          overlay0  = "#6c7086";
+          surface2  = "#585b70";
+          surface1  = "#45475a";
+          surface0  = "#313244";
+          base      = "#1e1e2e";
+          mantle    = "#181825";
+          crust     = "#11111b";
+        };
+    };
   };
-};
 
   # ────────────────────── Atuin ──────────────────────
   programs.atuin = {
