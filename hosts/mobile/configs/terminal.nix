@@ -216,7 +216,7 @@
         disabled = false;
       };
       git_metrics = {
-        format = "[\[+$added/]($added_style)[-$deleted\]]($deleted_style)[ ](bg:green)";
+        format = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
         added_style = "bg:green fg:crust";
         deleted_style = "bg:green fg:crust";
         disabled = false;
@@ -238,7 +238,7 @@
 
     # ─────── Status ───────
       status = {
-        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+        format = "[ \\u2717 $status $hex_status( \\uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
         success_symbol = "";
         disabled = false;
         map_symbol = false;
