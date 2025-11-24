@@ -138,7 +138,6 @@
 
         #  Path
         "[](bg:peach fg:lavender)"
-        "[  ](bg:peach fg:surface0)"
         "$directory"
 
         #  Git
@@ -201,9 +200,9 @@
         style = "bg:peach fg:surface0";
         format = "[$path]($style)[$read_only]($read_only_style)";
         truncation_length = 3;
-        truncation_symbol = "~/";
         read_only = " 🔒";
         read_only_style = "bg:peach";
+        # truncation_symbol = "~/";
       };
 
     # ─────── Git ───────
@@ -233,54 +232,54 @@
       java.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
       kotlin.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
       haskell.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      python.format = "[[ ( $version)(\(#$virtualenv\)) ](fg:crust bg:yellow)](bg:yellow)";
+      python.format = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
       docker_context.format = "[[ $symbol( $context) ](fg:crust bg:sapphire)](bg:yellow)";
 
     # ─────── Status ───────
       status = {
-        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
-        success_symbol = "";
         disabled = false;
         map_symbol = false;
+        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+        success_symbol = "";
       };
 
     # ─────── Time ───────
-      time.format = "[ $time ](bg:surface0 fg:lavender)";
       time.disabled = false;
+      time.format = "[ $time ](bg:surface0 fg:lavender)";
 
     # ─────── Duration ───────
       cmd_duration = {
-        show_milliseconds = true;
-        format = "[ took [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
         disabled = false;
+        format = "[ took [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
+        show_milliseconds = true;
         show_notifications = false;
         min_time_to_notify = 45000;
       };
 
     # ─────── Battery ───────
       battery = {
-        format = "[ $symbol$percentage]($style)";
-        full_symbol = "󰁹 ";
-        charging_symbol = "󰂄 ";
-        discharging_symbol = "󰂃 ";
-        unknown_symbol = "󰁽? ";
-        empty_symbol = "󰂎 ";
         disabled = false;
+        format = "[ $symbol $percentage ]($style)";
+        full_symbol = "󰁹";
+        charging_symbol = "󰂄";
+        discharging_symbol = "󰂃";
+        unknown_symbol = "󰁽?";
+        empty_symbol = "󰂎";
         display = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
       };
 
     # ─────── Username + Hostname только при SSH ───────
       username = {
+        show_always = false;
         format = "[$user]($style)";
-        show_always = true;
         style_user = "bg:lavender fg:surface0";
         style_root = "bg:lavender fg:surface0 bold";
       };
       hostname = {
+        disabled = false;
         format = "[@$hostname ](bg:lavender fg:surface0)";
         ssh_only = true;
         ssh_symbol = "";
-        disabled = false;
         # trim_at = ".companyname.com";
       };
 
