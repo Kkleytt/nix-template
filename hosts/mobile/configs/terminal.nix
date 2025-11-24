@@ -177,7 +177,7 @@
           "Pictures" = " 󰉏 ";
           "Wallpapers" = " 󰸉 ";
           "Obsidian" = " 󰠮 ";
-          "Projects" = "  ";
+          "~/Projects" = "  ";
         };
       };
 
