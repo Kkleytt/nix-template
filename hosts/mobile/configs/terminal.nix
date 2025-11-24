@@ -190,7 +190,7 @@
 
     # ─────── OS ───────
       os.disabled             = false;
-      os.format               = "[👾](bg:surface0 fg:lavender)()";
+      os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
 
 
     # ─────── Username + Hostname только при SSH ───────
@@ -201,7 +201,7 @@
         style_root            = "bg:lavender fg:surface0 bold";
       };
       hostname = {
-        disabled              = false;
+        disabled              = true;
         format                = "[@$hostname](bg:lavender fg:surface0)";
         ssh_only              = true;
         ssh_symbol            = "";
