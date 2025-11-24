@@ -124,7 +124,7 @@
     line_break = "";                    # всё в одну строку
     scan_timeout = 10;
 
-    format = "$directory$git_branch$git_status$docker_context$nodejs$rust$python$custom.venv$golang$bun$deno$fill$cmd_duration$character";
+    format = "$directory$git_branch$git_status$docker_context$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
     fill.symbol = " ";
 
     # ─────── Путь (substitutions теперь работают 100%) ───────
@@ -174,7 +174,7 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[  $version |](bg:#313244 fg:#bed04a bold)\${venv_name}";
+      format = "[  $version ($virtualenv) |](bg:#313244 fg:#bed04a bold";
       symbol = "";  # убираем лишнюю иконку
       version_format = "$major.$minor";  # только 3.14
 
@@ -182,35 +182,6 @@
       python_binary = [ "python3" "python" ];
       detect_extensions = [ "py" ];
       detect_files = [ "pyproject.toml" "requirements.txt" "__init__.py" "Pipfile" ];
-    };
-    custom.venv = {
-      when = ''test -n "$VIRTUAL_ENV" || test -n "$CONDA_DEFAULT_ENV"'';
-      command = ''basename "$VIRTUAL_ENV" 2>/dev/null || echo "$CONDA_DEFAULT_ENV" 2>/dev/null || echo "venv"'';
-      format = "($output)(bold #bed04a)";
-      shell = [ "zsh" ];
-    };
-    custom.venv_name = {
-      description = "Имя виртуального окружения в скобках";
-      when = ''
-        test -n "$VIRTUAL_ENV" || \
-        test -n "$CONDA_DEFAULT_ENV" || \
-        (test -f pyproject.toml && command -v poetry >/dev/null && poetry env info --path >/dev/null 2>&1) || \
-        (test -f Pipfile && test -n "$PIPENV_ACTIVE")
-      '';
-      command = ''
-        if [ -n "$VIRTUAL_ENV" ]; then
-          basename "$VIRTUAL_ENV"
-        elif [ -n "$CONDA_DEFAULT_ENV" ]; then
-          echo "$CONDA_DEFAULT_ENV"
-        elif command -v poetry >/dev/null && test -f pyproject.toml && poetry env info --path >/dev/null 2>&1; then
-          poetry env info --path | xargs basename
-        else
-          echo "venv"
-        fi
-      '';
-      format = "($output)";
-      style = "bold #bed04a";
-      shell = [ "zsh" ];
     };
     # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
     # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
