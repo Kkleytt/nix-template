@@ -2,30 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    starship                # prompt 2025 года
-    atuin                   # умная история команд + синхронизация
-    zoxide                  # умный cd (z и zi)
-    eza                     # замена ls
-    bat                     # замена cat
-    fd                      # замена find
-    ripgrep                 # rg
-    fzf                     # нечёткий поиск
-    fastfetch               # neofetch, но в 10 раз быстрее и красивее
-    delta                   # красивый git diff
-    trash-cli               # trash-put вместо rm
-
-    curl                    # Загрузка данных по URL
-    wget                    # Загрузка файлов по URL
-    tldr                    # Красивый вывод информации о команде (аналог man)
-    jq                      # Обработка JSON в терминале
-
-
+    starship atuin zoxide eza bat fd ripgrep fzf fastfetch delta trash-cli
+    curl wget tldr jq
+    procs dust duf gping          # ты используешь их в алиасах → обязаны быть
+    zsh-fzf-tab                   # плагин
   ];
 
   programs.zsh = {
     enable = true;
     autocd = true;
-    dotDir = "zsh";
+
+    # Всё в .config/zsh и .cache/zsh — чистый $HOME
+    dotDir = "zsh";  # → $HOME/.config/zsh
+
     history = {
       expireDuplicatesFirst = true;
       ignoreSpace = true;
@@ -34,85 +23,92 @@
       size = 100000;
     };
 
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
+    enableCompletion   = true;   # автоматически включает autosuggestions
+    syntaxHighlighting = { enable = true; };
 
-    plugins = [ 
-      { name = "fzf-tab"; src = pkgs.zsh-fzf-tab; } 
+    plugins = [
+      { name = "fzf-tab"; src = pkgs.zsh-fzf-tab; }
     ];
 
-    initContent = lib.mkOrder 100 ''
-      # ── Starship (самый быстрый и красивый prompt 2025) ──
-      eval "$(starship init zsh)"
+    # ────────────────────── Правильное объединение initContent ──────────────────────
+    initContent = lib.mkMerge [
+      # Самое раннее — до compinit (порядок 100)
+      (lib.mkOrder 100 ''
+        eval "$(starship init zsh)"
+        eval "$(atuin init zsh --disable-up-arrow)"
+        eval "$(zoxide init zsh)"
+      '')
 
-      # ── Atuin (замена всей истории zsh + поиск + синхронизация) ──
-      eval "$(atuin init zsh --disable-up-arrow)"
+      # После compinit — bindkey и всё остальное (порядок 550–600)
+      (lib.mkOrder 550 ''
+        # Клавиши
+        bindkey "^[[1;5C" forward-word          # Ctrl+Right
+        bindkey "^[[1;5D" backward-word         # Ctrl+Left
+        bindkey '^ ' autosuggest-accept         # Ctrl+Space = принять подсказку
+      '')
 
-      # ── Zoxide (умный cd) ──
-      eval "$(zoxide init zsh)"
+      (lib.mkOrder 600 ''
+        # Fastfetch при старте
+        [[ -f ${config.xdg.configHome}/fastfetch/config-compact.jsonc ]] &&
+          fastfetch -c ${config.xdg.configHome}/fastfetch/config-compact.jsonc
 
-      # ── Fastfetch при старте терминала ──
-      fastfetch -c ~/.config/fastfetch/config-compact.jsonc
-    '' + lib.mkOrder 600 ''
-      # ── Удобные алиасы 2025 ──
+        # ────────────────────── Алиасы 2025 ──────────────────────
+        alias ls='eza --icons --group-directories-first --color=always'
+        alias ll='eza -lh --icons --group-directories-first --color=always'
+        alias la='eza -lah --icons --group-directories-first --color=always'
+        alias lt='eza --tree --level=3 --icons'
+        alias cat='bat --style=plain'
+        alias grep='rg'
+        alias find='fd'
+        alias ps='procs'
+        alias du='dust'
+        alias df='duf'
+        alias ping='gping'
+        alias rm='trash-put'
+        alias cls='clear'
+        alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
 
-      alias ls='eza --icons --group-directories-first --color=always'
-      alias ll='eza -lh --icons --group-directories-first --color=always'
-      alias la='eza -lah --icons --group-directories-first --color=always'
-      alias lt='eza --tree --level=3 --icons --group-directories-first'
+        # Git коротко и удобно
+        alias g='git'
+        alias ga='git add'
+        alias gc='git commit'
+        alias gp='git push'
+        alias gl='git pull'
+        alias gs='git status'
+        alias gd='git diff'
+        alias gds='git diff --staged'
+        alias glog="git log --oneline --decorate --graph"
 
-      alias cat='bat --style=plain'
-      alias grep='rg'
-      alias find='fd'
-      alias ps='procs'
-      alias du='dust'
-      alias df='duf'
-      alias ping='gping'
-      alias rm='trash-put'
-      alias cls='clear'
-      alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
-
-      # Git алиасы (короче и удобнее)
-      alias g='git'
-      alias ga='git add'
-      alias gc='git commit'
-      alias gp='git push'
-      alias gl='git pull'
-      alias gs='git status'
-      alias gd='git diff'
-      alias gds='git diff --staged'
-      alias glog="git log --oneline --decorate --graph"
-
-      # Красивый diff для git навсегда
-      git config --global core.pager "delta"
-      git config --global interactive.diffFilter "delta --color-only"
-      git config --global delta.navigate true
-      git config --global delta.side-by-side false
-    '' + lib.mkOrder 550 ''
-      # Удобные сочетания клавиш
-      bindkey "^[[1;5C" forward-word          # Ctrl+Right
-      bindkey "^[[1;5D" backward-word          # Ctrl+Left
-      bindkey '^ ' autosuggest-accept          # Ctrl+Space — принять подсказку
-    '';
+        # Delta — красивый diff навсегда
+        command -v delta &>/dev/null && {
+          git config --global core.pager "delta"
+          git config --global interactive.diffFilter "delta --color-only"
+          git config --global delta.navigate true
+          git config --global delta.side-by-side false
+        }
+      '')
+    ];
   };
 
+  # ────────────────────── Starship ──────────────────────
   programs.starship = {
     enable = true;
     settings = {
       add_newline = false;
       character = {
         success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
+        error_symbol   = "[➜](bold red)";
       };
       git_branch.style = "bold purple";
       directory.read_only = "🔒";
       nodejs.symbol = " ";
-      rust.symbol = "🦀 ";
+      rust.symbol   = "🦀 ";
       python.symbol = "🐍 ";
       golang.symbol = "🐹 ";
     };
   };
 
+  # ────────────────────── Atuin ──────────────────────
   programs.atuin = {
     enable = true;
     settings = {
@@ -125,8 +121,11 @@
     };
   };
 
+  # ────────────────────── Zoxide ──────────────────────
   programs.zoxide = {
     enable = true;
-    options = [ "--cmd" "cd" ];
+    enableZshIntegration = true;   # в новых версиях так правильнее
   };
+
+  home.stateVersion = "25.11";   # или "25.05" — как у тебя сейчас
 }
