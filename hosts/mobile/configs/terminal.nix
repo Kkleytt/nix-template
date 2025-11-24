@@ -130,7 +130,7 @@
     # ─────── Путь (substitutions теперь работают 100%) ───────
     directory = {
       home_symbol = " ~";
-      format = "[ 󰉖 $path |](bg:#2e1e41 fg:#cba6f7 bold)";
+      format = "[ 󰉖 $path |](bg:#11091b fg:#cba6f7 bold)";
       truncation_length = 8;
       truncate_to_repo = true;
       read_only = " ";
@@ -146,9 +146,9 @@
     };
 
     # ─────── Git ───────
-    git_branch.format = "[  $branch ](bg:#264224 fg:#a6e3a1 bold)";
+    git_branch.format = "[  $branch ](bg:#0d1d0c fg:#a6e3a1 bold)";
     git_branch.only_attached = true;
-    git_status.format = "[$all_status$ahead_behind|](bg:#264224 fg:#a6e3a1 bold)";
+    git_status.format = "[$all_status$ahead_behind|](bg:#0d1d0c fg:#a6e3a1 bold)";
     git_status = {
       conflicted = "🏳 ";
       up_to_date = " ";
@@ -166,7 +166,7 @@
 
     # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
     docker_context = {
-      format = "[ 󰡨 $context |](bg:#16243a fg:#89b4fa bold)";
+      format = "[ 󰡨 $context |](bg:#09101b fg:#89b4fa bold)";
       only_with_files = false;
       disabled = false;
     };
@@ -174,7 +174,7 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[  $version (($virtualenv) )|](bg:#3c440eff fg:c#bed04a bold)";
+      format = "[  $version (($virtualenv) )|](bg:#1f2406 fg:#bed04a bold)";
       symbol = "";  # убираем лишнюю иконку
       version_format = "$major.$minor";  # только 3.14
 
