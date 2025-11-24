@@ -129,7 +129,7 @@
       format = lib.concatStrings [
         # OS
         "[╭─](surface0)"
-        # "$os"
+        "$os"
 
         # Username + Hostname
         "[ ](bg:lavender fg:surface0)"
@@ -173,6 +173,7 @@
         # Duration
         "[](fg:lavender bg:red)"
         "$cmd_duration"
+
         # Time + Battery
         "[](bg:lavender fg:surface0)"
         "$time"
@@ -184,104 +185,128 @@
         "[╰─](surface0)"
         "$character"
       ];
-      right_format = "[─╯](surface0)";
+      right_format            = "[─╯](surface0)";
+
 
     # ─────── OS ───────
-      os.format = "[ $symbol]($style)()";
-      os.style = "bg:surface0 fg:lavender";
-      os.disabled = false;
+      os.disabled             = false;
+      os.format               = "[ $symbol](bg:surface0 fg:lavender)()";
 
-    # ─────── Fill ───────
-      fill.symbol = " ";
-      fill.style = "bold subtext1";
-
-    # ─────── Path ───────
-      directory = {
-        style = "bg:peach fg:surface0";
-        format = "[$path]($style)[$read_only]($read_only_style)";
-        truncation_length = 3;
-        read_only = " 🔒";
-        read_only_style = "bg:peach";
-        # truncation_symbol = "~/";
-      };
-
-    # ─────── Git ───────
-      git_commit = {
-        format = "[\($hash$tag\)]($style)[ ]()";
-        style = "bg:green";
-        commit_hash_length = 8;
-        tag_symbol = " \uf412 ";
-        tag_disabled = false;
-        disabled = false;
-      };
-      git_metrics = {
-        format = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
-        added_style = "bg:green fg:crust";
-        deleted_style = "bg:green fg:crust";
-        disabled = false;
-      };
-      git_branch.format = "[[  $branch ](fg:crust bg:green)](bg:green)";
-      git_status.format = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
-
-    # ─────── Языки ───────
-      nodejs.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      c.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      rust.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      golang.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      php.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      java.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      kotlin.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      haskell.format = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-      python.format = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
-      docker_context.format = "[[ $symbol( $context) ](fg:crust bg:sapphire)](bg:yellow)";
-
-    # ─────── Status ───────
-      status = {
-        disabled = false;
-        map_symbol = false;
-        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
-        success_symbol = "";
-      };
-
-    # ─────── Time ───────
-      time.disabled = false;
-      time.format = "[ $time ](bg:surface0 fg:lavender)";
-
-    # ─────── Duration ───────
-      cmd_duration = {
-        disabled = false;
-        format = "[ took [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
-        show_milliseconds = true;
-        show_notifications = false;
-        min_time_to_notify = 45000;
-      };
-
-    # ─────── Battery ───────
-      battery = {
-        disabled = false;
-        format = "[ $symbol $percentage ]($style)";
-        full_symbol = "󰁹";
-        charging_symbol = "󰂄";
-        discharging_symbol = "󰂃";
-        unknown_symbol = "󰁽?";
-        empty_symbol = "󰂎";
-        display = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
-      };
 
     # ─────── Username + Hostname только при SSH ───────
       username = {
-        show_always = false;
-        format = "[$user]($style)";
-        style_user = "bg:lavender fg:surface0";
-        style_root = "bg:lavender fg:surface0 bold";
+        show_always           = false;
+        format                = "[$user]($style)";
+        style_user            = "bg:lavender fg:surface0";
+        style_root            = "bg:lavender fg:surface0 bold";
       };
       hostname = {
-        disabled = false;
-        format = "[@$hostname ](bg:lavender fg:surface0)";
-        ssh_only = true;
-        ssh_symbol = "";
-        # trim_at = ".companyname.com";
+        disabled              = false;
+        format                = "[@$hostname](bg:lavender fg:surface0)";
+        ssh_only              = true;
+        ssh_symbol            = "";
+        # trim_at               = ".companyname.com";
       };
+
+
+    # ─────── Path ───────
+      directory = {
+        style                 = "bg:peach fg:surface0";
+        format                = "[ $path]($style)[$read_only]($read_only_style)";
+        truncation_length     = 3;
+        read_only             = " 🔒";
+        read_only_style       = "bg:peach";
+        # truncation_symbol     = "~/";
+
+        substitutions = {
+          "Загрузки"          = "  ";
+          "Downloads"         = "  ";
+          "Pictures"          = " 󰉏 ";
+          "Documents"         = " 󰈙 ";
+          "Music"             = " 󰎈 ";
+          "Videos"            = "  ";
+          "Wallpapers"        = " 🖼 ";
+          "Obsidian"          = "  ";
+          "Projetcs"          = "  ";
+          ".config"           = "  ";
+          ".local"            = " 󰜚 ";
+        };
+      };
+
+
+    # ─────── Git ───────
+      git_commit = {
+        format                = "[\($hash$tag\)]($style)[ ]()";
+        style                 = "bg:green";
+        commit_hash_length    = 8;
+        tag_symbol            = " \uf412 ";
+        tag_disabled          = false;
+        disabled              = false;
+      };
+      git_metrics = {
+        format                = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
+        added_style           = "bg:green fg:crust";
+        deleted_style         = "bg:green fg:crust";
+        disabled              = false;
+      };
+      git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
+      git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
+
+
+    # ─────── Языки ───────
+      nodejs.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      c.format                = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      rust.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      golang.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      php.format              = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      java.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      kotlin.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      haskell.format          = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+      python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
+      docker_context.format   = "[[ $symbol( $context) ](fg:crust bg:sapphire)](bg:yellow)";
+
+
+    # ─────── Fill ───────
+      fill.symbol             = " ";
+      fill.style              = "bold subtext1";
+
+
+    # ─────── Status ───────
+      status = {
+        disabled              = false;
+        map_symbol            = false;
+        format                = "[ 󰃤 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+        success_symbol        = "";
+      };
+
+
+    # ─────── Duration ───────
+      cmd_duration = {
+        disabled              = false;
+        format                = "[ [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
+        show_milliseconds     = true;
+        show_notifications    = false;
+      };
+
+
+    # ─────── Time ───────
+      time.disabled           = false;
+      time.format             = "[ $time ](bg:surface0 fg:lavender)";
+
+
+    # ─────── Battery ───────
+      battery = {
+        disabled              = false;
+        format                = "[ $symbol $percentage ]($style)";
+        full_symbol           = "󰁹";
+        charging_symbol       = "󰂄";
+        discharging_symbol    = "󰂃";
+        unknown_symbol        = "󰁽?";
+        empty_symbol          = "󰂎";
+        display               = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
+      };
+
+    
 
     # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
       palettes.catppuccin_mocha = {
