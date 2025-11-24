@@ -191,10 +191,10 @@
     };
 
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
-    nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
-    rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
-    python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold)";
-    golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold)";
+    # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
+    # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
+    # python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold)";
+    # golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold)";
 
     cmd_duration = {
       format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
