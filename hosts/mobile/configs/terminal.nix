@@ -3,11 +3,18 @@
 {
   programs.zsh = {
     enable = true;
+
     enableCompletion = true;
-    # autosuggestions.enable = true;
+    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    initContent = ''
+    ohMyZsh = {
+      enable = true;
+      plugins = ["git"];
+      theme = "agnoster"; 
+    };
+
+    ininExtra = ''
       fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
       # ls (просмотр директории)
@@ -31,4 +38,6 @@
       setopt appendhistory
     '';
   };
+
+  environment.shells = with pkgs; [ zsh ];
 }

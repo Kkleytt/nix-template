@@ -24,41 +24,12 @@ in
         "audio"
         "docker"
       ];
-
-    # define user packages here
-    packages = with pkgs; [
-      ];
     };
     
     defaultUserShell = pkgs.zsh;
   }; 
   
-  environment.shells = with pkgs; [ zsh ];
-  environment.systemPackages = with pkgs; [ 
-    fastfetch                               # Красивый вывод информации о системе
-    fzf                                     # Быстрый поиск файлов и директорий
-    ripgrep                                 # Быстрый поиск текста в файлах 
-    fd                                      # Быстрый поиск файлов (аналог find)
-    curl                                    # Загрузка данных по URL
-    wget                                    # Загрузка файлов по URL
-    eza                                     # Красивая замена ls
-    zoxide                                  # Умный cd с запоминанием директорий
-    tldr                                    # Красивый вывод информации о команде (аналог man)
-    bat                                     # Красивый вывод файлов в консоль
-    jq                                      # Обработка JSON в терминале
-    atuin                                   # Расширенная история команд
-  ]; 
+  environment.shells = with pkgs; [ zsh ]; 
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = ["git"];
-      theme = "agnoster"; 
-    };
-    
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-};
+  
 }

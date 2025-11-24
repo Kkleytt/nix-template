@@ -2,6 +2,17 @@
   home.username = "kkleytt";
   home.homeDirectory = "/home/kkleytt";
   home.stateVersion = "25.11";
+  user.extraGroups = [
+    "networkmanager"
+    "wheel"
+    "libvirtd"
+    "scanner"
+    "lp"
+    "video"
+    "input"
+    "audio"
+    "docker"
+  ];
 
   # Приложения (Apps)
   home.packages = (with pkgs; [
@@ -17,14 +28,10 @@
         kubernetes                                  # Оркестрирование множеством контейнеров на разных хост-машинах
 
       #### Python
-        # jupyter-all                                 # Python ядро + поддержка создания Notebook
+        python314                                   # Глобальный Python интерпретатор
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry
         mypy                                        # Статический анализатор типов
         ruff                                        # Быстрый линтер и автоисправитель на Rust
-        # python3
-        # python312
-        # python313
-        python314
 
       #### Rust
         rustc                                       # Компилятор языка Rust.
@@ -177,7 +184,7 @@
 
   imports = [
     ./configs/git.nix                   # Настройка Git
-    ./configs/zsh.nix                   # Настройка Zsh
+    ./configs/terminal.nix                   # Настройка Zsh
     #./configs/user_configs.nix          # Настройка локальных конфигов пользователя
   ];
 }

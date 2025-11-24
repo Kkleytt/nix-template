@@ -9,14 +9,14 @@ let
 in {
   imports = [
     ./hardware.nix
-    ./users.nix
     ./packages-fonts.nix                      # Установка шрифтов и обязательных пакетов
     ../../modules/amd-drivers.nix
+    ../../modules/vm-guest-services.nix
+    ../../modules/local-hardware-clock.nix
+    # ./users.nix
     # ../../modules/nvidia-drivers.nix
     # ../../modules/nvidia-prime-drivers.nix
     # ../../modules/intel-drivers.nix
-    ../../modules/vm-guest-services.nix
-    ../../modules/local-hardware-clock.nix
   ];
 
   # Настройка boot 
