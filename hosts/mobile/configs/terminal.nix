@@ -163,9 +163,7 @@
         behind       = "⇣$count";
         diverged     = "⇕";
         up_to_date   = "";
-        ignored      = "";
       };
-      git_state.disabled = false;
 
       # Language
       nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold) ";
