@@ -2,18 +2,34 @@
 
 {
   home.packages = with pkgs; [
-    starship atuin zoxide eza bat fd ripgrep fzf fastfetch delta trash-cli
-    curl wget tldr jq
-    procs dust duf gping          # ты используешь их в алиасах → обязаны быть
-    zsh-fzf-tab                   # плагин
+    starship 
+    atuin 
+    zoxide 
+    eza 
+    bat 
+    fd 
+    ripgrep 
+    fzf 
+    fastfetch 
+    delta 
+    trash-cli
+    curl 
+    wget 
+    tldr 
+    jq
+    procs 
+    dust 
+    duf 
+    gping
+
+    # Plugins for ZSH
+    zsh-fzf-tab
   ];
 
   programs.zsh = {
     enable = true;
     autocd = true;
-
-    # Всё в .config/zsh и .cache/zsh — чистый $HOME
-    dotDir = "zsh";  # → $HOME/.config/zsh
+    dotDir = "${config.xdg.configHome}/zsh";
 
     history = {
       expireDuplicatesFirst = true;
@@ -23,14 +39,13 @@
       size = 100000;
     };
 
-    enableCompletion   = true;   # автоматически включает autosuggestions
+    enableCompletion   = true;  
     syntaxHighlighting = { enable = true; };
 
     plugins = [
       { name = "fzf-tab"; src = pkgs.zsh-fzf-tab; }
     ];
 
-    # ────────────────────── Правильное объединение initContent ──────────────────────
     initContent = lib.mkMerge [
       # Самое раннее — до compinit (порядок 100)
       (lib.mkOrder 100 ''
@@ -39,7 +54,6 @@
         eval "$(zoxide init zsh)"
       '')
 
-      # После compinit — bindkey и всё остальное (порядок 550–600)
       (lib.mkOrder 550 ''
         # Клавиши
         bindkey "^[[1;5C" forward-word          # Ctrl+Right
@@ -124,8 +138,6 @@
   # ────────────────────── Zoxide ──────────────────────
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;   # в новых версиях так правильнее
+    enableZshIntegration = true;  
   };
-
-  home.stateVersion = "25.11";   # или "25.05" — как у тебя сейчас
 }
