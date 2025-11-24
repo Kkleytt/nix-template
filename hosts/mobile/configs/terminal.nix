@@ -117,92 +117,108 @@
 
   # ────────────────────── Starship ──────────────────────
   programs.starship = {
-  enable = true;
+    enable = true;
 
-  settings = {
-    add_newline = false;
-    line_break = "";                    # всё в одну строку
-    scan_timeout = 10;
+    settings = {
+      add_newline = false;
+      line_break = "";
+      scan_timeout = 10;
 
-    format = "$directory$git_branch$git_status$docker_context$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
-    fill.symbol = " ";
+      format = ''
+      [░▒▓](#a3aed2)\
+      [  ](bg:#a3aed2 fg:#090c0c)\
+      [](bg:#769ff0 fg:#a3aed2)\
+      $directory\
+      [](bg:#a6e3a1 fg:#1e1e2e bold)\
+      $git_branch\
+      [](bg:#f38ba8 fg:#1e1e2e bold)\
+      $git_status\
+      [](fg:#394260 bg:#212736)\
+      $docker_context\
+      $nodejs\
+      $rust\
+      $golang\
+      $bun\
+      $deno\
+      [](fg:#212736 bg:#1d2230)\
+      $cmd_duration\
+      [ ](fg:#1d2230)\
+      \n$character
+      '';
+      fill.symbol = " ";
 
-    # ─────── Путь (substitutions теперь работают 100%) ───────
-    directory = {
-      home_symbol = " ~";
-      format = "[ 󰉖 $path |](bg:#11091b fg:#cba6f7 bold)";
-      truncation_length = 8;
-      truncate_to_repo = true;
-      read_only = " ";
-      read_only_style = "197";
+      # Path
+      directory = {
+        home_symbol = " ~";
+        format = "[ 󰉖 $path |](bg:#11091b fg:#cba6f7 bold)";
+        truncation_length = 8;
+        truncate_to_repo = true;
+        read_only = " ";
+        read_only_style = "197";
 
-      substitutions = {
-        "Projects" = "  Proj";
-        "Documents" = " 󱔗 Docs";
-        "Загрузки" = " 󰛴 DL";
-        ".config" = "  CFG";
-        ".cache" = "  Cache";
+        substitutions = {
+          "Projects" = " Project";
+          "Documents" = "󱔗 Docs";
+          "Загрузки" = "󰛴 Load";
+          "Downloads" = "󰛴 Load";
+          "Music" = "󰝚 Music";
+          "Pictures" = "󰉏 Pics";
+          "Wallpapers" = "󰸉 Wallpapers";
+          "Videos" = "󰎁 Videos";
+          "Obsidian" = "󰠮 Obsidian";
+          ".config" = " Config";
+          ".local" = "󰉍 Local";
+        };
       };
+
+      # Git
+      git_branch.format = "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)";
+      git_branch.only_attached = true;
+      git_status.format = "[$all_status$ahead_behind|](bg:#f38ba8 fg:#1e1e2e bold)";
+      git_status = {
+        conflicted = "🏳 ";
+        up_to_date = " ";
+        untracked = " ";
+        ahead = "⇡ $count ";
+        diverged = "⇕ ⇡$ahead_count ⇣$behind_count ";
+        behind = "⇣ $count ";
+        stashed = " ";
+        modified = " ";
+        staged = "++ ";
+        renamed = "襁 ";
+        deleted = " ";
+      };
+
+      # Language
+      docker_context.format = "[ 󰡨 $context ](bg:#89b4fa fg:#1e1e2e)";
+      python.format   = "[  $version ($virtualenv) ](bg:#f9e2af fg:#1e1e2e)";
+      nodejs.format   = "[ 󰛦 $version ](bg:#a6e3a1 fg:#1e1e2e)";
+      angular.format  = "[ 󰚲 $version ](bg:#e06c75 fg:#ffffff)";
+      rust.format     = "[ 󱗼 $version ](bg:#f38ba8 fg:#1e1e2e)";
+      golang.format   = "[ 󰟓 $version ](bg:#89dceb fg:#1e1e2e)";
+      java.format     = "[  $version ](bg:#f28fad fg:#1e1e2e)";
+      php.format      = "[ 󰣾 $version ](bg:#cba6f7 fg:#1e1e2e)";
+      ruby.format     = "[  $version ](bg:#f38ba8 fg:#ffffff)";
+      elixir.format   = "[ 󰘬 $version ](bg:#cba6f7 fg:#1e1e2e)";
+      haskell.format  = "[ 󰲒 $version ](bg:#a6e3a1 fg:#1e1e2e)";
+
+      # Time command
+      cmd_duration = {
+        format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
+        min_time = 2000;
+      };
+
+      # Status command
+      character = {
+        success_symbol = "[ ➜ ](bold green)";
+        error_symbol   = "[ ➜ ](bold red)";
+      };
+
+      # Отключаем ненужное
+      hostname.disabled = true;
+      username.disabled = true;
     };
-
-    # ─────── Git ───────
-    git_branch.format = "[  $branch ](bg:#0d1d0c fg:#a6e3a1 bold)";
-    git_branch.only_attached = true;
-    git_status.format = "[$all_status$ahead_behind|](bg:#0d1d0c fg:#a6e3a1 bold)";
-    git_status = {
-      conflicted = "🏳 ";
-      up_to_date = " ";
-      untracked = " ";
-      ahead = "⇡ $count ";
-      diverged = "⇕ ⇡$ahead_count ⇣$behind_count ";
-      behind = "⇣ $count ";
-      stashed = " ";
-      modified = " ";
-      staged = "++ ";
-      renamed = "襁 ";
-      deleted = " ";
-    };
-
-
-    # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
-    docker_context = {
-      format = "[ 󰡨 $context |](bg:#09101b fg:#89b4fa bold)";
-      only_with_files = false;
-      disabled = false;
-    };
-
-    # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
-    # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
-    python = {
-      format = "[  $version (($virtualenv) )|](bg:#1f2406 fg:#bed04a bold)";
-      symbol = "";  # убираем лишнюю иконку
-      version_format = "$major.$minor";  # только 3.14
-
-      # Обнаружение Python-проекта
-      python_binary = [ "python3" "python" ];
-      detect_extensions = [ "py" ];
-      detect_files = [ "pyproject.toml" "requirements.txt" "__init__.py" "Pipfile" ];
-    };
-    # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
-    # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
-    # python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold)";
-    # golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold)";
-
-    cmd_duration = {
-      format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
-      min_time = 2000;
-    };
-
-    character = {
-      success_symbol = "[ ➜ ](bold green)";
-      error_symbol   = "[ ➜ ](bold red)";
-    };
-
-    # Отключаем ненужное
-    hostname.disabled = true;
-    username.disabled = true;
   };
-};
 
   # ────────────────────── Atuin ──────────────────────
   programs.atuin = {
