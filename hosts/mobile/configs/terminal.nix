@@ -198,9 +198,12 @@
         charging_symbol = "󰂄";
         discharging_symbol = "󰂃";
         format = "[ $percentage% $symbol ](bg:${c.surface1} fg:${c.green})";
-        [[battery.display]]
-        threshold = 100;
-        style = "bg:${c.surface1} fg:${c.green}";
+        display = [
+          {
+            threshold = 100;
+            style = "bg:${c.surface1} fg:${c.green}";
+          }
+        ];
       };
 
       # ─────── Время (справа, 24ч) ───────
