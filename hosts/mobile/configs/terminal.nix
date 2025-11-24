@@ -174,21 +174,32 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[ 🐍 $version (($virtualenv)) ](bg:#313244 fg:##BED04A bold)";
-      version_format = "$major.$minor";
+      disabled = false;
 
-      # Отключаем стандартный вывод venv
-      python_binary = ["python3" "python"];
-      detect_extensions = ["py"];
-      detect_files = ["pyproject.toml" "requirements.txt" "__init__.py"];
-    };
+      # Главная строка — именно то, что ты хочешь
+      format = "[  $version ](bg:#313244 fg:#bed04a bold)\${custom_venv}";
 
-    # Простое слово "venv" — только при активном окружении
-    custom.venv = {
-      when = "test -n \"$VIRTUAL_ENV\" || test -n \"$CONDA_DEFAULT_ENV\" || test -f pyproject.toml && command -v poetry >/dev/null && poetry env info --path >/dev/null 2>&1 || test -f Pipfile && test -n \"$PIPENV_ACTIVE\"";
-      command = "printf venv";
-      format = "[ $output ](yellow bold)";
-      shell = ["zsh"];
+      symbol = "";                       # убираем 🐍 — мы уже используем  вручную
+      version_format = "$major.$minor";  # только 3.14, без v и патча
+
+      # Определяем Python в проектах
+      python_binary = [ "python3" "python" ];
+      detect_extensions = [ "py" ];
+      detect_files = [
+        "requirements.txt"
+        "pyproject.toml"
+        "Pipfile"
+        "__init__.py"
+        "setup.py"
+      ];
+
+      # ← КЛЮЧЕВАЯ НАСТРОЙКА: показываем имя окружения в скобках, только если оно активировано
+      # Работает с: venv, poetry, pipenv, conda, pdm, pyenv-virtualenv
+      virtualenv = {
+        format = "($virtualenv)";        # ← просто имя в скобках
+        style = "bold #bed04a";          # тот же цвет, что и версия
+        symbol = "";                     # убираем стандартный префикс "via "
+      };
     };
     # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
     # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
