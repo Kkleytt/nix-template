@@ -146,21 +146,21 @@
     };
 
     # ─────── Git ───────
-    git_branch.format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
+    git_branch.format = "[  $branch  ](bg:#313244 fg:#a6e3a1 bold)";
     git_branch.only_attached = true;
     git_status.format = "[$all_status$ahead_behind](bg:#313244 fg:#a6e3a1 bold)";
     git_status = {
-      conflicted = " 🏳";
-      up_to_date = " ";
-      untracked = " ";
-      ahead = " ⇡$count";
-      diverged = " ⇕⇡$ahead_count ⇣$behind_count";
-      behind = " ⇣$count";
-      stashed = " ";
-      modified = " ";
-      staged = " ++";
-      renamed = " 襁";
-      deleted = " ";
+      conflicted = "🏳 ";
+      up_to_date = " ";
+      untracked = " ";
+      ahead = "⇡ $count ";
+      diverged = "⇕ ⇡$ahead_count ⇣$behind_count ";
+      behind = "⇣ $count ";
+      stashed = " ";
+      modified = " ";
+      staged = "++ ";
+      renamed = "襁 ";
+      deleted = " ";
     };
 
 
