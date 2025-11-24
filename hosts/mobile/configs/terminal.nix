@@ -155,17 +155,17 @@
     git_status = {
       format = "[$all_status$ahead_behind]($style)";
       style = "bold #f38ba8";
-      conflicted = "🏳";
-      up_to_date = "";
-      untracked = "";
-      ahead = "⇡${count}";
-      diverged = "⇕⇡${ahead_count}⇣${behind_count}";
-      behind = "⇣${count}";
-      stashed = "";
-      modified = "";
-      staged = "++";
-      renamed = "襁";
-      deleted = "";
+      conflicted = "🏳 ";
+      up_to_date = " ";
+      untracked = " ";
+      ahead = "⇡$count ";
+      diverged = "⇕⇡$ahead_count ⇣$behind_count ";
+      behind = "⇣$count ";
+      stashed = " ";
+      modified = " ";
+      staged = "++ ";
+      renamed = "襁 ";
+      deleted = " ";
     };
 
     # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
