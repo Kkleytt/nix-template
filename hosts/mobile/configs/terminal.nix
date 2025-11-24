@@ -127,6 +127,8 @@
 
       fill.symbol = " ";
 
+
+
       directory = {
         format = "[ 󰉖 $path ]($style)";
         style = "bg:#1e1e2e fg:#cba6f7 bold";
@@ -152,14 +154,14 @@
         style = "bg:#313244 fg:#f38ba8 bold";
 
         # Приоритеты: только самая важная вещь
-        conflicted = "✘";
-        staged     = "●";
-        deleted    = "✘";
-        modified   = "✚";
-        untracked  = "…";
-        ahead      = "⇡$count";
-        behind     = "⇣$count";
-        diverged   = "⇕";
+        conflicted = "✘ ";
+        staged     = "● ";
+        deleted    = "✘ ";
+        modified   = "✚ ";
+        untracked  = "… ";
+        ahead      = "⇡$count ";
+        behind     = "⇣$count ";
+        diverged   = "⇕ ";
 
         # Всё остальное — пусто, чтобы не было квадрата
         renamed = "";
