@@ -116,56 +116,46 @@
   };
 
   # ────────────────────── Starship ──────────────────────
+
   programs.starship = {
     enable = true;
-
-    settings = {
+    settings = let
+      c = config.programs.starship.settings.palettes.catppuccin_mocha;
+    in {
       add_newline = false;
-      line_break = "";
-      scan_timeout = 10;
+      command_timeout = 500;
 
+      palette = "catppuccin_mocha";
+
+      # ─────── Основная строка (всё в одну строку) ───────
       format = lib.concatStrings [
-        # Path
+        # Левая часть — от тёмного к светлому
+        "[╭─](bg:${c.surface0} fg:${c.lavender})"
         "$directory"
-
-        # GIT
         "$git_branch"
         "$git_status"
-
-        # Languages
-        "$docker_context"
+        "$python"
         "$nodejs"
         "$rust"
-        "$python"
         "$golang"
-        "$bun"
-        "$deno"
-        "$angular"
-        "$java"
-        "$php"
-        "$ruby"
-        "$elixir"
-        "$haskell"
-
-        # Fill
+        "$docker_context"
         "$fill"
-
-        # Right
         "$cmd_duration"
+        "$battery"
+        "$time"
+        # Правая стрелка к вводу
+        "[](bg:${c.crust} fg:${c.surface0})"
         "$character"
-
       ];
+
       fill.symbol = " ";
 
-      # Path
+      # ─────── Путь (розовый, мягкий) ───────
       directory = {
-        home_symbol = " ";
-        format = "[ $path ](bg:#f5c2e7 fg:#1e1e2e bold)";
-        truncation_length = 8;
+        format = "[  $path ](bg:${c.mauve} fg:${c.crust} bold)";
+        truncation_length = 5;
         truncate_to_repo = true;
-        read_only = " ";
-        read_only_style = "197";
-
+        read_only = "";
         substitutions = {
           ".config" = "  ";
           ".local" = " 󰉍 ";
@@ -181,52 +171,91 @@
         };
       };
 
-      # Git
-      git_branch.format = "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)";
-      git_branch.only_attached = true;
-      git_status.format = "[$all_status$ahead_behind](bg:#a6e3a1 fg:#1e1e2e bold)";
+      # ─────── Git (зелёный, спокойный) ───────
+      git_branch.format = "[  $branch ](bg:${c.green} fg:${c.crust} bold)";
       git_status = {
-        conflicted = "🏳 ";
-        up_to_date = " ";
-        untracked = " ";
-        ahead = "⇡ $count ";
-        diverged = "⇕ ⇡$ahead_count ⇣$behind_count ";
-        behind = "⇣ $count ";
-        stashed = " ";
-        modified = " ";
-        staged = "++ ";
-        renamed = "襁 ";
-        deleted = " ";
+        format = "[$all_status$ahead_behind](bg:${c.green} fg:${c.crust})";
+        conflicted = "✘"; modified = "!"; staged = "+"; untracked = "?"; deleted = "✘";
+        ahead = "⇡$count"; behind = "⇣$count"; up_to_date = "✓";
       };
 
-      # Language
-      docker_context.format = "[ 󰡨 $context ](bg:#89b4fa fg:#1e1e2e)";
-      python.format   = "[  $version ($virtualenv) ](bg:#f9e2af fg:#1e1e2e)";
-      nodejs.format   = "[ 󰛦 $version ](bg:#a6e3a1 fg:#1e1e2e)";
-      angular.format  = "[ 󰚲 $version ](bg:#e06c75 fg:#ffffff)";
-      rust.format     = "[ 󱗼 $version ](bg:#f38ba8 fg:#1e1e2e)";
-      golang.format   = "[ 󰟓 $version ](bg:#89dceb fg:#1e1e2e)";
-      java.format     = "[  $version ](bg:#f28fad fg:#1e1e2e)";
-      php.format      = "[ 󰣾 $version ](bg:#cba6f7 fg:#1e1e2e)";
-      ruby.format     = "[  $version ](bg:#f38ba8 fg:#ffffff)";
-      elixir.format   = "[ 󰘬 $version ](bg:#cba6f7 fg:#1e1e2e)";
-      haskell.format  = "[ 󰲒 $version ](bg:#a6e3a1 fg:#1e1e2e)";
+      # ─────── Языки (все в одной спокойной жёлтой секции) ───────
+      python.format   = "[  $version ($virtualenv) ](bg:${c.yellow} fg:${c.crust})";
+      nodejs.format   = "[ 󰛦 $version ](bg:${c.yellow} fg:${c.crust})";
+      rust.format     = "[ 󱗼 $version ](bg:${c.yellow} fg:${c.crust})";
+      golang.format   = "[ 󰟓 $version ](bg:${c.yellow} fg:${c.crust})";
+      docker_context.format = "[ 󰡨 $context ](bg:${c.sapphire} fg:${c.crust})";
 
-      # Time command
+      # ─────── Время выполнения (справа) ───────
       cmd_duration = {
-        format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
+        format = "[  $duration ](bg:${c.overlay0} fg:${c.text})";
         min_time = 2000;
       };
 
-      # Status command
-      character = {
-        success_symbol = "[ ➜ ](bold green)";
-        error_symbol   = "[ ➜ ](bold red)";
+      # ─────── Батарея (справа, всегда) ───────
+      battery = {
+        full_symbol = "󰂄";
+        charging_symbol = "󰂄";
+        discharging_symbol = "󰂃";
+        format = "[ $percentage% $symbol ](bg:${c.surface1} fg:${c.green})";
+        [[battery.display]]
+        threshold = 100;
+        style = "bg:${c.surface1} fg:${c.green}";
       };
 
-      # Отключаем ненужное
-      hostname.disabled = true;
-      username.disabled = true;
+      # ─────── Время (справа, 24ч) ───────
+      time = {
+        disabled = false;
+        format = "[  $time ](bg:${c.surface1} fg:${c.lavender})";
+        time_format = "%H:%M";
+      };
+
+      # ─────── Стрелка ввода (справа) ───────
+      character = {
+        success_symbol = "[ ❯ ](bold ${c.green})";
+        error_symbol = "[ ✘ ](bold ${c.red})";
+      };
+
+      # ─────── Username + Hostname — ТОЛЬКО при SSH ───────
+      username = {
+        show_always = false;
+        format = "[ $user ](bg:${c.lavender} fg:${c.crust})";
+        style_user = "bg:${c.lavender} fg:${c.crust}";
+      };
+      hostname = {
+        ssh_only = true;
+        format = "[@$hostname](bg:${c.lavender} fg:${c.crust})";
+      };
+
+      # ─────── Цветовая палитра Catppuccin Mocha (мягкая, неон не бьёт) ───────
+      palettes.catppuccin_mocha = {
+        rosewater = "#f5e0dc";
+        flamingo  = "#f2cdcd";
+        pink      = "#f5c2e7";
+        mauve     = "#cba6f7";
+        red       = "#f38ba8";
+        maroon    = "#eba0ac";
+        peach     = "#fab387";
+        yellow    = "#f9e2af";
+        green     = "#a6e3a1";
+        teal      = "#94e2d5";
+        sky       = "#89dceb";
+        sapphire  = "#74c7ec";
+        blue      = "#89b4fa";
+        lavender  = "#b4befe";
+        text      = "#cdd6f4";
+        subtext1  = "#bac2de";
+        subtext0  = "#a6adc8";
+        overlay2  = "#9399b2";
+        overlay1  = "#7f849c";
+        overlay0  = "#6c7086";
+        surface2  = "#585b70";
+        surface1  = "#45475a";
+        surface0  = "#313244";
+        base      = "#1e1e2e";
+        mantle    = "#181825";
+        crust     = "#11111b";
+      };
     };
   };
 
