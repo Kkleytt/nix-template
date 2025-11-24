@@ -118,143 +118,119 @@
   # ────────────────────── Starship ──────────────────────
 
   programs.starship = {
-    enable = true;
-    settings = let
-      c = config.programs.starship.settings.palettes.catppuccin_mocha;
-    in {
-      add_newline = false;
-      command_timeout = 500;
+  enable = true;
+  settings = {
+    add_newline = false;
+    command_timeout = 500;
 
-      palette = "catppuccin_mocha";
+    palette = "catppuccin_mocha";
 
-      # ─────── Основная строка (всё в одну строку) ───────
-      format = lib.concatStrings [
-        # Левая часть — от тёмного к светлому
-        "[╭─](bg:${c.surface0} fg:${c.lavender})"
-        "$directory"
-        "$git_branch"
-        "$git_status"
-        "$python"
-        "$nodejs"
-        "$rust"
-        "$golang"
-        "$docker_context"
-        "$fill"
-        "$cmd_duration"
-        "$battery"
-        "$time"
-        # Правая стрелка к вводу
-        "[](bg:${c.crust} fg:${c.surface0})"
-        "$character"
+    # ─────── Формат (всё в одну строку) ───────
+    format = lib.concatStrings [
+      "[╭─](bg:surface0 fg:lavender)"
+      "$directory"
+      "$git_branch"
+      "$git_status"
+      "$python"
+      "$nodejs"
+      "$rust"
+      "$golang"
+      "$docker_context"
+      "$fill"
+      "$cmd_duration"
+      "$battery"
+      "$time"
+      "[](bg:crust fg:surface0)"
+      "$character"
+    ];
+
+    fill.symbol = " ";
+
+    # ─────── Путь ───────
+    directory = {
+      format = "[ 󰉖 $path ](bg:mauve fg:crust bold)";
+      truncation_length = 5;
+      truncate_to_repo = true;
+      read_only = "";
+    };
+
+    # ─────── Git ───────
+    git_branch.format = "[  $branch ](bg:green fg:crust bold)";
+    git_status.format = "[$all_status$ahead_behind](bg:green fg:crust)";
+
+    # ─────── Языки ───────
+    python.format   = "[  $version ($virtualenv) ](bg:yellow fg:crust)";
+    nodejs.format   = "[ 󰛦 $version ](bg:yellow fg:crust)";
+    rust.format     = "[ 󱗼 $version ](bg:yellow fg:crust)";
+    golang.format   = "[ 󰟓 $version ](bg:yellow fg:crust)";
+    docker_context.format = "[ 󰡨 $context ](bg:sapphire fg:crust)";
+
+    # ─────── Время выполнения ───────
+    cmd_duration = {
+      format = "[  $duration ](bg:overlay0 fg:text)";
+      min_time = 2000;
+    };
+
+    # ─────── Батарея ───────
+    battery = {
+      format = "[ $percentage% $symbol ](bg:surface1 fg:green)";
+      full_symbol = "󰂄";
+      charging_symbol = "󰂄";
+      discharging_symbol = "󰂃";
+
+      display = [
+        { threshold = 100; style = "bg:surface1 fg:green"; }
       ];
+    };
 
-      fill.symbol = " ";
+    # ─────── Время ───────
+    time = {
+      disabled = false;
+      format = "[  $time ](bg:surface1 fg:lavender)";
+      time_format = "%H:%M";
+    };
 
-      # ─────── Путь (розовый, мягкий) ───────
-      directory = {
-        format = "[  $path ](bg:${c.mauve} fg:${c.crust} bold)";
-        truncation_length = 5;
-        truncate_to_repo = true;
-        read_only = "";
-        substitutions = {
-          ".config" = "  ";
-          ".local" = " 󰉍 ";
-          "Загрузки" = " 󰛴 ";
-          "Downloads" = " 󰛴 ";
-          "Documents" = " 󱔗 ";
-          "Music" = " 󰝚 ";
-          "Videos" = " 󰎁 ";
-          "Pictures" = " 󰉏 ";
-          "Wallpapers" = " 󰸉 ";
-          "Obsidian" = " 󰠮 ";
-          "Projects" = "  ";
-        };
-      };
+    # ─────── Стрелка ввода ───────
+    character = {
+      success_symbol = "[ ❯ ](bold green)";
+      error_symbol = "[ ✘ ](bold red)";
+    };
 
-      # ─────── Git (зелёный, спокойный) ───────
-      git_branch.format = "[  $branch ](bg:${c.green} fg:${c.crust} bold)";
-      git_status = {
-        format = "[$all_status$ahead_behind](bg:${c.green} fg:${c.crust})";
-        conflicted = "✘"; modified = "!"; staged = "+"; untracked = "?"; deleted = "✘";
-        ahead = "⇡$count"; behind = "⇣$count"; up_to_date = "✓";
-      };
+    # ─────── Username + Hostname только при SSH ───────
+    username.show_always = false;
+    hostname.ssh_only = true;
 
-      # ─────── Языки (все в одной спокойной жёлтой секции) ───────
-      python.format   = "[  $version ($virtualenv) ](bg:${c.yellow} fg:${c.crust})";
-      nodejs.format   = "[ 󰛦 $version ](bg:${c.yellow} fg:${c.crust})";
-      rust.format     = "[ 󱗼 $version ](bg:${c.yellow} fg:${c.crust})";
-      golang.format   = "[ 󰟓 $version ](bg:${c.yellow} fg:${c.crust})";
-      docker_context.format = "[ 󰡨 $context ](bg:${c.sapphire} fg:${c.crust})";
-
-      # ─────── Время выполнения (справа) ───────
-      cmd_duration = {
-        format = "[  $duration ](bg:${c.overlay0} fg:${c.text})";
-        min_time = 2000;
-      };
-
-      # ─────── Батарея (справа, всегда) ───────
-      battery = {
-        full_symbol = "󰂄";
-        charging_symbol = "󰂄";
-        discharging_symbol = "󰂃";
-        format = "[ $percentage% $symbol ](bg:${c.surface1} fg:${c.green})";
-      };
-
-      # ─────── Время (справа, 24ч) ───────
-      time = {
-        disabled = false;
-        format = "[  $time ](bg:${c.surface1} fg:${c.lavender})";
-        time_format = "%H:%M";
-      };
-
-      # ─────── Стрелка ввода (справа) ───────
-      character = {
-        success_symbol = "[ ❯ ](bold ${c.green})";
-        error_symbol = "[ ✘ ](bold ${c.red})";
-      };
-
-      # ─────── Username + Hostname — ТОЛЬКО при SSH ───────
-      username = {
-        show_always = false;
-        format = "[ $user ](bg:${c.lavender} fg:${c.crust})";
-        style_user = "bg:${c.lavender} fg:${c.crust}";
-      };
-      hostname = {
-        ssh_only = true;
-        format = "[@$hostname](bg:${c.lavender} fg:${c.crust})";
-      };
-
-      # ─────── Цветовая палитра Catppuccin Mocha (мягкая, неон не бьёт) ───────
-      palettes.catppuccin_mocha = {
-        rosewater = "#f5e0dc";
-        flamingo  = "#f2cdcd";
-        pink      = "#f5c2e7";
-        mauve     = "#cba6f7";
-        red       = "#f38ba8";
-        maroon    = "#eba0ac";
-        peach     = "#fab387";
-        yellow    = "#f9e2af";
-        green     = "#a6e3a1";
-        teal      = "#94e2d5";
-        sky       = "#89dceb";
-        sapphire  = "#74c7ec";
-        blue      = "#89b4fa";
-        lavender  = "#b4befe";
-        text      = "#cdd6f4";
-        subtext1  = "#bac2de";
-        subtext0  = "#a6adc8";
-        overlay2  = "#9399b2";
-        overlay1  = "#7f849c";
-        overlay0  = "#6c7086";
-        surface2  = "#585b70";
-        surface1  = "#45475a";
-        surface0  = "#313244";
-        base      = "#1e1e2e";
-        mantle    = "#181825";
-        crust     = "#11111b";
-      };
+    # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
+    palettes.catppuccin_mocha = {
+      rosewater = "#f5e0dc";
+      flamingo  = "#f2cdcd";
+      pink      = "#f5c2e7";
+      mauve     = "#cba6f7";
+      red       = "#f38ba8";
+      maroon    = "#eba0ac";
+      peach     = "#fab387";
+      yellow    = "#f9e2af";
+      green     = "#a6e3a1";
+      teal      = "#94e2d5";
+      sky       = "#89dceb";
+      sapphire  = "#74c7ec";
+      blue      = "#89b4fa";
+      lavender  = "#b4befe";
+      text      = "#cdd6f4";
+      subtext1  = "#bac2de";
+      subtext0  = "#a6adc8";
+      overlay2  = "#9399b2";
+      overlay1  = "#7f849c";
+      overlay0  = "#6c7086";
+      surface2  = "#585b70";
+      surface1  = "#45475a";
+      surface0  = "#313244";
+      base      = "#1e1e2e";
+      mantle    = "#181825";
+      crust     = "#11111b";
     };
   };
+};
 
   # ────────────────────── Atuin ──────────────────────
   programs.atuin = {
