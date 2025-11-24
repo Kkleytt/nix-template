@@ -120,66 +120,66 @@
     enable = true;
 
     settings = {
+      # Global
       add_newline = false;
+      line_break = "";
       scan_timeout = 10;
-
       format = "$directory$git_branch$git_state$git_status$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
-
       fill.symbol = " ";
 
-
-
+      # Path
       directory = {
-        format = "[ 󰉖 $path ]($style)";
-        style = "bg:#1e1e2e fg:#cba6f7 bold";
+        format = "[ 󰉖 $path ](bg:#1e1e2e fg:#cba6f7 bold)";
         truncation_length = 8;
         truncate_to_repo = true;
-        fish_style_pwd_dir_length = 0;
 
         substitutions = {
-          "${config.home.homeDirectory}/Projects" = "󰉋 Proj";
-          "${config.home.homeDirectory}/Documents" = "󰈙 Docs";
-          "${config.home.homeDirectory}/Загрузки" = " DL";
-          "${config.home.homeDirectory}/.config" = " CFG";
-          "${config.home.homeDirectory}" = "";
+          "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
+          "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
+          "${config.home.homeDirectory}/Загрузки" = "  DL";
+          "${config.home.homeDirectory}/.config" = "  CFG";
+          "${config.home.homeDirectory}" = " ";
         };
       };
 
-      # Только одна самая важная иконка (никакого мусора)
-      git_branch.format = "[  $branch ]($style)";
-      git_branch.style = "bg:#313244 fg:#a6e3a1 bold";
-
+      # GIT
+      git_branch = {
+        format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
+        only_attached = true;
+      };
       git_status = {
-        format = "[$conflicted$staged$deleted$modified$untracked$ahead_behind]($style)";
+        format = "[ $symbol ](bg:#313244 fg:#f38ba8 bold)";
         style = "bg:#313244 fg:#f38ba8 bold";
 
-        # Приоритеты: только самая важная вещь
-        conflicted = "✘ ";
-        staged     = "● ";
-        deleted    = "✘ ";
-        modified   = "✚ ";
-        untracked  = "… ";
-        ahead      = "⇡$count ";
-        behind     = "⇣$count ";
-        diverged   = "⇕ ";
-
-        # Всё остальное — пусто, чтобы не было квадрата
-        renamed = "";
-        stashed = "";
-        up_to_date = "";
+        # Приоритет: первая попавшаяся победа
+        conflicted   = "✘";
+        staged       = "●";
+        modified     = "✚";
+        deleted      = "✘";
+        renamed      = "»";
+        untracked    = "…";
+        stashed      = "≡";
+        ahead        = "⇡$count";
+        behind       = "⇣$count";
+        diverged     = "⇕";
+        up_to_date   = "";
+        ignored      = "";
       };
+      git_state.disabled = false;
 
-      # Языки — без "via", с цветными фонами
+      # Language
       nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold) ";
       rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold) ";
       python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold) ";
       golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold) ";
 
+      # Time command
       cmd_duration = {
         format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
         min_time = 2000;
       };
 
+      # Status command
       character = {
         success_symbol = "[ ➜ ](bold green)";
         error_symbol   = "[ ➜ ](bold red)";
