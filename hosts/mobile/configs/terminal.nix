@@ -25,28 +25,23 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    dotDir = ".config/zsh";
+    dotDir = "zsh";
     history = {
       expireDuplicatesFirst = true;
       ignoreSpace = true;
-      path = "$HOME/.cache/zsh/history";
+      path = "${config.xdg.cacheHome}/zsh/history";
       save = 100000;
       size = 100000;
     };
 
-    # Включаем встроенные в Home Manager быстрые плагины (на чистом C/Rust)
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    # autosuggestions.enable = true;
 
-    plugins = [
-      {
-        name = "fzf-tab";
-        src = pkgs.zsh-fzf-tab;
-      }
+    plugins = [ 
+      { name = "fzf-tab"; src = pkgs.zsh-fzf-tab; } 
     ];
 
-    initExtraFirst = ''
+    initContent = lib.mkOrder 100 ''
       # ── Starship (самый быстрый и красивый prompt 2025) ──
       eval "$(starship init zsh)"
 
@@ -58,9 +53,7 @@
 
       # ── Fastfetch при старте терминала ──
       fastfetch -c ~/.config/fastfetch/config-compact.jsonc
-    '';
-
-    initExtra = ''
+    '' + lib.mkOrder 600 ''
       # ── Удобные алиасы 2025 ──
 
       alias ls='eza --icons --group-directories-first --color=always'
@@ -95,10 +88,8 @@
       git config --global interactive.diffFilter "delta --color-only"
       git config --global delta.navigate true
       git config --global delta.side-by-side false
-    '';
-
-    # ── Клавиши как в 2025 (Ctrl+Стрелки, поиск по atuin и т.д.) ──
-    initExtraBeforeCompInit = ''
+    '' + lib.mkOrder 550 ''
+      # Удобные сочетания клавиш
       bindkey "^[[1;5C" forward-word          # Ctrl+Right
       bindkey "^[[1;5D" backward-word          # Ctrl+Left
       bindkey '^ ' autosuggest-accept          # Ctrl+Space — принять подсказку
