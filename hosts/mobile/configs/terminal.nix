@@ -238,7 +238,7 @@
 
     # ─────── Status ───────
       status = {
-        format = "[ \\u2717 $status $hex_status( \\uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+        format = "[ \u2717 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
         success_symbol = "";
         disabled = false;
         map_symbol = false;
