@@ -128,7 +128,7 @@
     # ─────── Format ───────
       format = lib.concatStrings [
         # OS
-        # "[╭─](surface0)"
+        "[╭─](surface0)"
         # "$os"
 
         # Username + Hostname
