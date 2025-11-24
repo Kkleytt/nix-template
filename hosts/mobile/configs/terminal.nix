@@ -155,17 +155,17 @@
     git_status = {
       format = "[$all_status$ahead_behind]($style)";
       style = "bold #f38ba8";
-      conflicted = "🏳 ";
-      up_to_date = " ";
-      untracked = " ";
-      ahead = "⇡$count ";
-      diverged = "⇕⇡$ahead_count ⇣$behind_count ";
-      behind = "⇣$count ";
-      stashed = " ";
-      modified = " ";
-      staged = "++ ";
-      renamed = "襁 ";
-      deleted = " ";
+      conflicted = " 🏳 ";
+      up_to_date = "  ";
+      untracked = "  ";
+      ahead = " ⇡$count ";
+      diverged = " ⇕⇡$ahead_count ⇣$behind_count ";
+      behind = " ⇣$count ";
+      stashed = "  ";
+      modified = "  ";
+      staged = " ++ ";
+      renamed = " 襁 ";
+      deleted = "  ";
     };
 
     # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
@@ -191,6 +191,25 @@
     };
 
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
+    # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
+    python = {
+      format = "[ 🐍 $version ](bold #cba6f7)\${custom_venv}";
+      symbol = "";
+      version_format = "$major.$minor";
+
+      # Отключаем стандартный вывод venv
+      python_binary = ["python3" "python"];
+      detect_extensions = ["py"];
+      detect_files = ["pyproject.toml" "requirements.txt" "__init__.py"];
+    };
+
+    # Простое слово "venv" — только при активном окружении
+    custom.venv = {
+      when = "test -n \"$VIRTUAL_ENV\" || test -n \"$CONDA_DEFAULT_ENV\" || test -f pyproject.toml && command -v poetry >/dev/null && poetry env info --path >/dev/null 2>&1 || test -f Pipfile && test -n \"$PIPENV_ACTIVE\"";
+      command = "printf venv";
+      format = "[ $output ](yellow bold)";
+      shell = ["zsh"];
+    };
     # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
     # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
     # python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold)";
