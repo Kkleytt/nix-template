@@ -128,8 +128,8 @@
     # ─────── Format ───────
       format = lib.concatStrings [
         # OS
-        "[╭─](surface0)"
-        "$os"
+        # "[╭─](surface0)"
+        # "$os"
 
         # Username + Hostname
         "[ ](bg:lavender fg:surface0)"
@@ -259,7 +259,7 @@
 
     # ─────── Battery ───────
       battery = {
-        format = "[ \ueab5 $symbol$percentage]($style)";
+        format = "[ $symbol$percentage]($style)";
         full_symbol = "󰁹 ";
         charging_symbol = "󰂄 ";
         discharging_symbol = "󰂃 ";
@@ -270,8 +270,19 @@
       };
 
     # ─────── Username + Hostname только при SSH ───────
-      username.show_always = false;
-      hostname.ssh_only = true;
+      username = {
+        format = "[$user]($style)";
+        show_always = true;
+        style_user = "bg:lavender fg:surface0";
+        style_root = "bg:lavender fg:surface0 bold";
+      };
+      hostname = {
+        format = "[@$hostname ](bg:lavender fg:surface0)";
+        ssh_only = true;
+        ssh_symbol = "";
+        disabled = false;
+        # trim_at = ".companyname.com";
+      };
 
     # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
       palettes.catppuccin_mocha = {
