@@ -124,27 +124,40 @@
       line_break = "";
       scan_timeout = 10;
 
-      format = ''
-      [░▒▓](#a3aed2)
-      [  ](bg:#a3aed2 fg:#090c0c)
-      [](bg:#769ff0 fg:#a3aed2)
-      $directory
-      [](bg:#a6e3a1 fg:#1e1e2e bold)
-      $git_branch
-      [](bg:#f38ba8 fg:#1e1e2e bold)
-      $git_status
-      [](fg:#394260 bg:#212736)
-      $docker_context
-      $nodejs
-      $rust
-      $golang
-      $bun
-      $deno
-      [](fg:#212736 bg:#1d2230)
-      $cmd_duration
-      [ ](fg:#1d2230)
-      \n$character
-      '';
+      format = lib.concatStrings [
+        # Начало
+        "[░▒▓](#a3aed2)"
+        "[  ](bg:#a3aed2 fg:#1e1e2e bold)"
+
+        # Путь (розовый)
+        "[](bg:#f5c2e7 fg:#a3aed2)"
+        "[ 󰉖 $path ](bg:#f5c2e7 fg:#1e1e2e bold)"
+
+        # Git ветка (зелёный)
+        "[](bg:#a6e3a1 fg:#f5c2e7)"
+        "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)"
+
+        # Git статус (красный, только если есть изменения)
+        "[$all_status$ahead_behind|](bg:#f38ba8 fg:#1e1e2e bold)"
+
+        # Docker (синий)
+        "$docker_context"
+
+        # Языки
+        "$python"
+        "$nodejs"
+        "$rust"
+        "$golang"
+        "$java"
+        "$php"
+
+        # Время выполнения (серый)
+        "$cmd_duration"
+
+        # Конец + ввод
+        "[ ](fg:#1e1e2e)"
+        "$character"
+      ];
       fill.symbol = " ";
 
       # Path
