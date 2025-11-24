@@ -154,18 +154,18 @@
     # ─────── Git статус — компактный и красивый (как у тебя было) ───────
     git_status = {
       format = "[$all_status$ahead_behind]($style)";
-      style = "bold #f38ba8";
-      conflicted = " 🏳 ";
-      up_to_date = "  ";
-      untracked = "  ";
-      ahead = " ⇡$count ";
-      diverged = " ⇕⇡$ahead_count ⇣$behind_count ";
-      behind = " ⇣$count ";
-      stashed = "  ";
-      modified = "  ";
-      staged = " ++ ";
-      renamed = " 襁 ";
-      deleted = "  ";
+      style = "(bg:#313244 fg:#2d48a8)";
+      conflicted = " 🏳";
+      up_to_date = " ";
+      untracked = " ";
+      ahead = " ⇡$count";
+      diverged = " ⇕⇡$ahead_count ⇣$behind_count";
+      behind = " ⇣$count";
+      stashed = " ";
+      modified = " ";
+      staged = " ++";
+      renamed = " 襁";
+      deleted = " ";
     };
 
     # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
@@ -178,7 +178,7 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[ 🐍 $version ](bold #cba6f7)\${custom_venv}";
+      format = "[ 🐍 $version (($virtualenv) )](bold #cba6f7)";
       symbol = "";
       version_format = "$major.$minor";
 
