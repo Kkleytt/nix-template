@@ -8,11 +8,11 @@
     # autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    ohMyZsh = {
-      enable = true;
-      plugins = ["git"];
-      theme = "agnoster"; 
-    };
+    # ohMyZsh = {
+    #   enable = true;
+    #   plugins = ["git"];
+    #   theme = "agnoster"; 
+    # };
 
     initExtra = ''
       fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
