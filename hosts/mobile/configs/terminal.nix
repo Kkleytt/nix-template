@@ -175,21 +175,6 @@
       disabled = false;
     };
 
-    # ─────── 2. venv: только если активировано локальное окружение (не глобальное) ───────
-    # Показывает просто "venv", если активировано .venv / venv / poetry / pipenv
-    custom.venv = {
-      description = "Показывает 'venv' только при локальном окружении";
-      when = ''
-        test -n "$VIRTUAL_ENV" || \
-        test -d .venv || \
-        test -f pyproject.toml && command -v poetry >/dev/null && poetry env info --path >/dev/null 2>&1 || \
-        test -f Pipfile && test -n "$PIPENV_ACTIVE"
-      '';
-      command = "echo venv";
-      format = "[ 󰌠 venv ](bg:#313244 fg:#cba6f7 bold)";
-      shell = ["zsh"];
-    };
-
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
