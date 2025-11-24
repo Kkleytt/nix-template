@@ -72,19 +72,25 @@
           fastfetch -c ${config.xdg.configHome}/fastfetch/config-compact.jsonc
 
         # ────────────────────── Алиасы 2025 ──────────────────────
+        # Перемещение по директориям
         alias ls='eza --icons --group-directories-first --color=always'
         alias ll='eza -lh --icons --group-directories-first --color=always'
         alias la='eza -lah --icons --group-directories-first --color=always'
         alias lt='eza --tree --level=3 --icons'
+        alias cd='z'
+        alias cls='clear'
+
+        # Работа с файлами
         alias cat='bat --style=plain'
+        alias rm='trash-put'
         alias grep='rg'
         alias find='fd'
         alias ps='procs'
         alias du='dust'
+
+        # Утилиты
         alias df='duf'
         alias ping='gping'
-        alias rm='trash-put'
-        alias cls='clear'
         alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
 
         # Git коротко и удобно
@@ -121,18 +127,17 @@
 
       fill.symbol = " ";
 
-      # Путь с фоном + сокращение до имени проекта + рабочие substitutions
       directory = {
         format = "[ 󰉖 $path ]($style) ";
         style = "bg:#1e1e2e fg:#cba6f7 bold";
         truncation_length = 8;
         truncate_to_repo = true;
 
-        # ← Вот так правильно делают substitutions в 2025
         substitutions = {
           "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
           "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
-          "${config.home.homeDirectory}/Downloads" = "  DL";
+          "${config.home.homeDirectory}/Загрузки" = "  DL";
+          "${config.home.homeDirectory}/.confog" = " CFG";
           "${config.home.homeDirectory}" = "  Home";
         };
       };
@@ -141,9 +146,16 @@
       git_status = {
         format = "[ $conflicted$staged$deleted$renamed$modified$untracked$stashed$ahead_behind ]($style)";
         style = "bg:#313244 fg:#f38ba8 bold";
-        conflicted = "✘"; ahead = "⇡"; behind = "⇣"; diverged = "⇕";
-        untracked = "?"; stashed = "$"; modified = "!"; staged = "+"; renamed = "»"; deleted = "✘";
-        # Если всё чисто — вообще ничего не показывается
+        ahead = "⇡"; 
+        behind = "⇣"; 
+        diverged = "⇕";
+        modified = "!"; 
+        conflicted = ""; 
+        untracked = ""; 
+        stashed = ""; 
+        staged = ""; 
+        renamed = ""; 
+        deleted = "";
         up_to_date = "";
       };
 

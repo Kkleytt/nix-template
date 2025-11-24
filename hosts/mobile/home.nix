@@ -78,7 +78,7 @@
     
 
     ## Browsers
-      brave                                         # Браузер Brave
+      # brave                                         # Браузер Brave
       # vivaldi                                       # Браузер Vivaldi
       # qutebrowser                                   # Браузер для управления без мышки
       # firefox                                       # Браузер Firefox
