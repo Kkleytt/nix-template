@@ -117,73 +117,100 @@
 
   # ────────────────────── Starship ──────────────────────
   programs.starship = {
-    enable = true;
+  enable = true;
 
-    settings = {
-      # Global
-      add_newline = false;
-      line_break = "";
-      scan_timeout = 10;
-      format = "$directory$git_branch$git_state$git_status$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
-      fill.symbol = " ";
+  settings = {
+    add_newline = false;
+    line_break = "";                    # всё в одну строку
+    scan_timeout = 10;
 
-      # Path
-      directory = {
-        format = "[ 󰉖 $path ](bg:#1e1e2e fg:#cba6f7 bold)";
-        truncation_length = 8;
-        truncate_to_repo = true;
+    format = "$directory$git_branch$git_status$docker_context$venv$nodejs$rust$python$golang$bun$deno$fill$cmd_duration$character";
+    fill.symbol = " ";
 
-        substitutions = {
-          "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
-          "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
-          "${config.home.homeDirectory}/Загрузки" = "  DL";
-          "${config.home.homeDirectory}/.config" = "  CFG";
-          "${config.home.homeDirectory}" = " ";
-        };
-      };
+    # ─────── Путь (substitutions теперь работают 100%) ───────
+    directory = {
+      home_symbol = " ~";
+      format = "[ 󰉖 $path ](bg:#1e1e2e fg:#cba6f7 bold)";
+      truncation_length = 8;
+      truncate_to_repo = true;
+      read_only = " ";
+      read_only_style = "197";
 
-      # GIT
-      git_branch = {
-        format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
-        only_attached = true;
-      };
-      git_status = {
-        format = "[ $symbol ](bg:#313244 fg:#f38ba8 bold)";
-        style = "bg:#313244 fg:#f38ba8 bold";
-
-        # Приоритет: первая попавшаяся победа
-        conflicted   = "✘";
-        staged       = "●";
-        modified     = "✚";
-        deleted      = "✘";
-        renamed      = "»";
-        untracked    = "…";
-        stashed      = "≡";
-        ahead        = "⇡$count";
-        behind       = "⇣$count";
-        diverged     = "⇕";
-        up_to_date   = "";
-      };
-
-      # Language
-      nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold) ";
-      rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold) ";
-      python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold) ";
-      golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold) ";
-
-      # Time command
-      cmd_duration = {
-        format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
-        min_time = 2000;
-      };
-
-      # Status command
-      character = {
-        success_symbol = "[ ➜ ](bold green)";
-        error_symbol   = "[ ➜ ](bold red)";
+      substitutions = {
+        "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
+        "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
+        "${config.home.homeDirectory}/Загрузки" = "  DL";
+        "${config.home.homeDirectory}/.config" = "  CFG";
+        "${config.home.homeDirectory}" = " ";
       };
     };
+
+    # ─────── Git ветка ───────
+    git_branch = {
+      format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
+      only_attached = true;
+    };
+
+    # ─────── Git статус — компактный и красивый (как у тебя было) ───────
+    git_status = {
+      format = "[$all_status$ahead_behind]($style)";
+      style = "bold #f38ba8";
+      conflicted = "🏳";
+      up_to_date = "";
+      untracked = "";
+      ahead = "⇡${count}";
+      diverged = "⇕⇡${ahead_count}⇣${behind_count}";
+      behind = "⇣${count}";
+      stashed = "";
+      modified = "";
+      staged = "++";
+      renamed = "襁";
+      deleted = "";
+    };
+
+    # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
+    docker_context = {
+      format = "[ 󰡨 $context ](bg:#313244 fg:#89b4fa bold)";
+      only_with_files = false;
+      disabled = false;
+    };
+
+    # ─────── 2. venv: только если активировано локальное окружение (не глобальное) ───────
+    # Показывает просто "venv", если активировано .venv / venv / poetry / pipenv
+    custom.venv = {
+      description = "Показывает 'venv' только при локальном окружении";
+      when = ''
+        test -n "$VIRTUAL_ENV" || \
+        test -d .venv || \
+        test -f pyproject.toml && command -v poetry >/dev/null && poetry env info --path >/dev/null 2>&1 || \
+        test -f Pipfile && test -n "$PIPENV_ACTIVE"
+      '';
+      command = "echo venv";
+      format = "[ 󰌠 venv ](bg:#313244 fg:#cba6f7 bold)";
+      shell = ["zsh"];
+    };
+
+    # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
+    nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
+    rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
+    python.format = "[ 󰌠 $version ](bg:#313244 fg:#cba6f7 bold)";
+    golang.format = "[ 󰟓 $version ](bg:#313244 fg:#89dceb bold)";
+
+    cmd_duration = {
+      format = "[  $duration ](bg:#313244 fg:#cdd6f4)";
+      min_time = 2000;
+    };
+
+    character = {
+      success_symbol = "[ ➜ ](bold green)";
+      error_symbol   = "[ ➜ ](bold red)";
+    };
+
+    # Отключаем ненужное
+    hostname.disabled = true;
+    username.disabled = true;
   };
+};
 
   # ────────────────────── Atuin ──────────────────────
   programs.atuin = {
