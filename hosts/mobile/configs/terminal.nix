@@ -146,7 +146,7 @@
     };
 
     # ─────── Git ───────
-    git_branch.format = "[  $branch  ](bg:#313244 fg:#a6e3a1 bold)";
+    git_branch.format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
     git_branch.only_attached = true;
     git_status.format = "[$all_status$ahead_behind](bg:#313244 fg:#a6e3a1 bold)";
     git_status = {
@@ -174,32 +174,20 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      disabled = false;
+      format = "[  $version ](bg:#313244 fg:#bed04a bold)";
+      symbol = "";  # убираем лишнюю иконку
+      version_format = "$major.$minor";  # только 3.14
 
-      # Главная строка — именно то, что ты хочешь
-      format = "[  $version ](bg:#313244 fg:#bed04a bold)\${custom_venv}";
-
-      symbol = "";                       # убираем 🐍 — мы уже используем  вручную
-      version_format = "$major.$minor";  # только 3.14, без v и патча
-
-      # Определяем Python в проектах
+      # Обнаружение Python-проекта
       python_binary = [ "python3" "python" ];
       detect_extensions = [ "py" ];
-      detect_files = [
-        "requirements.txt"
-        "pyproject.toml"
-        "Pipfile"
-        "__init__.py"
-        "setup.py"
-      ];
-
-      # ← КЛЮЧЕВАЯ НАСТРОЙКА: показываем имя окружения в скобках, только если оно активировано
-      # Работает с: venv, poetry, pipenv, conda, pdm, pyenv-virtualenv
-      virtualenv = {
-        format = "($virtualenv)";        # ← просто имя в скобках
-        style = "bold #bed04a";          # тот же цвет, что и версия
-        symbol = "";                     # убираем стандартный префикс "via "
-      };
+      detect_files = [ "pyproject.toml" "requirements.txt" "__init__.py" "Pipfile" ];
+    };
+    custom.venv = {
+      when = ''test -n "$VIRTUAL_ENV" || test -n "$CONDA_DEFAULT_ENV"'';
+      command = ''basename "$VIRTUAL_ENV" 2>/dev/null || echo "$CONDA_DEFAULT_ENV" 2>/dev/null || echo "venv"'';
+      format = "($output)(bold #bed04a)";
+      shell = [ "zsh" ];
     };
     # nodejs.format = "[ 󰛦 $version ](bg:#313244 fg:#a6e3a1 bold)";
     # rust.format   = "[ 󱗼 $version ](bg:#313244 fg:#f38ba8 bold)";
