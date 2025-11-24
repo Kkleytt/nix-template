@@ -174,7 +174,7 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[  $version ($virtualenv) |](bg:#313244 fg:#bed04a bold";
+      format = "[  $version ($virtualenv) |](bg:#313244 fg:#bed04a bold)";
       symbol = "";  # убираем лишнюю иконку
       version_format = "$major.$minor";  # только 3.14
 
