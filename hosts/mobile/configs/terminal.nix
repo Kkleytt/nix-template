@@ -159,8 +159,8 @@
 
       # Path
       directory = {
-        home_symbol = " ~";
-        format = "[ 󰉖 $path ](bg:#f5c2e7 fg:#1e1e2e bold)";
+        home_symbol = " ";
+        format = "[ $path ](bg:#f5c2e7 fg:#1e1e2e bold)";
         truncation_length = 8;
         truncate_to_repo = true;
         read_only = " ";
@@ -177,7 +177,7 @@
           "Pictures" = " 󰉏 ";
           "Wallpapers" = " 󰸉 ";
           "Obsidian" = " 󰠮 ";
-          "~/Projects" = "  ";
+          "Projects" = "  ";
         };
       };
 
