@@ -8,12 +8,12 @@ let
     
 in {
   imports = [
-    ./hardware.nix
+    ./hardware.nix                            # Настройка аппаратной конфигурации
     ./packages-fonts.nix                      # Установка шрифтов и обязательных пакетов
+    ./users.nix                               # Настройка пользователей
     ../../modules/amd-drivers.nix
     ../../modules/vm-guest-services.nix
     ../../modules/local-hardware-clock.nix
-    # ./users.nix
     # ../../modules/nvidia-drivers.nix
     # ../../modules/nvidia-prime-drivers.nix
     # ../../modules/intel-drivers.nix
@@ -28,7 +28,7 @@ in {
       "systemd.mask=dev-tpmrm0.device"
       "nowatchdog" 
       "modprobe.blacklist=sp5100_tco" # Наблюдатель AMD
-      # "modprobe.blacklist=iTCO_wdt" # Наблюдатель Intel
+      # "modprobe.blacklist=iTCO_wdt"   # Наблюдатель Intel
     ];
     
     initrd = { 

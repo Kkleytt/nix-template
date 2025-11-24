@@ -103,8 +103,6 @@
       atuin                                   # Расширенная история команд
   ]);
 
-  environment.shells = with pkgs; [ zsh ];
-
 
   # Установка шрифтов
   fonts = {

@@ -2,17 +2,6 @@
   home.username = "kkleytt";
   home.homeDirectory = "/home/kkleytt";
   home.stateVersion = "25.11";
-  user.extraGroups = [
-    "networkmanager"
-    "wheel"
-    "libvirtd"
-    "scanner"
-    "lp"
-    "video"
-    "input"
-    "audio"
-    "docker"
-  ];
 
   # Приложения (Apps)
   home.packages = (with pkgs; [
