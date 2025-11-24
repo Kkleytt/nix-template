@@ -125,24 +125,24 @@
       scan_timeout = 10;
 
       format = ''
-      [░▒▓](#a3aed2)\
-      [  ](bg:#a3aed2 fg:#090c0c)\
-      [](bg:#769ff0 fg:#a3aed2)\
-      $directory\
-      [](bg:#a6e3a1 fg:#1e1e2e bold)\
-      $git_branch\
-      [](bg:#f38ba8 fg:#1e1e2e bold)\
-      $git_status\
-      [](fg:#394260 bg:#212736)\
-      $docker_context\
-      $nodejs\
-      $rust\
-      $golang\
-      $bun\
-      $deno\
-      [](fg:#212736 bg:#1d2230)\
-      $cmd_duration\
-      [ ](fg:#1d2230)\
+      [░▒▓](#a3aed2)
+      [  ](bg:#a3aed2 fg:#090c0c)
+      [](bg:#769ff0 fg:#a3aed2)
+      $directory
+      [](bg:#a6e3a1 fg:#1e1e2e bold)
+      $git_branch
+      [](bg:#f38ba8 fg:#1e1e2e bold)
+      $git_status
+      [](fg:#394260 bg:#212736)
+      $docker_context
+      $nodejs
+      $rust
+      $golang
+      $bun
+      $deno
+      [](fg:#212736 bg:#1d2230)
+      $cmd_duration
+      [ ](fg:#1d2230)
       \n$character
       '';
       fill.symbol = " ";
