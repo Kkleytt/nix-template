@@ -137,24 +137,19 @@
       read_only_style = "197";
 
       substitutions = {
-        "${config.home.homeDirectory}/Projects" = " 󰉋 Proj";
-        "${config.home.homeDirectory}/Documents" = " 󰈙 Docs";
-        "${config.home.homeDirectory}/Загрузки" = "  DL";
-        "${config.home.homeDirectory}/.config" = "  CFG";
-        "${config.home.homeDirectory}" = " ";
+        "Projects" = "  Proj";
+        "Documents" = " 󱔗 Docs";
+        "Загрузки" = " 󰛴 DL";
+        ".config" = "  CFG";
+        ".cache" = "  Cache";
       };
     };
 
-    # ─────── Git ветка ───────
-    git_branch = {
-      format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
-      only_attached = true;
-    };
-
-    # ─────── Git статус — компактный и красивый (как у тебя было) ───────
+    # ─────── Git ───────
+    git_branch.format = "[  $branch ](bg:#313244 fg:#a6e3a1 bold)";
+    git_branch.only_attached = true;
+    git_status.format = "[$all_status$ahead_behind](bg:#313244 fg:#a6e3a1 bold)";
     git_status = {
-      format = "[$all_status$ahead_behind]($style)";
-      style = "(bg:#313244 fg:#2d48a8)";
       conflicted = " 🏳";
       up_to_date = " ";
       untracked = " ";
@@ -168,6 +163,7 @@
       deleted = " ";
     };
 
+
     # ─────── 1. Docker контекст (появляется только если запущен контейнер) ───────
     docker_context = {
       format = "[ 󰡨 $context ](bg:#313244 fg:#89b4fa bold)";
@@ -178,8 +174,7 @@
     # ─────── Языки (версия показывается всегда, venv — отдельно) ───────
     # САМЫЙ ЧИСТЫЙ И РАБОЧИЙ ВАРИАНТ 2025–2026
     python = {
-      format = "[ 🐍 $version (($virtualenv) )](bold #cba6f7)";
-      symbol = "";
+      format = "[ 🐍 $version (($virtualenv) ) ](bold #cba6f7)";
       version_format = "$major.$minor";
 
       # Отключаем стандартный вывод venv
