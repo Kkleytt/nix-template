@@ -160,31 +160,31 @@
       # Path
       directory = {
         home_symbol = " ~";
-        format = "[ 󰉖 $path |](bg:#11091b fg:#cba6f7 bold)";
+        format = "[ 󰉖 $path ](bg:#f5c2e7 fg:#1e1e2e bold)";
         truncation_length = 8;
         truncate_to_repo = true;
         read_only = " ";
         read_only_style = "197";
 
         substitutions = {
-          "Projects" = " Project";
-          "Documents" = "󱔗 Docs";
-          "Загрузки" = "󰛴 Load";
-          "Downloads" = "󰛴 Load";
-          "Music" = "󰝚 Music";
-          "Pictures" = "󰉏 Pics";
-          "Wallpapers" = "󰸉 Wallpapers";
-          "Videos" = "󰎁 Videos";
-          "Obsidian" = "󰠮 Obsidian";
-          ".config" = " Config";
-          ".local" = "󰉍 Local";
+          ".config" = "  ";
+          ".local" = " 󰉍 ";
+          "Загрузки" = " 󰛴 ";
+          "Downloads" = " 󰛴 ";
+          "Documents" = " 󱔗 ";
+          "Music" = " 󰝚 ";
+          "Videos" = " 󰎁 ";
+          "Pictures" = " 󰉏 ";
+          "Wallpapers" = " 󰸉 ";
+          "Obsidian" = " 󰠮 ";
+          "Projects" = "  ";
         };
       };
 
       # Git
-      git_branch.format = "[  $branch ](bg:#0d1d0c fg:#a6e3a1 bold)";
+      git_branch.format = "[  $branch ](bg:#a6e3a1 fg:#1e1e2e bold)";
       git_branch.only_attached = true;
-      git_status.format = "[$all_status$ahead_behind|](bg:#0d1d0c fg:#a6e3a1 bold)";
+      git_status.format = "[$all_status$ahead_behind](bg:#a6e3a1 fg:#1e1e2e bold)";
       git_status = {
         conflicted = "🏳 ";
         up_to_date = " ";
