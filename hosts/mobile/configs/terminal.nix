@@ -29,7 +29,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    dotDir = "$HOME/.zshrc";
+    dotDir = "${config.home.homeDirectory}/.zshrc";
 
     history = {
       expireDuplicatesFirst = true;
