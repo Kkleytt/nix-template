@@ -14,7 +14,7 @@
       theme = "agnoster"; 
     };
 
-    ininExtra = ''
+    initExtra = ''
       fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
 
       # ls (просмотр директории)
