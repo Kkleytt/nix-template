@@ -132,7 +132,7 @@
         "$os"
 
         # Username + Hostname
-        "[ ](bg:lavender fg:surface0)"
+        # "[ ](bg:lavender fg:surface0)"
         "$username"
         "$hostname"
 
@@ -189,7 +189,7 @@
 
 
     # ─────── OS ───────
-      os.disabled             = false;
+      os.disabled             = true;
       os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
 
 
@@ -201,7 +201,7 @@
         style_root            = "bg:lavender fg:surface0 bold";
       };
       hostname = {
-        disabled              = true;
+        disabled              = false;
         format                = "[@$hostname](bg:lavender fg:surface0)";
         ssh_only              = true;
         ssh_symbol            = "";
