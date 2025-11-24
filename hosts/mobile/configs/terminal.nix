@@ -19,7 +19,7 @@
     tldr                    # Красивый вывод информации о команде (аналог man)
     jq                      # Обработка JSON в терминале
 
-    
+
   ];
 
   programs.zsh = {
@@ -37,7 +37,7 @@
     # Включаем встроенные в Home Manager быстрые плагины (на чистом C/Rust)
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
+    # autosuggestions.enable = true;
 
     plugins = [
       {
