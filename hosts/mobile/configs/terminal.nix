@@ -163,7 +163,7 @@
 
           # Fill
           # "[](fg:sapphire)"
-          # "$fill"
+          "$fill"
 
           # Status
           "[](fg:red)"
@@ -268,7 +268,7 @@
 
 
       # ─────── Fill ───────
-        fill.symbol             = "";
+        fill.symbol             = " ";
         fill.style              = "bold subtext1";
 
 
