@@ -133,7 +133,7 @@
 
           # Username + Hostname
           # "[ ](bg:lavender fg:surface0)"
-          "$username"
+          # "$username"
           "$hostname"
 
           #  Path
