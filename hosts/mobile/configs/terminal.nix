@@ -175,7 +175,7 @@
           "$cmd_duration"
 
           # Time + Battery
-          "[](bg:time_bg fg:duration_bg)"
+          "[](fg:time_bg bg:duration_bg)"
           "$time"
           "$battery"
           
@@ -317,20 +317,20 @@
           username_bg       = "#272727";
           username_fg       = "#a3952b";
 
-          path_bg           = "#d59053";
-          path_fg           = "#523419";
+          path_bg           = "#dc9e67ff";
+          path_fg           = "#5f4127ff";
 
-          git_bg            = "#9b5fb7";
-          git_fg            = "#522169";
+          git_bg            = "#c781e7ff";
+          git_fg            = "#4c1d62ff";
 
-          language_bg       = "#4c98a7";
-          language_fg       = "#194751";
+          language_bg       = "#8ec4cfff";
+          language_fg       = "#315861ff";
 
           error_bg          = "#cc6767";
           error_fg          = "#7c2e2e";
 
-          duration_bg       = "#4253a5";
-          duration_fg       = "#1e2962";
+          duration_bg       = "#7b8ad3ff";
+          duration_fg       = "#3b4473ff";
 
           time_bg           = "#323232";
           time_fg           = "#afafaf";
