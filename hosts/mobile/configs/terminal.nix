@@ -137,7 +137,7 @@
           "$hostname"
 
           #  Path
-          "[](bg:peach fg:surface0)"
+          "[](bg:peach fg:lavender)"
           "$directory"
 
           #  Git
@@ -190,7 +190,7 @@
 
       # ─────── OS ───────
         os.disabled             = true;
-        os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
+        os.format               = "[ 👾](bg:surface0 fg:lavender)()";
 
 
       # ─────── Username + Hostname только при SSH ───────
