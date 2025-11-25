@@ -315,22 +315,22 @@
           logo_fg           = "#afafaf";
           
           username_bg       = "#272727";
-          username_fg       = "#a3952b";
+          username_fg       = "#4b6e31";
 
-          path_bg           = "#dc9e67ff";
-          path_fg           = "#5f4127ff";
+          path_bg           = "#dc9e67";
+          path_fg           = "#5f4127";
 
-          git_bg            = "#c781e7ff";
-          git_fg            = "#4c1d62ff";
+          git_bg            = "#c781e7";
+          git_fg            = "#4c1d62";
 
-          language_bg       = "#8ec4cfff";
-          language_fg       = "#315861ff";
+          language_bg       = "#8ec4cf";
+          language_fg       = "#315861";
 
           error_bg          = "#cc6767";
           error_fg          = "#7c2e2e";
 
-          duration_bg       = "#7b8ad3ff";
-          duration_fg       = "#3b4473ff";
+          duration_bg       = "#7b8ad3";
+          duration_fg       = "#3b4473";
 
           time_bg           = "#323232";
           time_fg           = "#afafaf";
