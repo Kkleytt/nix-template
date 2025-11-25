@@ -212,7 +212,7 @@
       # ─────── Path ───────
         directory = {
           style                 = "bg:peach fg:surface0";
-          format                = "[ $path]($style)[$read_only]($read_only_style)";
+          format                = "[ $path ]($style)[$read_only]($read_only_style)";
           truncation_length     = 3;
           read_only             = " 🔒";
           read_only_style       = "bg:peach";
