@@ -67,7 +67,8 @@
       df   = "duf";
       ping = "gping";
       ssh-server = "ssh kkleytt@46.160.250.162 -p 1900";
-      compact = "/home/kkleytt/Projects/system/hyprland/scripts/hyprland/starship/script.sh";
+      compact = "~/Projects/system/hyprland/scripts/hyprland/starship/script.sh compact";
+      extra-compact = "~/Projects/system/hyprland/scripts/hyprland/starship/script.sh extra-compact";
 
       # git
       g    = "git";
