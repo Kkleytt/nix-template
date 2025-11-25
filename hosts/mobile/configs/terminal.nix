@@ -141,14 +141,14 @@
           "$directory"
 
           #  Git
-          "[](fg:crust bg:peach)"
+          "[](fg:green bg:peach)"
           "$git_branch"
           # "$git_status"
           "$git_commit"
           "$git_metrics"
 
           # Languages
-          "[](fg:green bg:crust)"
+          "[](fg:green bg:yellow)"
           "$c"
           "$rust"
           "$golang"
