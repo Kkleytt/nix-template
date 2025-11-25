@@ -66,6 +66,7 @@
 
     ## 🌐 Сеть и интернет
       networkmanagerapplet                        # GUI для NetworkManager
+      networkmanager_dmenu                        # Rofi управление сетями
       bluez                                       # Bluetooth стэк
       bluez-tools                                 # Дополниетльные функции Bluetooth
 
