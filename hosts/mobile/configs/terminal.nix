@@ -132,8 +132,8 @@
           "$os"
 
           # Username + Hostname
-          # "[ ](bg:lavender fg:surface0)"
-          # "$username"
+          "[ ](bg:lavender fg:surface0)"
+          "$username"
           "$hostname"
 
           #  Path
@@ -146,7 +146,7 @@
           "$git_metrics"
 
           # Languages
-          "[](fg:green bg:yellow)"
+          "[ ](fg:green bg:yellow)"
           "$c"
           "$rust"
           "$golang"
@@ -160,7 +160,7 @@
           "$conda"
 
           # Fill
-          "[](fg:sapphire)"
+          "[ ](fg:sapphire)"
           "$fill"
 
           # Status
