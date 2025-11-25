@@ -180,9 +180,9 @@
           "$battery"
           
           # Arrows
-          "[─╮](fg:surface0)"
+          "[─╮](fg:logo_bg)"
           "$line_break"
-          "[╰─](surface0)"
+          "[╰─](logo_bg)"
           "$character"
         ];
         right_format            = "[─╯](logo_bg)";
@@ -191,7 +191,7 @@
 
       # ─────── OS ───────
         os.disabled             = false;
-        os.format               = "[  ](bg:logo_bg fg:username_bg)()";
+        os.format               = "[  ](bg:logo_bg fg:logo_fg)()";
 
 
       # ─────── Username + Hostname только при SSH ───────
@@ -212,11 +212,11 @@
 
       # ─────── Path ───────
         directory = {
-          style                 = "bg:peach fg:surface0";
+          style                 = "bg:path_bg fg:path_fg";
           format                = "[ $path ]($style)[$read_only]($read_only_style)";
           truncation_length     = 3;
           read_only             = " 🔒";
-          read_only_style       = "bg:peach";
+          read_only_style       = "bg:path_bg";
           # truncation_symbol     = "~/";
 
           substitutions = {
@@ -238,47 +238,47 @@
       # ─────── Git ───────
         git_commit = {
           format                = "[\($hash$tag\)]($style)[ ]()";
-          style                 = "bg:green";
+          style                 = "bg:git_bg";
           commit_hash_length    = 8;
           tag_symbol            = "  ";
           tag_disabled          = false;
           disabled              = false;
         };
         git_metrics = {
-          format                = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:green)";
-          added_style           = "bg:green fg:crust";
-          deleted_style         = "bg:green fg:crust";
+          format                = "[\\[+$added/]($added_style)[-$deleted\\]]($deleted_style)[ ](bg:git_bg)";
+          added_style           = "bg:git_bg fg:git_fg";
+          deleted_style         = "bg:git_bg fg:git_fg";
           disabled              = false;
         };
-        git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
-        git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
+        git_branch.format       = "[[  $branch ](bg:git_bg fg:git_fg)](bg:git_bg)";
+        git_status.format       = "[[($all_status$ahead_behind )](bg:git_bg fg:git_fg)](bg:git_bg)";
         git_status_disabled     = true;
 
 
       # ─────── Языки ───────
-        nodejs.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        c.format                = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        rust.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        golang.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        php.format              = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        java.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        kotlin.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        haskell.format          = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
-        python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
-        nix_shell.format        = "[[ ( $name) ](fg:crust bg:yellow)](bg:yellow)";
-        docker_context.format   = "[[ ( $context) ](fg:crust bg:sapphire)](bg:yellow)";
+        nodejs.format           = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        c.format                = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        rust.format             = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        golang.format           = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        php.format              = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        java.format             = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        kotlin.format           = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        haskell.format          = "[[ ( $version) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        nix_shell.format        = "[[ ( $name) ](bg:language_bg fg:language_fg)](bg:language_bg)";
+        docker_context.format   = "[[ ( $context) ](bg:language_bg fg:language_fg)](bg:language_bg)";
 
 
       # ─────── Fill ───────
         fill.symbol             = " ";
-        fill.style              = "bold subtext1";
+        fill.style              = "bold #000000";
 
 
       # ─────── Status ───────
         status = {
           disabled              = false;
           map_symbol            = false;
-          format                = "[ 󰃤 bug ](bg:red fg:surface0)";
+          format                = "[ 󰃤 bug ](bg:error_bg fg:error_fg)";
           success_symbol        = "";
         };
 
@@ -286,7 +286,7 @@
       # ─────── Duration ───────
         cmd_duration = {
           disabled              = false;
-          format                = "[ [$duration ](bold fg:surface0 bg:lavender)](fg:surface0 bg:lavender)";
+          format                = "[ [$duration ](bold bg:duration_bg fg:duration_fg)](bg:duration_bg fg:duration_fg)";
           show_milliseconds     = true;
           show_notifications    = false;
         };
@@ -294,7 +294,7 @@
 
       # ─────── Time ───────
         time.disabled           = false;
-        time.format             = "[ $time](bg:surface0 fg:lavender)";
+        time.format             = "[ $time](bg:time_bg fg:time_fg)";
 
 
       # ─────── Battery ───────
@@ -306,7 +306,7 @@
           discharging_symbol    = "󰂃";
           unknown_symbol        = "󰁽?";
           empty_symbol          = "󰂎";
-          display               = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
+          display               = [ { style = "bg:time_bg fg:time_fg"; threshold = 100; } ];
         };
 
       # ─────── Палитра кастомная ───────
