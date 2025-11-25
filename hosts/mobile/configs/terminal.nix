@@ -47,6 +47,40 @@
       { name = "autosuggestions";  src = pkgs.zsh-autosuggestions; }
     ];
 
+    shellAliases = {
+      # Перемещение по директориям и работа с ними
+      du   = "dust";
+      ls   = "eza --icons --group-directories-first --color=always";
+      ll   = "eza -lh --icons --group-directories-first --color=always";
+      la   = "eza -lah --icons --group-directories-first --color=always";
+      lt   = "eza --tree --level=3 --icons";
+      cd   = "z";
+      cls  = "clear";
+
+      # Работа с файлами
+      cat  = "bat --style=plain";
+      rm   = "trash-put";
+      grep = "rg";
+      find = "fd";
+      ps   = "procs";
+
+      df   = "duf";
+      ping = "gping";
+      ssh-server = "ssh kkleytt@46.160.250.162 -p 1900";
+      compact = "/home/kkleytt/Projects/system/hyprland/scripts/hyprland/starship/script.sh";
+
+      # git
+      g    = "git";
+      ga   = "git add";
+      gc   = "git commit";
+      gp   = "git push";
+      gl   = "git pull";
+      gs   = "git status";
+      gd   = "git diff";
+      gds  = "git diff --staged";
+      glog = "git log --oneline --decorate --graph";
+    };
+
     initContent = lib.mkMerge [
       (lib.mkOrder 100 ''
         eval "$(starship init zsh)"
@@ -69,41 +103,6 @@
         # Fastfetch при старте
         [[ -f ${config.xdg.configHome}/fastfetch/config-compact.jsonc ]] &&
           fastfetch -c ${config.xdg.configHome}/fastfetch/config-compact.jsonc
-
-        # ────────────────────── Алиасы 2025 ──────────────────────
-        # Перемещение по директориям
-        alias ls='eza --icons --group-directories-first --color=always'
-        alias ll='eza -lh --icons --group-directories-first --color=always'
-        alias la='eza -lah --icons --group-directories-first --color=always'
-        alias lt='eza --tree --level=3 --icons'
-        alias cd='z'
-        alias cls='clear'
-
-        # Работа с файлами
-        alias cat='bat --style=plain'
-        alias rm='trash-put'
-        alias grep='rg'
-        alias find='fd'
-        alias ps='procs'
-        alias du='dust'
-
-        # Утилиты
-        alias df='duf'
-        alias ggfh='duf'
-        alias ping='gping'
-        alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
-        alias compact='/home/kkleytt/Projects/system/hyprland/scripts/hyprland/starship/script.sh'
-
-        # Git коротко и удобно
-        alias g='git'
-        alias ga='git add'
-        alias gc='git commit'
-        alias gp='git push'
-        alias gl='git pull'
-        alias gs='git status'
-        alias gd='git diff'
-        alias gds='git diff --staged'
-        alias glog="git log --oneline --decorate --graph"
 
         # Delta — красивый diff навсегда
         command -v delta &>/dev/null && {
