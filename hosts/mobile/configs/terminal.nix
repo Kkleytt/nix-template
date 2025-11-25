@@ -137,9 +137,11 @@
           "$hostname"
 
           #  Path
+          "[ ](bg:peach fg:surface0)"
           "$directory"
 
           #  Git
+          "[ ](fg:crust bg:green)"
           "$git_branch"
           # "$git_status"
           "$git_commit"
@@ -188,13 +190,13 @@
 
       # ─────── OS ───────
         os.disabled             = true;
-        os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
+        os.format               = "[ 👾 ](bg:surface0 fg:lavender)()";
 
 
       # ─────── Username + Hostname только при SSH ───────
         username = {
           show_always           = false;
-          format                = "[$user]($style)";
+          format                = "[$user]($style)";
           style_user            = "bg:lavender fg:surface0";
           style_root            = "bg:lavender fg:surface0 bold";
         };
@@ -210,7 +212,7 @@
       # ─────── Path ───────
         directory = {
           style                 = "bg:peach fg:surface0";
-          format                = "[ $path]($style)[$read_only]($read_only_style)";
+          format                = "[$path]($style)[$read_only]($read_only_style)";
           truncation_length     = 3;
           read_only             = " 🔒";
           read_only_style       = "bg:peach";
@@ -247,7 +249,7 @@
           deleted_style         = "bg:green fg:crust";
           disabled              = false;
         };
-        git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
+        git_branch.format       = "[[  $branch ](fg:crust bg:green)](bg:green)";
         git_status.format       = "[[($all_status$ahead_behind )](fg:crust bg:green)](bg:green)";
         git_status_disabled     = true;
 
