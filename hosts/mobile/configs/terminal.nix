@@ -148,7 +148,7 @@
           "$git_metrics"
 
           # Languages
-          "[ ](bg:yellow fg:green)"
+          "[](bg:yellow fg:green)"
           "$c"
           "$rust"
           "$golang"
@@ -162,7 +162,7 @@
           "$conda"
 
           # Fill
-          # "[](fg:sapphire)"
+          "[](fg:sapphire)"
           "$fill"
 
           # Status
