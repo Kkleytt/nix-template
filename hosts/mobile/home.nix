@@ -170,6 +170,19 @@
     ## WIKI:
   ]); 
 
+  programs.rofi = {
+    enable = true;
+    plugins = with pkgs; [
+      rofi-emoji
+      rofi-games
+      rofi-power-menu
+      rofi-bluetooth
+      rofi-screenshot
+      rofi-network-manager
+      pwmenu
+    ];
+  };
+
   imports = [
     ./configs/git.nix                   # Настройка Git
     ./configs/terminal.nix                   # Настройка Zsh
