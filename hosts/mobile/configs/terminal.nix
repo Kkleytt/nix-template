@@ -311,29 +311,29 @@
 
       # ─────── Палитра кастомная ───────
         palettes.custom_one = {
-          logo_bg           = "#323232ff";
-          logo_fg           = "#afafafff";
+          logo_bg           = "#323232";
+          logo_fg           = "#afafaf";
           
-          username_bg       = "#272727ff";
-          username_fg       = "#a3952bff";
+          username_bg       = "#272727";
+          username_fg       = "#a3952b";
 
-          path_bg           = "#d59053ff";
-          path_fg           = "#523419ff";
+          path_bg           = "#d59053";
+          path_fg           = "#523419";
 
-          git_bg            = "#9b5fb7ff";
-          git_fg            = "#522169ff";
+          git_bg            = "#9b5fb7";
+          git_fg            = "#522169";
 
-          language_bg       = "#4c98a7ff";
-          language_fg       = "#194751ff";
+          language_bg       = "#4c98a7";
+          language_fg       = "#194751";
 
-          error_bg          = "#cc6767ff";
-          error_fg          = "#7c2e2eff";
+          error_bg          = "#cc6767";
+          error_fg          = "#7c2e2e";
 
-          duration_bg       = "#4253a5ff";
-          duration_fg       = "#1e2962ff";
+          duration_bg       = "#4253a5";
+          duration_fg       = "#1e2962";
 
-          time_bg           = "#323232ff";
-          time_fg           = "#afafafff";
+          time_bg           = "#323232";
+          time_fg           = "#afafaf";
         };
 
       # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
