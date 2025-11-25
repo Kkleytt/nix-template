@@ -123,32 +123,33 @@
       add_newline = false;
       command_timeout = 500;
 
-      palette = "catppuccin_mocha";
+      # palette = "catppuccin_mocha";
+      palette = "custom_one";
 
       # ─────── Format ───────
         format = lib.concatStrings [
           # OS
-          "[╭─](surface0)"
+          "[╭─](logo_bg)"
           "$os"
 
           # Username + Hostname
-          "[](bg:lavender fg:surface0)"
+          "[](bg:username_bg fg:logo_bg)"
           "$username"
           "$hostname"
 
           #  Path
-          "[](bg:peach fg:lavender)"
+          "[](bg:path_bg fg:username_bg)"
           "$directory"
 
           #  Git
-          "[](bg:green fg:peach)"
+          "[](bg:git_bg fg:path_bg)"
           "$git_branch"
           # "$git_status"
           "$git_commit"
           "$git_metrics"
 
           # Languages
-          "[](bg:yellow fg:green)"
+          "[](bg:language_bg fg:git_bg)"
           "$c"
           "$rust"
           "$golang"
@@ -162,19 +163,19 @@
           "$conda"
 
           # Fill
-          "[](fg:yellow)"
+          "[](fg:language_bg)"
           "$fill"
 
           # Status
-          "[](fg:red)"
+          "[](fg:error_bg)"
           "$status"
 
           # Duration
-          "[](fg:lavender bg:red)"
+          "[](fg:duration_bg bg:error_bg)"
           "$cmd_duration"
 
           # Time + Battery
-          "[](bg:lavender fg:surface0)"
+          "[](bg:time_bg fg:duration_bg)"
           "$time"
           "$battery"
           
@@ -184,25 +185,25 @@
           "[╰─](surface0)"
           "$character"
         ];
-        right_format            = "[─╯](surface0)";
+        right_format            = "[─╯](logo_bg)";
         narrow_format           = "$directory$git_branch$character";
 
 
       # ─────── OS ───────
         os.disabled             = false;
-        os.format               = "[  ](bg:surface0 fg:lavender)()";
+        os.format               = "[  ](bg:logo_bg fg:username_bg)()";
 
 
       # ─────── Username + Hostname только при SSH ───────
         username = {
           show_always           = false;
           format                = "[$user]($style)";
-          style_user            = "bg:lavender fg:surface0";
-          style_root            = "bg:lavender fg:surface0 bold";
+          style_user            = "bg:username_bg fg:username_fg";
+          style_root            = "bg:username_bg fg:username_fg bold";
         };
         hostname = {
           disabled              = false;
-          format                = "[@$hostname ](bg:lavender fg:surface0)";
+          format                = "[@$hostname ](bg:username_bg fg:username_fg)";
           ssh_only              = true;
           ssh_symbol            = "";
           # trim_at               = ".companyname.com";
@@ -308,7 +309,32 @@
           display               = [ { style = "fg:lavender bg:surface0"; threshold = 100; } ];
         };
 
-      
+      # ─────── Палитра кастомная ───────
+        palettes.custom_one = {
+          logo_bg           = "#323232ff";
+          logo_fg           = "#afafafff";
+          
+          username_bg       = "#272727ff";
+          username_fg       = "#a3952bff";
+
+          path_bg           = "#d59053ff";
+          path_fg           = "#523419ff";
+
+          git_bg            = "#9b5fb7ff";
+          git_fg            = "#522169ff";
+
+          language_bg       = "#4c98a7ff";
+          language_fg       = "#194751ff";
+
+          error_bg          = "#cc6767ff";
+          error_fg          = "#7c2e2eff";
+
+          duration_bg       = "#4253a5ff";
+          duration_fg       = "#1e2962ff";
+
+          time_bg           = "#323232ff";
+          time_fg           = "#afafafff";
+        };
 
       # ─────── Палитра Catppuccin Mocha (без рекурсии) ───────
         palettes.catppuccin_mocha = {
