@@ -129,8 +129,8 @@
         rofi-screenshot
         rofi-network-manager
         pwmenu
-      ]
-    }
+      ];
+    };
 
     dconf.enable = true;
     seahorse.enable = true;
