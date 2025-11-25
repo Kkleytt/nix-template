@@ -255,16 +255,17 @@
 
 
       # ─────── Языки ───────
-        nodejs.format           = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        c.format                = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        rust.format             = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        golang.format           = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        php.format              = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        java.format             = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        kotlin.format           = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        haskell.format          = "[[ ( $version)](fg:crust bg:yellow)](bg:yellow)";
-        python.format           = "[[ ( $version)(\\(#$virtualenv\\))](fg:crust bg:yellow)](bg:yellow)";
-        docker_context.format   = "[[ ( $context)](fg:crust bg:sapphire)](bg:yellow)";
+        nodejs.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        c.format                = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        rust.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        golang.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        php.format              = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        java.format             = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        kotlin.format           = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        haskell.format          = "[[ ( $version) ](fg:crust bg:yellow)](bg:yellow)";
+        python.format           = "[[ ( $version)(\\(#$virtualenv\\)) ](fg:crust bg:yellow)](bg:yellow)";
+        nix_shell.format        = "[[ ( $name) ](fg:crust bg:yellow)](bg:yellow)";
+        docker_context.format   = "[[ ( $context) ](fg:crust bg:sapphire)](bg:yellow)";
 
 
       # ─────── Fill ───────
@@ -276,7 +277,7 @@
         status = {
           disabled              = false;
           map_symbol            = false;
-          format                = "[ 󰃤 $status $hex_status( \uf0a2 $signal_number-$signal_name)](bg:red fg:surface0)";
+          format                = "[ 󰃤 bug](bg:red fg:surface0)";
           success_symbol        = "";
         };
 
