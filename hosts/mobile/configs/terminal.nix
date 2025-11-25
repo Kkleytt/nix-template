@@ -90,6 +90,7 @@
 
         # Утилиты
         alias df='duf'
+        alias dd='duf'
         alias ping='gping'
         alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
         alias compact='~/Projects/system/hyprland/scripts/hyprland/starship/script.sh'
