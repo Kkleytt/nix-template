@@ -202,7 +202,7 @@
         };
         hostname = {
           disabled              = false;
-          format                = "[@$hostname](bg:lavender fg:surface0)";
+          format                = "[@$hostname ](bg:lavender fg:surface0)";
           ssh_only              = true;
           ssh_symbol            = "";
           # trim_at               = ".companyname.com";
