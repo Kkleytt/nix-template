@@ -189,8 +189,8 @@
 
 
       # ─────── OS ───────
-        os.disabled             = true;
-        os.format               = "[ 👾](bg:surface0 fg:lavender)()";
+        os.disabled             = false;
+        os.format               = "[  ](bg:surface0 fg:lavender)()";
 
 
       # ─────── Username + Hostname только при SSH ───────
