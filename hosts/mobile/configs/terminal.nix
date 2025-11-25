@@ -141,7 +141,6 @@
           "$directory"
 
           #  Git
-          "[ ](bg:peach)"
           "[](fg:crust bg:peach)"
           "$git_branch"
           # "$git_status"
