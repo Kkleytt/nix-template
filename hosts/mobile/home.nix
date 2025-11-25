@@ -168,6 +168,11 @@
       # dooit                                         # TUI ToDo список задач
       # calcurse                                      # TUI календарь со списком задач
     ## WIKI:
+      rofi-power-menu
+      rofi-bluetooth
+      rofi-screenshot
+      rofi-network-manager
+      pwmenu
   ]); 
 
   programs.rofi = {
@@ -175,11 +180,6 @@
     plugins = with pkgs; [
       rofi-emoji
       rofi-games
-      rofi-power-menu
-      rofi-bluetooth
-      rofi-screenshot
-      rofi-network-manager
-      pwmenu
     ];
   };
 
