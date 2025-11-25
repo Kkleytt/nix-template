@@ -277,7 +277,7 @@
         status = {
           disabled              = false;
           map_symbol            = false;
-          format                = "[ 󰃤 bug](bg:red fg:surface0)";
+          format                = "[ 󰃤 bug ](bg:red fg:surface0)";
           success_symbol        = "";
         };
 
