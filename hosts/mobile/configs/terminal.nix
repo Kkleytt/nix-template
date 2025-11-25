@@ -162,7 +162,7 @@
           "$conda"
 
           # Fill
-          "[](fg:sapphire)"
+          "[](fg:yellow)"
           "$fill"
 
           # Status
