@@ -92,7 +92,7 @@
         alias df='duf'
         alias ping='gping'
         alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
-        alias compact='~/Projects/system/hyprland/starship/script.sh'
+        alias compact='~/Projects/system/hyprland/scripts/hyprland/starship/script.sh'
 
         # Git коротко и удобно
         alias g='git'
