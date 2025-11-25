@@ -132,16 +132,16 @@
           "$os"
 
           # Username + Hostname
-          "[ ](bg:lavender fg:surface0)"
+          "[](bg:lavender fg:surface0)"
           "$username"
           "$hostname"
 
           #  Path
-          "[ ](bg:peach fg:surface0)"
+          "[](bg:peach fg:surface0)"
           "$directory"
 
           #  Git
-          "[ ](fg:crust bg:green)"
+          "[](fg:crust bg:green)"
           "$git_branch"
           # "$git_status"
           "$git_commit"
@@ -292,7 +292,7 @@
 
       # ─────── Time ───────
         time.disabled           = false;
-        time.format             = "[ $time ](bg:surface0 fg:lavender)";
+        time.format             = "[ $time](bg:surface0 fg:lavender)";
 
 
       # ─────── Battery ───────
