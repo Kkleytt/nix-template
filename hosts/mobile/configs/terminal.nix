@@ -132,24 +132,24 @@
           "$os"
 
           # Username + Hostname
-          "[ ](bg:lavender fg:surface0)"
+          "[](bg:surface0 fg:surface0)"
           "$username"
           "$hostname"
 
           #  Path
-          "[ ](bg:peach fg:lavender)"
+          "[](bg:lavender fg:lavender)"
           "$directory"
 
           #  Git
           "[ ](bg:peach)"
-          "[ ](fg:crust bg:green)"
+          "[](fg:peach bg:peach)"
           "$git_branch"
           # "$git_status"
           "$git_commit"
           "$git_metrics"
 
           # Languages
-          "[ ](fg:green bg:yellow)"
+          "[](fg:green bg:yellow)"
           "$c"
           "$rust"
           "$golang"
