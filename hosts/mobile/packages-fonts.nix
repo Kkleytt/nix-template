@@ -118,6 +118,20 @@
       xwayland.enable = true;
     };
 
+    # Rofi и плагины
+    rofi = {
+      enable = true;
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-games
+        rofi-power-menu
+        rofi-bluetooth
+        rofi-screenshot
+        rofi-network-manager
+        pwmenu
+      ]
+    }
+
     dconf.enable = true;
     seahorse.enable = true;
     mtr.enable = true;

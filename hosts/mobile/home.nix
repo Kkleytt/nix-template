@@ -8,7 +8,6 @@
     ## Caelestia
       inputs.caelestia-shell.packages.${system}.default
       inputs.caelestia-cli.packages.${system}.default
-      rofi                                          # Лаунчер запуска приложений
 
     ## Programming Language & Tools
       #### Virtualization  
