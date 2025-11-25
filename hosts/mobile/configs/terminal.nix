@@ -48,7 +48,6 @@
     ];
 
     initContent = lib.mkMerge [
-      # Самое раннее — до compinit (порядок 100)
       (lib.mkOrder 100 ''
         eval "$(starship init zsh)"
         eval "$(atuin init zsh --disable-up-arrow)"
@@ -90,10 +89,9 @@
 
         # Утилиты
         alias df='duf'
-        alias dd='duf'
         alias ping='gping'
         alias ssh-server='ssh kkleytt@46.160.250.162 -p 1900'
-        alias compact='~/Projects/system/hyprland/scripts/hyprland/starship/script.sh'
+        alias compact='/home/kkleytt/Projects/system/hyprland/scripts/hyprland/starship/script.sh'
 
         # Git коротко и удобно
         alias g='git'
