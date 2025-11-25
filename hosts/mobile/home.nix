@@ -37,8 +37,8 @@
 
       #### Editors
         neovim                                      # Улучшенный редактор кода NeoVim
-        vscode                                      # Классический VsCode
         zed-editor                                  # Быстрый аналог VsCode
+        # vscode                                      # Классический VsCode
         # vscodium                                    # VsCode без телеметрии и слежки
         # jetbrains.pycharm-community                 # Бесплатная версия Pycharm
         # sublimetext4                                # Быстрый редактор кода
@@ -74,7 +74,10 @@
       rich-cli                                      # Красивый вывод JSON/текста с цветами и таблицами
 
     ## Необязательные приложения
-    
+      rofi-bluetooth                                # Управление Bluetooth через Rofi
+      rofi-network-manager                          # Управление интернетом через Rofi
+      pwmenu                                        # Управление звуком через Rofi
+      rofi-calc                                     # Калькулятор Rofi
 
     ## Browsers
       # brave                                         # Браузер Brave
@@ -168,24 +171,81 @@
       # dooit                                         # TUI ToDo список задач
       # calcurse                                      # TUI календарь со списком задач
     ## WIKI:
-      rofi-power-menu
-      rofi-bluetooth
-      rofi-screenshot
-      rofi-network-manager
-      pwmenu
   ]); 
 
-  programs.rofi = {
-    enable = true;
-    plugins = with pkgs; [
-      rofi-emoji
-      rofi-games
-    ];
-  };
+  programs = {
+    rofi = {
+      enable = true;
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-games
+      ];
+    };
 
+    vscode = {
+      enable = true;
+      package = pkgs.vscode-fhs;
+      # extensions = with pkgs.vscode-extensions; [
+      #   njpwerner.autodocstring                       # Python Autodocstring (Генерация docstring для Python)
+      #   formulahendry.code-runner                     # Code Runner (Запуск кода для разных языков)
+      #   streetsidesoftware.code-spell-checker         # Code Spell Checker (Орфография английского языка)
+      #   adpyke.codesnap                               # CodeSnap (Красивые скриншоты кода)
+      #   naumovs.color-highlight                       # Color Highlight (Подсветка синтаксиса языка)
+      #   ms-azuretools.vscode-containers               # Container Tools (Работа с Docker контейнерами)
+      #   fill-labs.dependi                             # Dependi (Проверка версии библиотек)
+      #   ms-azuretools.vscode-docker                   # Docker (Поддержка Docker синтаксиса)
+      #   mikestead.dotenv                              # DotENV (Работа с ENV файлами)
+      #   hediet.vscode-drawio                          # Draw.io Integration (Интеграция с draw.io)
+      #   usernamehw.errorlens                          # Error Lens (Вывод ошибок прямо в код)
+      #   tamasfe.even-better-toml                      # Even Better TOML (Поддержка языка TOML)
+      #   mhutchie.git-graph                            # Git Graph (Вывод графов GIT)
+      #   codezombiech.gitignore                        # Gitignore (Генерация .gitignore файлов)
+      #   tal7aouy.icons                                # Icons (Набор иконок)
+      #   oderwat.indent-rainbow                        # indent-rainbow (Разноцветная табуляция)
+      #   ms-toolsai.jupyter                            # Jupyter (Набор расширений для работы с Jupyter)
+      #   ms-toolsai.vscode-jupyter-cell-tags           # Jupyter Cell Tags ()
+      #   ms-toolsai.jupyter-keymap                     # Jupyter Keymap ()
+      #   ms-toolsai.jupyter-renderers                  # Jupyter Notebook Renders ()
+      #   ms-toolsai.vscode-jupyter-slideshow           # Jupyter Slide Show ()
+      #   ms-vscode.live-server                         # Live Preview (Запуск локлаьного сервера)
+      #   ms-vsliveshare.vsliveshare                    # Live Share (Работа с кодом в команде в реальном времени)
+      #   yzhang.markdown-all-in-one                    # Markdown All in One (Работа с Markdown файлами)
+      #   bbenoist.nix                                  # Nix (Поддержка языка nix)
+      #   esbenp.prettier-vscode                        # Prettier - Code formatter (Форматировщик кода)
+      #   alefragnani.project-manager                   # Project Manager (Менеджер проектов)
+      #   ms-python.vscode-pylance                      # Pylance (Линтер для Python)
+      #   ms-python.python                              # Python (Поддержка языка Python)
+      #   ms-python.debugpy                             # Python Debugger (Поддержка дебага Python)
+      #   charliermarsh.ruff                            # Ruff (Форматировщик для Python)
+      #   rust-lang.rust-analyzer                       # rust-analyzer (Поддержка языка Rust)
+      #   jgclark.vscode-todo-highlight                 # TODO Highlight (Поддержка TODO меток в коде)
+      #   gruntfuggly.todo-tree                         # TODO tree (Вывод TODO меток в формате дерева)
+      #   funkyremi.vscode-google-translate             # VsCode Google Translate (Переводчик внутри кода)
+      #   wakatime.vscode-wakatime                      # Wakatime (Анализ потраченного времени)
+      #   redhat.vscode-xml                             # XML (Поддержка языка XML)
+      #   # Gitpod theme
+      #   # mintlify doc writer
+      #   # monokai pro
+      #   # Python Environment manager
+      #   # Python Environments
+      #   # Python extensions Pack
+      #   # Python Indent
+      #   # Russian Code spell checker
+      #   # Russian Language pack
+      #   # ty
+      #   # vs code Todo
+      #   # VsCode color picker
+      #   # vscode-faker
+      #   # YandexMusic
+      #   # Репозитории GitHub
+      #   # Удаленные репозитории
+      # ];
+    };
+  };
+  
   imports = [
-    ./configs/git.nix                   # Настройка Git
-    ./configs/terminal.nix                   # Настройка Zsh
+    ./configs/git.nix                   # Настройка Git и SSH ключей
+    ./configs/terminal.nix              # Настройка терминала
     #./configs/user_configs.nix          # Настройка локальных конфигов пользователя
   ];
 }
