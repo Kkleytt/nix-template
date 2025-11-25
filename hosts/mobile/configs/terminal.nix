@@ -148,7 +148,7 @@
           "$git_metrics"
 
           # Languages
-          "[ ](fg:green bg:yellow)"
+          "[](fg:green bg:yellow)"
           "$c"
           "$rust"
           "$golang"
@@ -162,8 +162,8 @@
           "$conda"
 
           # Fill
-          "[ ](fg:sapphire)"
-          "$fill"
+          # "[](fg:sapphire)"
+          # "$fill"
 
           # Status
           "[](fg:red)"
@@ -268,7 +268,7 @@
 
 
       # ─────── Fill ───────
-        fill.symbol             = " ";
+        fill.symbol             = "";
         fill.style              = "bold subtext1";
 
 
