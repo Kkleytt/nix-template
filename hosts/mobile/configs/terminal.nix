@@ -202,7 +202,7 @@
         };
         hostname = {
           disabled              = false;
-          format                = "[@$hostname ](bg:lavender fg:surface0)";
+          format                = "[@$hostname](bg:lavender fg:surface0)";
           ssh_only              = true;
           ssh_symbol            = "";
           # trim_at               = ".companyname.com";
@@ -212,7 +212,7 @@
       # ─────── Path ───────
         directory = {
           style                 = "bg:peach fg:surface0";
-          format                = "[ $path]($style)[$read_only]($read_only_style)";
+          format                = "[$path]($style)[$read_only]($read_only_style)";
           truncation_length     = 3;
           read_only             = " 🔒";
           read_only_style       = "bg:peach";
