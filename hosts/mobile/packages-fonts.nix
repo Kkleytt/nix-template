@@ -145,77 +145,7 @@
       enable = true;
       plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
     };
-    yazi = {
-      enable = true;
-      settings.yazi = {
-        manager = {
-          ratio = [ 1 4 3 ];
-          sort_by = "natural";
-          sort_sensitive = true;
-          sort_dir_first = true;
-          sort_reverse = false;
-          linemode = "none";
-          show_hidden = true;
-          show_symlink = true;
-        };
-        preview = {
-          max_width = 1200;
-          max_height = 900;
-          cache_dir = "$HOME/.cache/yazi";
-          image_quality = 90;
-          tab_size = 1;
-        };
-        opener = {
-          # Zed (для Текста)
-          zed = [ {run = ''zed "$@"''; block = false; for = "unix"; }];
-
-          # Loupe (для Изображений)
-          loupe = [ {run = ''loupe "$@"''; orphan = true; block = false; for = "unix"; }];
-
-          # Celluloid (для Видео)
-          celluloid = [ {run = ''celluloid "$@"''; orphan = true; block = false; for = "unix"; }];
-
-          # Amberol (для Аудио)
-          amberol = [ {run = ''amberol "$@"''; orphan = true; block = false; for = "unix"; }];
-
-          # Fallback (O) → xdg-open
-          fallback = [ {run = ''xdg-open "$@"''; desc = "Open"; orphan = true; for = "unix"; }];
-        };
-        open.rules = [
-          {mime = "text/*";                      use = "zed";}
-          {mime = "application/json";            use = "zed";}
-          {name = "*.json";                      use = "zed";}
-          {name = "*.nix";                       use = "zed";}
-          {name = "*.toml";                      use = "zed";}
-          {name = "*.yaml";                      use = "zed";}
-          {name = "*.md";                        use = "zed";}
-          {mime = "image/*";                     use = "loupe";}      # Все изображения
-          {mime = "video/*";                     use = "celluloid";}  # Все видео
-          {mime = "audio/*";                     use = "amberol";}    # Все аудио
-
-          # Всё остальное → xdg-open (O)
-          { use = "open"; }  # fallback
-        ];
-      };
-
-      # Плагины
-      plugins = {
-        media-info = pkgs.yaziPlugins.mediainfo;      # превью медиа (ffmpeg/mediainfo, изображения/видео/аудио)
-        recycle-bin = pkgs.yaziPlugins.recycle-bin;   # корзина (trash-cli, restore/delete/empty)
-        chmod = pkgs.yaziPlugins.chmod;               # права файлов (chmod в меню)
-        full-border = pkgs.yaziPlugins.full-border;   # полные рамки (красивее UI)
-        toggle-pane = pkgs.yaziPlugins.toggle-pane;   # переключение панелей (split/unsplit)
-        starship = pkgs.yaziPlugins.starship;         # starship prompt в Yazi (интеграция с твоим zsh)
-        mount = pkgs.yaziPlugins.mount;               # монтирование (USB, NFS, SMB)
-        ouch = pkgs.yaziPlugins.ouch;                 # архивы (extract/create, RAR/ZIP/7Z)
-        git = pkgs.yaziPlugins.git;                   # git статус в превью (branch, changes)
-        duckdb = pkgs.yaziPlugins.duckdb;             # Таблицы в превью
-        bookmarks = pkgs.yaziPlugins.bookmarks;
-        wl-clipboard = pkgs.yaziPlugins.wl-clipboard;
-        rich-preview = pkgs.yaziPlugins.rich-preview;
-        sudo = pkgs.yaziPlugins.sudo;
-      };
-    };
+    yazi.enable = true;
   };
 
   # Extra Portal Configuration
