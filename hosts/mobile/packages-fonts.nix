@@ -161,15 +161,12 @@
           image_quality = 90;
           tab_size = 1;
         };
-        ui = {
-          pre_view_width = 0.7;       # 70% экрана на превью
-          sort = { mode = "natural"; };  # натуральная сортировка
-        };
-        open = {
-          rules = [
-            { mime = "text/*"; use = ["default"]; }
-            { mime = "inode/directory"; use = ["default"]; }
-          ];
+        opener = {
+          edit = [{ run = "zed \"$@\""; block = true; for = "unix"; }];
+          image = [{ run = "loupe \"$@\""; orphan = true; block = false; for = "unix"; }];
+          video = [{ run = "celluloid \"$@\""; orphan = true; block = false; for = "unix"; }];
+          audio = [{ run = "amberol \"$@\""; orphan = true; block = false; for = "unix"; }];
+          open = [{ run = "xdg-open \"$@\""; desc = "Open"; orphan = true; for = "unix"; }];
         };
       };
 
