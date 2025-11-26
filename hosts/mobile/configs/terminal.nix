@@ -40,48 +40,6 @@
     };
 
 
-{ pkgs, config, lib, ... }:
-
-{
-  home.packages = with pkgs; [
-    starship 
-    atuin 
-    zoxide 
-    eza 
-    bat 
-    fd 
-    ripgrep 
-    fzf 
-    fastfetch 
-    delta 
-    trash-cli
-    curl 
-    wget 
-    tldr 
-    jq
-    procs 
-    dust 
-    duf 
-    gping
-
-    # Plugins for ZSH
-    zsh-fzf-tab
-  ];
-
-  programs.zsh = {
-    enable = true;
-    autocd = true;
-    dotDir = "${config.home.homeDirectory}/.zshrc";
-
-    history = {
-      expireDuplicatesFirst = true;
-      ignoreSpace = true;
-      path = "${config.xdg.cacheHome}/zsh/history";
-      save = 100000;
-      size = 100000;
-    };
-
-
 
     enableCompletion   = true;  
     syntaxHighlighting = { enable = true; };
