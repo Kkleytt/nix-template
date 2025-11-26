@@ -198,8 +198,7 @@
     ];
   };
 
-  xdg.mimeApps = {
-    enable = true;
+  xdg.mime = {
     defaultApplications = {
       # Код и текст
       "text/plain" = "dev.zed.Zed.desktop";
@@ -231,7 +230,7 @@
     };
 
     # Альтернативы (fallback)
-    associations.added = {
+    addedAssociations = {
       "image/*" = [ "org.gnome.Loupe.desktop" "dev.zed.Zed.desktop" ];
       "video/*" = [ "io.github.celluloid_player.Celluloid.desktop" "mpv.desktop" ];
       "audio/*" = [ "io.bassi.Amberol.desktop" "dev.zed.Zed.desktop" ];
