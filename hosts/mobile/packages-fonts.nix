@@ -174,18 +174,18 @@
       };
 
       # Плагины
-      plugins = [
-        pkgs.yaziPlugins.mediainfo     # превью медиа (ffmpeg/mediainfo, изображения/видео/аудио)
-        pkgs.yaziPlugins.recycle-bin   # корзина (trash-cli, restore/delete/empty)
-        pkgs.yaziPlugins.chmod         # права файлов (chmod в меню)
-        pkgs.yaziPlugins.full-border   # полные рамки (красивее UI)
-        pkgs.yaziPlugins.toggle-pane   # переключение панелей (split/unsplit)
-        pkgs.yaziPlugins.starship      # starship prompt в Yazi (интеграция с твоим zsh)
-        pkgs.yaziPlugins.mount         # монтирование (USB, NFS, SMB)
-        pkgs.yaziPlugins.ouch          # архивы (extract/create, RAR/ZIP/7Z)
-        pkgs.yaziPlugins.git           # git статус в превью (branch, changes)
-        pkgs.yaziPlugins.duckdb        # Таблицы в превью
-      ];
+      plugins = {
+        media-info = pkgs.yaziPlugins.mediainfo;      # превью медиа (ffmpeg/mediainfo, изображения/видео/аудио)
+        recycle-bin = pkgs.yaziPlugins.recycle-bin;   # корзина (trash-cli, restore/delete/empty)
+        chmod = pkgs.yaziPlugins.chmod;               # права файлов (chmod в меню)
+        full-border = pkgs.yaziPlugins.full-border;   # полные рамки (красивее UI)
+        toggle-panel = pkgs.yaziPlugins.toggle-panel; # переключение панелей (split/unsplit)
+        starship = pkgs.yaziPlugins.starship;         # starship prompt в Yazi (интеграция с твоим zsh)
+        mount = pkgs.yaziPlugins.mount;               # монтирование (USB, NFS, SMB)
+        ouch = pkgs.yaziPlugins.ouch;                 # архивы (extract/create, RAR/ZIP/7Z)
+        git = pkgs.yaziPlugins.git;                   # git статус в превью (branch, changes)
+        duckdb = pkgs.yaziPlugins.duckdb;             # Таблицы в превью
+      };
     };
   };
 
