@@ -145,14 +145,20 @@
       # Конфиг
       settings = {
         mgr = {
-          show_hidden = true;         # скрытые файлы
-          sort_by = "name";           # сортировка по имени
-          sort_dir_first = true;      # директории первыми
+          # Sort
+          sort_by = "natural";
+          sort_sensitive = true;
+          sort_dir_first = true;
+
+          # Show
+          show_hidden = true;
+          show_symlink = true;
         };
         preview = {
-          max_width = 1200;           # ширина превью (для Kitty)
+          max_width = 1200;
           max_height = 900;
-          cache_dir = "${config.xdg.cacheHome}/yazi";  # кэш превью
+          cache_dir = "${config.xdg.cacheHome}/yazi";
+          image_quality = 50;
         };
         ui = {
           pre_view_width = 0.7;       # 70% экрана на превью
