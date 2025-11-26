@@ -158,7 +158,7 @@
           max_width = 1200;
           max_height = 900;
           cache_dir = "$HOME/.cache/yazi";
-          image_quality = 50;
+          image_quality = 90;
           tab_size = 1;
         };
         ui = {
@@ -172,6 +172,42 @@
           ];
         };
       };
+
+      # Комбинации клавиш
+      # Вкладки
+          # Открыть новую вкладку - T
+          # Переместиться по вкладкам - [1 - 9]
+          # Перейти на вкладку вперед - ]
+          # Перейти на вкладку назад - [
+          # Закрыть вкладку - Ctrl+C
+      # Работа с файлом
+          # Удалить - D | Навсегда удалить - Ctrl+D 
+          # Переименовать - R 
+          # Создать - A
+          # Выделить - V | Выбрать - Y | Выделить все - Ctrl+A
+          # Скопировать - C
+          # Вырезать - 
+          # Вставить - 
+          # Открыть - Return / O | Открыть с помощью - Shift+O
+      # Дополнительная работа с файлами
+          # Дублировать - P
+          # Создать ссылку - 
+          # Переместить - 
+          # Отобразить свойства - M | Отобразить все свойства - Tab
+      # Перемещение 
+          # Зайти в папку - → / L | Выйти из папки - ← / H
+          # Спуститься вниз - ↓ / J | Подняться наверх - ↑ / K
+          # Подняться в начало - Ctrl+B | Опуститься в конец - Ctrl+D
+          # Быстрый переход - G
+      # Поиск и фильтрация
+          # Поиск (fd) - S | Поиск (rg) - Shift+S | Системный поиск - Z 
+          # Найти далее - / | Найти предыдущее - Shift+/
+          # Вызвать фильтр - F
+          # Отобразить скрытые - .
+      # Доп функционал
+          # Вызвать shell - ; | Вызвать shell (block) - Shift+;
+
+      # Установить фиолетовую шнягу - X, снять ее Shift+X
 
       # Плагины
       plugins = {
@@ -250,6 +286,40 @@
         ml    = mk "ml"     "Machine Learning Python"           (ps: with ps; [ torch torchvision torchaudio scikit-learn numpy pandas matplotlib seaborn plotly ]);
         web   = mk "web"    "Python for web"                    (ps: with ps; [ aiokafka pyjwt asyncmy uvicorn aiomysql alembic ]);
         cli   = mk "cli"    "CLI / TUI Python"                  (ps: with ps; [ typer rich textual colorama ]);
+      };
+    };
+
+    nwg-shell = {
+      enable = true;
+      mimeApps = {
+        enable = true;
+
+        # ← Здесь задаёшь, чем открывать каждый тип
+        defaultApplications = {
+          "text/plain"            = "zed.desktop";
+          "text/x-markdown"       = "zed.desktop";
+          "text/x-python"         = "zed.desktop";
+          "text/x-nix"            = "zed.desktop";
+          "text/x-toml"           = "zed.desktop";
+
+          "image/jpeg"            = "app.fotema.Fotema";      # или io.github.jschenk.Fotema
+          "image/png"             = "app.fotema.Fotema";
+          "image/webp"            = "app.fotema.Fotema";
+          "image/avif"            = "app.fotema.Fotema";
+
+          "video/mp4"             = "celluloid.desktop";
+          "video/x-matroska"      = "celluloid.desktop";
+          "video/webm"            = "celluloid.desktop";
+
+          "application/pdf"       = "org.kde.okular.desktop";  # или zathura
+          "inode/directory"       = "yazi.desktop";           # папки в yazi
+        };
+
+        # Если хочешь, чтобы при нажатии на файл в yazi/rofi/dmenu открывалось нужным приложением
+        associations = {
+          "image/*" = [ "fotema.desktop" "zed.desktop" ];
+          "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
+        };
       };
     };
   };
