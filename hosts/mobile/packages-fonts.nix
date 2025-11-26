@@ -145,12 +145,12 @@
       # Конфиг
       settings = {
         manager = {
-          # Sort
+          ratio = [ 1 4 3 ];
           sort_by = "natural";
           sort_sensitive = true;
           sort_dir_first = true;
-
-          # Show
+          sort_reverse = false;
+          linemode = "none";
           show_hidden = true;
           show_symlink = true;
         };
