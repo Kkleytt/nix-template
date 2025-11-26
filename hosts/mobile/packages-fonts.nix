@@ -157,10 +157,15 @@
           tab_size = 1;
         };
         opener = {
-          edit = [{ run = "zed \"$@\""; block = true; for = "unix"; }];
-          image = [{ run = "loupe \"$@\""; orphan = true; block = false; for = "unix"; }];
-          video = [{ run = "celluloid \"$@\""; orphan = true; block = false; for = "unix"; }];
-          audio = [{ run = "amberol \"$@\""; orphan = true; block = false; for = "unix"; }];
+          # Текст/код — Zed
+          text = [{ run = "$$ {pkgs.zed-editor}/bin/zed \" $$@\""; block = true; for = "unix"; }];
+          # Изображения — Loupe
+          image = [{ run = "$$ {pkgs.loupe}/bin/loupe \" $$@\""; orphan = true; block = false; for = "unix"; }];
+          # Видео — Celluloid
+          video = [{ run = "$$ {pkgs.celluloid}/bin/celluloid \" $$@\""; orphan = true; block = false; for = "unix"; }];
+          # Аудио — Amberol
+          audio = [{ run = "$$ {pkgs.amberol}/bin/amberol \" $$@\""; orphan = true; block = false; for = "unix"; }];
+          # Fallback — xdg-open (если ничего не подошло)
           open = [{ run = "xdg-open \"$@\""; desc = "Open"; orphan = true; for = "unix"; }];
         };
       };
