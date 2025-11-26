@@ -242,10 +242,7 @@
     ];
   };
 
-  xdg = {
-  enable = true;
-  mimeApps = {
-    enable = true;
+  xdg.mime = {
     defaultApplications = {
       # Код и текст
       "text/plain" = "zed.desktop";
@@ -266,12 +263,11 @@
     };
 
     # Альтернативы (если первое не найдётся)
-    associations.added = {
+    addedAssociations = {
       "image/*" = [ "app.fotema.Fotema" "zed.desktop" ];
       "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
     };
   };
-};
 
   services = {
     # Установка Flatpak пакетов
