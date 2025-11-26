@@ -76,7 +76,6 @@
     ## Необязательные приложения
       rofi-bluetooth                                # Управление Bluetooth через Rofi
       rofi-network-manager                          # Управление интернетом через Rofi
-      pwmenu                                        # Управление звуком через Rofi
       rofi-calc                                     # Калькулятор Rofi
 
     ## Browsers
