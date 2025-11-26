@@ -162,7 +162,6 @@
     ln -sf ${pkgs.yaziPlugins.sudo}/share/yazi/plugins/sudo ~/.config/yazi/plugins/ 2>/dev/null || true
     ln -sf ${pkgs.yaziPlugins.compress}/share/yazi/plugins/compress ~/.config/yazi/plugins/ 2>/dev/null || true
     ln -sf ${pkgs.yaziPlugins.miller}/share/yazi/plugins/miller ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.fzf}/share/yazi/plugins/fzf ~/.config/yazi/plugins/ 2>/dev/null || true
     ln -sf ${pkgs.yaziPlugins.max-preview}/share/yazi/plugins/max-preview ~/.config/yazi/plugins/ 2>/dev/null || true
   '';
 }
