@@ -130,9 +130,56 @@
     virt-manager.enable = false;
     fuse.userAllowOther = true;
 
+
+    # Настройка проводников
     thunar = {
       enable = true;
       plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
+    };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      shellAlias = true;
+      package = pkgs.yazi.override { enableFishIntegration = false; }; 
+
+      # Конфиг
+      settings = {
+        mgr = {
+          show_hidden = true;         # скрытые файлы
+          sort_by = "name";           # сортировка по имени
+          sort_dir_first = true;      # директории первыми
+        };
+        preview = {
+          max_width = 1200;           # ширина превью (для Kitty)
+          max_height = 900;
+          cache_dir = "${config.xdg.cacheHome}/yazi";  # кэш превью
+        };
+        ui = {
+          pre_view_width = 0.7;       # 70% экрана на превью
+          sort = { mode = "natural"; };  # натуральная сортировка
+        };
+        open = {
+          rules = [
+            { mime = "text/*"; use = ["default"]; }
+            { mime = "inode/directory"; use = ["default"]; }
+          ];
+        };
+      };
+
+      # Плагины
+      plugins = with pkgs.yaziPlugins; [
+        mediainfo     # превью медиа (ffmpeg/mediainfo, изображения/видео/аудио)
+        recycle-bin   # корзина (trash-cli, restore/delete/empty)
+        chmod         # права файлов (chmod в меню)
+        full-border   # полные рамки (красивее UI)
+        toggle-pane   # переключение панелей (split/unsplit)
+        starship      # starship prompt в Yazi (интеграция с твоим zsh)
+        mount         # монтирование (USB, NFS, SMB)
+        ouch          # архивы (extract/create, RAR/ZIP/7Z)
+        git           # git статус в превью (branch, changes)
+        # Бонус: duckdb (CSV/JSON/Parquet таблицы в превью)
+        duckdb
+      ];
     };
   };
 
