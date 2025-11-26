@@ -198,7 +198,8 @@
     ];
   };
 
-  xdg.mime = {
+  xdg.mimeApps = {
+    enable = true;
     defaultApplications = {
       # Код и текст
       "text/plain" = "dev.zed.Zed.desktop";
@@ -216,13 +217,25 @@
       "video/mp4" = "io.github.celluloid_player.Celluloid.desktop";
       "video/webm" = "io.github.celluloid_player.Celluloid.desktop";
       "video/x-matroska" = "io.github.celluloid_player.Celluloid.desktop";
+
+      # Музыка
+      "audio/mpeg" = "io.bassi.Amberol.desktop";  # MP3
+      "audio/ogg" = "io.bassi.Amberol.desktop";   # OGG
+      "audio/flac" = "io.bassi.Amberol.desktop";  # FLAC
+
+      # Офисные (OnlyOffice)
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";  # .docx
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";     # .xlsx
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";  # .pptx
+      "application/pdf" = "onlyoffice-desktopeditors.desktop";  # PDF (OnlyOffice поддерживает)
     };
 
-    # Альтернативы (если первое не найдётся)
-    addedAssociations = {
+    # Альтернативы (fallback)
+    associations.added = {
       "image/*" = [ "org.gnome.Loupe.desktop" "dev.zed.Zed.desktop" ];
-      "video/*" = [ "io.github.celluloid_player.Celluloid.desktop" "vlc.desktop" ];
-      "music/*" = [ "io.bassi.Amberol.desktop" "dev.zed.Zed.desktopp" ];
+      "video/*" = [ "io.github.celluloid_player.Celluloid.desktop" "mpv.desktop" ];
+      "audio/*" = [ "io.bassi.Amberol.desktop" "dev.zed.Zed.desktop" ];
+      "application/vnd.openxmlformats-officedocument.*" = [ "onlyoffice-desktopeditors.desktop" "org.gnome.LibreOffice.desktop" ];
     };
   };
 
