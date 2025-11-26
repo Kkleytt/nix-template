@@ -142,25 +142,4 @@
     enable = true;
     enableZshIntegration = true;  
   };
-
-  # ────────────────────── Zoxide ──────────────────────
-  home.activation.yaziPlugins = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    mkdir -p ~/.config/yazi/plugins
-    # ────────────────────── Плагины (включай/выключай по вкусу) ──────────────────────
-    ln -sf ${pkgs.yaziPlugins.mediainfo}/share/yazi/plugins/mediainfo ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.recycle-bin}/share/yazi/plugins/recycle-bin ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.chmod}/share/yazi/plugins/chmod ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.full-border}/share/yazi/plugins/full-border ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.toggle-pane}/share/yazi/plugins/toggle-pane ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.starship}/share/yazi/plugins/starship ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.mount}/share/yazi/plugins/mount ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.ouch}/share/yazi/plugins/ouch ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.git}/share/yazi/plugins/git ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.bookmarks}/share/yazi/plugins/bookmarks ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.wl-clipboard}/share/yazi/plugins/wl-clipboard ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.rich-preview}/share/yazi/plugins/rich-preview ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.sudo}/share/yazi/plugins/sudo ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.compress}/share/yazi/plugins/compress ~/.config/yazi/plugins/ 2>/dev/null || true
-    ln -sf ${pkgs.yaziPlugins.miller}/share/yazi/plugins/miller ~/.config/yazi/plugins/ 2>/dev/null || true
-  '';
 }
