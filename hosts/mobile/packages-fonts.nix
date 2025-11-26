@@ -185,10 +185,10 @@
         ouch = pkgs.yaziPlugins.ouch;                 # архивы (extract/create, RAR/ZIP/7Z)
         git = pkgs.yaziPlugins.git;                   # git статус в превью (branch, changes)
         duckdb = pkgs.yaziPlugins.duckdb;             # Таблицы в превью
-        bookmarks = yaziPlugins.bookmarks;
-        wl-clipboard = yaziPlugins.wl-clipboard;
-        rich-preview = yaziPlugins.rich-preview;
-        sudo = yaziPlugins.sudo;
+        bookmarks = pkgs.yaziPlugins.bookmarks;
+        wl-clipboard = pkgs.yaziPlugins.wl-clipboard;
+        rich-preview = pkgs.yaziPlugins.rich-preview;
+        sudo = pkgs.yaziPlugins.sudo;
       };
     };
   };
