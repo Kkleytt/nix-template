@@ -144,7 +144,7 @@
 
       # Конфиг
       settings = {
-        mgr = {
+        manager = {
           # Sort
           sort_by = "natural";
           sort_sensitive = true;
@@ -159,6 +159,7 @@
           max_height = 900;
           cache_dir = "${config.xdg.cacheHome}/yazi";
           image_quality = 50;
+          tab_size = 1;
         };
         ui = {
           pre_view_width = 0.7;       # 70% экрана на превью
