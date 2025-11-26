@@ -138,8 +138,8 @@
     };
     yazi = {
       enable = true;
-      enableZshIntegration = true;
-      shellAlias = true;
+      # enableZshIntegration = true;
+      # shellAlias = true;
       package = pkgs.yazi.override { enableFishIntegration = false; }; 
 
       # Конфиг
