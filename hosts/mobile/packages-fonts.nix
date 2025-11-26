@@ -143,7 +143,7 @@
       # package = pkgs.yazi.override { enableFishIntegration = false; }; 
 
       # Конфиг
-      settings = {
+      settings.yazi = {
         manager = {
           ratio = [ 1 4 3 ];
           sort_by = "natural";
