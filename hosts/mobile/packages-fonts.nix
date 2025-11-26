@@ -201,10 +201,10 @@
   xdg.mime = {
     defaultApplications = {
       # Код и текст
-      "text/plain" = "zed.desktop";
-      "text/x-python" = "zed.desktop";
-      "text/x-nix" = "zed.desktop";
-      "text/x-toml" = "zed.desktop";
+      "text/plain" = "dev.zed.Zed.desktop";
+      "text/x-python" = "dev.zed.Zed.desktop";
+      "text/x-nix" = "dev.zed.Zed.desktop";
+      "text/x-toml" = "dev.zed.Zed.desktop";
       "inode/directory" = "yazi.desktop";
 
       # Фото
@@ -213,15 +213,16 @@
       "image/webp" = "org.gnome.Loupe.desktop";
 
       # Видео
-      "video/mp4" = "celluloid.desktop";
-      "video/webm" = "celluloid.desktop";
-      "video/x-matroska" = "celluloid.desktop";
+      "video/mp4" = "io.github.celluloid_player.Celluloid.desktop";
+      "video/webm" = "io.github.celluloid_player.Celluloid.desktop";
+      "video/x-matroska" = "io.github.celluloid_player.Celluloid.desktop";
     };
 
     # Альтернативы (если первое не найдётся)
     addedAssociations = {
-      "image/*" = [ "org.gnome.Loupe.desktop" "zed.desktop" ];
-      "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
+      "image/*" = [ "org.gnome.Loupe.desktop" "dev.zed.Zed.desktop" ];
+      "video/*" = [ "io.github.celluloid_player.Celluloid.desktop" "vlc.desktop" ];
+      "music/*" = [ "io.bassi.Amberol.desktop" "dev.zed.Zed.desktopp" ];
     };
   };
 
