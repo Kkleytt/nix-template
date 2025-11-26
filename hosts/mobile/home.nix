@@ -169,7 +169,6 @@
       # lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
       # dooit                                         # TUI ToDo список задач
       # calcurse                                      # TUI календарь со списком задач
-    ## WIKI:
   ]); 
 
   programs = {
