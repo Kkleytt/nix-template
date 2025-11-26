@@ -39,9 +39,7 @@
       size = 100000;
     };
 
-
-
-    enableCompletion   = true;  
+    enableCompletion = true;  
     syntaxHighlighting = { enable = true; };
 
     plugins = [
