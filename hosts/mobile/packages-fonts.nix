@@ -242,6 +242,37 @@
     ];
   };
 
+  xdg = {
+  enable = true;
+  mimeApps = {
+    enable = true;
+    defaultApplications = {
+      # Код и текст
+      "text/plain" = "zed.desktop";
+      "text/x-python" = "zed.desktop";
+      "text/x-nix" = "zed.desktop";
+      "text/x-toml" = "zed.desktop";
+      "inode/directory" = "yazi.desktop";
+
+      # Фото
+      "image/png" = "app.fotema.Fotema";
+      "image/jpeg" = "app.fotema.Fotema";
+      "image/webp" = "app.fotema.Fotema";
+
+      # Видео
+      "video/mp4" = "celluloid.desktop";
+      "video/webm" = "celluloid.desktop";
+      "video/x-matroska" = "celluloid.desktop";
+    };
+
+    # Альтернативы (если первое не найдётся)
+    associations.added = {
+      "image/*" = [ "app.fotema.Fotema" "zed.desktop" ];
+      "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
+    };
+  };
+};
+
   services = {
     # Установка Flatpak пакетов
     flatpak = {
@@ -286,40 +317,6 @@
         ml    = mk "ml"     "Machine Learning Python"           (ps: with ps; [ torch torchvision torchaudio scikit-learn numpy pandas matplotlib seaborn plotly ]);
         web   = mk "web"    "Python for web"                    (ps: with ps; [ aiokafka pyjwt asyncmy uvicorn aiomysql alembic ]);
         cli   = mk "cli"    "CLI / TUI Python"                  (ps: with ps; [ typer rich textual colorama ]);
-      };
-    };
-
-    nwg-shell = {
-      enable = true;
-      mimeApps = {
-        enable = true;
-
-        # ← Здесь задаёшь, чем открывать каждый тип
-        defaultApplications = {
-          "text/plain"            = "zed.desktop";
-          "text/x-markdown"       = "zed.desktop";
-          "text/x-python"         = "zed.desktop";
-          "text/x-nix"            = "zed.desktop";
-          "text/x-toml"           = "zed.desktop";
-
-          "image/jpeg"            = "app.fotema.Fotema";      # или io.github.jschenk.Fotema
-          "image/png"             = "app.fotema.Fotema";
-          "image/webp"            = "app.fotema.Fotema";
-          "image/avif"            = "app.fotema.Fotema";
-
-          "video/mp4"             = "celluloid.desktop";
-          "video/x-matroska"      = "celluloid.desktop";
-          "video/webm"            = "celluloid.desktop";
-
-          "application/pdf"       = "org.kde.okular.desktop";  # или zathura
-          "inode/directory"       = "yazi.desktop";           # папки в yazi
-        };
-
-        # Если хочешь, чтобы при нажатии на файл в yazi/rofi/dmenu открывалось нужным приложением
-        associations = {
-          "image/*" = [ "fotema.desktop" "zed.desktop" ];
-          "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
-        };
       };
     };
   };
