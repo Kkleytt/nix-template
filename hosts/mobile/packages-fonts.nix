@@ -252,9 +252,9 @@
       "inode/directory" = "yazi.desktop";
 
       # Фото
-      "image/png" = "app.fotema.Fotema";
-      "image/jpeg" = "app.fotema.Fotema";
-      "image/webp" = "app.fotema.Fotema";
+      "image/png" = "loupe.desktop";
+      "image/jpeg" = "loupe.desktop";
+      "image/webp" = "loupe.desktop";
 
       # Видео
       "video/mp4" = "celluloid.desktop";
@@ -264,7 +264,7 @@
 
     # Альтернативы (если первое не найдётся)
     addedAssociations = {
-      "image/*" = [ "app.fotema.Fotema" "zed.desktop" ];
+      "image/*" = [ "loupe.desktop" "zed.desktop" ];
       "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
     };
   };
