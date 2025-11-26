@@ -179,12 +179,16 @@
         recycle-bin = pkgs.yaziPlugins.recycle-bin;   # корзина (trash-cli, restore/delete/empty)
         chmod = pkgs.yaziPlugins.chmod;               # права файлов (chmod в меню)
         full-border = pkgs.yaziPlugins.full-border;   # полные рамки (красивее UI)
-        toggle-panel = pkgs.yaziPlugins.toggle-panel; # переключение панелей (split/unsplit)
+        toggle-pane = pkgs.yaziPlugins.toggle-pane;   # переключение панелей (split/unsplit)
         starship = pkgs.yaziPlugins.starship;         # starship prompt в Yazi (интеграция с твоим zsh)
         mount = pkgs.yaziPlugins.mount;               # монтирование (USB, NFS, SMB)
         ouch = pkgs.yaziPlugins.ouch;                 # архивы (extract/create, RAR/ZIP/7Z)
         git = pkgs.yaziPlugins.git;                   # git статус в превью (branch, changes)
         duckdb = pkgs.yaziPlugins.duckdb;             # Таблицы в превью
+        bookmarks = yaziPlugins.bookmarks;
+        wl-clipboard = yaziPlugins.wl-clipboard;
+        rich-preview = yaziPlugins.rich-preview;
+        sudo = yaziPlugins.sudo;
       };
     };
   };
