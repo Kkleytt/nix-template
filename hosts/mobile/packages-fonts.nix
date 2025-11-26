@@ -208,9 +208,9 @@
       "inode/directory" = "yazi.desktop";
 
       # Фото
-      "image/png" = "loupe.desktop";
-      "image/jpeg" = "loupe.desktop";
-      "image/webp" = "loupe.desktop";
+      "image/png" = "org.gnome.Loupe.desktop";
+      "image/jpeg" = "org.gnome.Loupe.desktop";
+      "image/webp" = "org.gnome.Loupe.desktop";
 
       # Видео
       "video/mp4" = "celluloid.desktop";
@@ -220,7 +220,7 @@
 
     # Альтернативы (если первое не найдётся)
     addedAssociations = {
-      "image/*" = [ "loupe.desktop" "zed.desktop" ];
+      "image/*" = [ "org.gnome.Loupe.desktop" "zed.desktop" ];
       "video/*" = [ "celluloid.desktop" "mpv.desktop" ];
     };
   };
