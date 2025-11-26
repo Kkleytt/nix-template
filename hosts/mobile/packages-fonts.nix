@@ -157,7 +157,7 @@
         preview = {
           max_width = 1200;
           max_height = 900;
-          cache_dir = "${config.xdg.cacheHome}/yazi";
+          cache_dir = "$HOME/.cache/yazi";
           image_quality = 50;
           tab_size = 1;
         };
