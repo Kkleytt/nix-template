@@ -166,45 +166,36 @@
           tab_size = 1;
         };
         opener = {
-          # Текст/код → Zed (Enter открывает в Zed)
-          text = [{
-            run = ''zed "$@"'';
-            block = false;
-            for = "unix";
-          }];
+          # Zed (для Текста)
+          zed = [ {run = ''zed "$@"''; block = false; for = "unix"; }];
 
-          # Изображения → Loupe
-          image = [{
-            run = ''loupe "$@"'';
-            orphan = true;
-            block = false;
-            for = "unix";
-          }];
+          # Loupe (для Изображений)
+          loupe = [ {run = ''loupe "$@"''; orphan = true; block = false; for = "unix"; }];
 
-          # Видео → Celluloid
-          video = [{
-            run = ''celluloid "$@"'';
-            orphan = true;
-            block = false;
-            for = "unix";
-          }];
+          # Celluloid (для Видео)
+          celluloid = [ {run = ''celluloid "$@"''; orphan = true; block = false; for = "unix"; }];
 
-          # Аудио → Amberol
-          audio = [{
-            run = ''amberol "$@"'';
-            orphan = true;
-            block = false;
-            for = "unix";
-          }];
+          # Amberol (для Аудио)
+          amberol = [ {run = ''amberol "$@"''; orphan = true; block = false; for = "unix"; }];
 
           # Fallback (O) → xdg-open
-          open = [{
-            run = ''xdg-open "$@"'';
-            desc = "Open";
-            orphan = true;
-            for = "unix";
-          }];
+          fallback = [ {run = ''xdg-open "$@"''; desc = "Open"; orphan = true; for = "unix"; }];
         };
+        open.rules = [
+          {mime = "text/*";                      use = "zed";}
+          {mime = "application/json";            use = "zed";}
+          {name = "*.json";                      use = "zed";}
+          {name = "*.nix";                       use = "zed";}
+          {name = "*.toml";                      use = "zed";}
+          {name = "*.yaml";                      use = "zed";}
+          {name = "*.md";                        use = "zed";}
+          {mime = "image/*";                     use = "loupe";}      # Все изображения
+          {mime = "video/*";                     use = "celluloid";}  # Все видео
+          {mime = "audio/*";                     use = "amberol";}    # Все аудио
+
+          # Всё остальное → xdg-open (O)
+          { use = "open"; }  # fallback
+        ];
       };
 
       # Плагины
@@ -227,7 +218,6 @@
     };
   };
 
-  
   # Extra Portal Configuration
   xdg.portal = {
     enable = true;
