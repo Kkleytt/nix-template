@@ -63,7 +63,7 @@
       qview                                       # Image (Fast)
       loupe                                       # Image (Modern)
       
-      cmus                                        # Music (Extra-Fast, TUI)
+      rmpc                                        # Music (Extra-Fast, TUI)
       kew                                         # Music (Extra-Fast, TUI)
       termusic                                    # Music (Fast, TUI)
       musicpod                                    # Music (Modern)
