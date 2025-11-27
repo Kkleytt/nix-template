@@ -60,7 +60,7 @@
       timg                                        # Image (Extra-Fast, TUI)
       imv                                         # Image (Fast TUI)
       swayimg                                     # Image (Extra-Fast)
-      # qview                                       # Image (Fast)
+      qview                                       # Image (Fast)
       loupe                                       # Image (Modern)
       
       # kew                                         # Music (Extra-Fast, TUI)
