@@ -64,7 +64,7 @@
       loupe                                       # Image (Modern)
       
       kew                                         # Music (Extra-Fast, TUI)
-      # termusic                                    # Music (Fast, TUI)
+      termusic                                    # Music (Fast, TUI)
       # feishin                                     # Music (Modern)
       # musicpod                                    # Music (Modern)
       # recordbox                                   # Music (Modern)
