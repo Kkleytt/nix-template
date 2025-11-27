@@ -63,16 +63,15 @@
       qview                                       # Image (Fast)
       loupe                                       # Image (Modern)
       
+      cmus                                        # Music (Extra-Fast, TUI)
       kew                                         # Music (Extra-Fast, TUI)
       termusic                                    # Music (Fast, TUI)
-      # feishin                                     # Music (Modern) (Old electron)
       musicpod                                    # Music (Modern)
       recordbox                                   # Music (Modern)
       
       tplay                                       # Video (Extra-Fast, TUI)
       mpv                                         # Video (Fast)
       clapper                                     # Video (Fast)
-      # jellyfin-media-player                       # Video (Modern)
       vlc                                         # Video 
     
     # Интернет и Bluetooth
