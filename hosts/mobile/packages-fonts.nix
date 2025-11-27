@@ -65,8 +65,8 @@
       
       kew                                         # Music (Extra-Fast, TUI)
       termusic                                    # Music (Fast, TUI)
-      feishin                                     # Music (Modern)
-      # musicpod                                    # Music (Modern)
+      # feishin                                     # Music (Modern)
+      musicpod                                    # Music (Modern)
       # recordbox                                   # Music (Modern)
       
       tplay                                       # Video (Extra-Fast, TUI)
