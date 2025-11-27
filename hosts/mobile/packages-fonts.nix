@@ -64,6 +64,7 @@
       loupe                                       # Image (Modern)
       
       rmpc                                        # Music (Extra-Fast, TUI)
+      mpd
       kew                                         # Music (Extra-Fast, TUI)
       termusic                                    # Music (Fast, TUI)
       musicpod                                    # Music (Modern)
