@@ -60,7 +60,7 @@
       timg                                        # Image (Extra-Fast, TUI)
       imv                                         # Image (Fast TUI)
       swayimg                                     # Image (Extra-Fast)
-      qview                                       # Image (Fast)
+      # qview                                       # Image (Fast)
       loupe                                       # Image (Modern)
       
       # kew                                         # Music (Extra-Fast, TUI)
@@ -71,8 +71,8 @@
       
       tplay                                       # Video (Extra-Fast, TUI)
       mpv                                         # Video (Fast)
-      clapper                                     # Video (Fast)
-      jellyfin-media-player                       # Video (Modern)
+      # clapper                                     # Video (Fast)
+      # jellyfin-media-player                       # Video (Modern)
       vlc                                         # Video 
     
     # Интернет и Bluetooth
