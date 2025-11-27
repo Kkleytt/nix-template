@@ -71,7 +71,7 @@
       
       tplay                                       # Video (Extra-Fast, TUI)
       mpv                                         # Video (Fast)
-      # clapper                                     # Video (Fast)
+      clapper                                     # Video (Fast)
       # jellyfin-media-player                       # Video (Modern)
       vlc                                         # Video 
     
