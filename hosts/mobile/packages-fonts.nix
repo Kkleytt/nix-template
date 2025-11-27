@@ -63,7 +63,7 @@
       qview                                       # Image (Fast)
       loupe                                       # Image (Modern)
       
-      # kew                                         # Music (Extra-Fast, TUI)
+      kew                                         # Music (Extra-Fast, TUI)
       # termusic                                    # Music (Fast, TUI)
       # feishin                                     # Music (Modern)
       # musicpod                                    # Music (Modern)
