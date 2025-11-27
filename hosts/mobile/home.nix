@@ -64,19 +64,47 @@
         
 
     ## ClI utils
-      lazygit                                       # TUI для Git (коммиты, ветки, история)
+      lazygit                                       # TUI для Git)
+      gitui                                         # TUI для GIT
+      serie                                         # TUI для вывода Git Graph
+      
       lazydocker                                    # TUI для управления контейнерами
       lazyjournal                                   # TUI для просмотра Linux журнала
-      lazyssh                                       # TUI для работы с SSH подключениями
       lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
+      
+      lazyssh                                       # TUI для работы с SSH подключениями
+      sshs                                          # TUI для работы с SSH подключениями
+      
       dooit                                         # TUI ToDo список задач
-      calcurse                                      # TUI календарь со списком задач      
-      rich-cli                                      # Красивый вывод JSON/текста с цветами и таблицами
-
+      calcurse                                      # TUI календарь со списком задач
+      basilk                                        # TUI простая kanban доска с задачами
+      bagels                                        # TUI трекер расходов
+      
+      impala                                        # TUI для работы с WiFi
+      bluetui                                       # TUI для работы с Bluetooth
+      
+      wtfutil                                       # TUI дашборд
+      smassh                                        # TUI аналог Monkeytype                   
+      posting                                       # TUI аналог Postman
+      oha                                           # TUI для нагрузочного тестирования Web серверов
+      television                                    # TUI для поиска файлов и папок
+      chamber                                       # TUI для хранения секретов
+      
+      kew                                           # TUI музыкальный плеер для медиатеки
+      termusic                                      # TUI музыкальный плеер
+      fum                                           # TUI музыкальный плеер
+      spotify-player                                # TUI музыкальный плеер Spotify
+      swayimg                                       # TUI просмотрщик изображений
+      tplay                                       # TUI запуск видео 
+      
     ## Необязательные приложения
       rofi-bluetooth                                # Управление Bluetooth через Rofi
       rofi-network-manager                          # Управление интернетом через Rofi
       rofi-calc                                     # Калькулятор Rofi
+      terminal-toys                                 # TUI вывод экрана ожидания
+      pipes                                         # TUI вывод экрана ожидания
+      astroterm                                     # TUI вывод звездной галактики
+      kanri                                         # GUI Kanban доска
 
     ## Browsers
       # brave                                         # Браузер Brave
