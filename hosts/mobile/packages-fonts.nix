@@ -55,7 +55,7 @@
       pywal16                                     # Выборка цветов из обоев
       
     # Просмотрщики (Audio/Video/Pictures)
-      fancy-cat                                   # PDF
+      # fancy-cat                                   # PDF
       
       timg                                        # Image (Extra-Fast, TUI)
       imv                                         # Image (Fast TUI)
