@@ -125,7 +125,7 @@
       
       # Lazy
       lj        = "lazyjournal";
-      ls        = "lazyssh";
+      lh        = "lazyssh";
       lq        = "lazysql";
       lp        = "rainfrog";
       ld        = "lazydocker";
