@@ -6,7 +6,7 @@
     # Система
       fastfetch                                     # Карточка ОС
       zenith                                        # TUI мониторинг системы
-      zenith-nvidia                                 # TUI мониторинг системы (с поддержкой NVIDIA)
+      # zenith-nvidia                                 # TUI мониторинг системы (с поддержкой NVIDIA)
       
     # Git
       gitu                                          # TUI для работы с GIT 
