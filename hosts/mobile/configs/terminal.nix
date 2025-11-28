@@ -133,7 +133,7 @@
       
       # Утилиты
       http      = "xh -F -j -f";
-      gt        = "gtt -src English -src Russian"
+      gt        = "gtt -src English -src Russian";
       nv        = "navi";
       tl        = "tldr";
       st        = "tokei";
