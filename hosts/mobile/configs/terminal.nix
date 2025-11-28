@@ -22,7 +22,6 @@
       lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
       rainfrog                                      # TUI для работы с Postgres
       lazyssh                                       # TUI для работы с SSH подключениями 
-      # termirs                                       # TUI для работы с SSH подключениями
       
     # Tasks
       taskwarrior-tui                               # TUI менеджер задач
@@ -101,37 +100,57 @@
 
     shellAliases = {
       # Перемещение по директориям и работа с ними
-      du   = "dust";
-      ls   = "eza --icons --group-directories-first --color=always";
-      ll   = "eza -lh --icons --group-directories-first --color=always";
-      la   = "eza -lah --icons --group-directories-first --color=always";
-      lt   = "eza --tree --level=3 --icons";
-      cd   = "z";
-      cls  = "clear";
+      ls        = "eza --icons --group-directories-first --color=always";
+      ll        = "eza -lh --icons --group-directories-first --color=always";
+      la        = "eza -lah --icons --group-directories-first --color=always";
+      lt        = "eza --tree --level=3 --icons";
+      cd        = "z";
+      cls       = "clear";
+      c         = "clear";
 
       # Работа с файлами
-      cat  = "bat --style=plain";
-      rm   = "trash-put";
-      grep = "rg";
-      find = "fd";
-      ps   = "procs";
-
-      df   = "duf";
-      ping = "gping";
-      ssh-server = "ssh kkleytt@46.160.250.162 -p 1900";
-      compact = "~/Projects/system/hyprland/scripts/hyprland/starship/script.sh compact";
-      extra-compact = "~/Projects/system/hyprland/scripts/hyprland/starship/script.sh extra-compact";
+      cat       = "bat --style=plain";
+      rm        = "trash-put";
+      grep      = "rg";
+      find      = "fd";
+      ps        = "procs";
+      y         = "yazi";
+      df        = "duf";
+      du        = "dua i";
+      
+      # Интернет и Bluetooth
+      wf        = "impala";
+      bl        = "bluetui";
+      ping      = "gping"; 
+      
+      # Lazy
+      lj        = "lazyjournal";
+      ls        = "lazyssh";
+      lq        = "lazysql";
+      lp        = "rainfrog";
+      ld        = "lazydocker";
+      lg        = "gitui";
+      
+      # Утилиты
+      http      = "xh -F -j -f";
+      gt        = "gtt -src English -src Russian"
+      nv        = "navi";
+      tl        = "tldr";
+      st        = "tokei";
+      tw        = "taskwarrior-tui";
+      cl        = "calcurse";
+      ds        = "wtfutil";
+      compact   = "~/Projects/system/hyprland/scripts/hyprland/starship/script.sh compact";
 
       # git
-      g    = "git";
-      ga   = "git add";
-      gc   = "git commit";
-      gp   = "git push";
-      gl   = "git pull";
-      gs   = "git status";
-      gd   = "git diff";
-      gds  = "git diff --staged";
-      glog = "git log --oneline --decorate --graph";
+      gu        = "gitui";
+      gb        = "serie";
+      gi        = "git init";
+      ga        = "git add";
+      gc        = "git commit";
+      gp        = "git push";
+      gl        = "git pull";
+      gs        = "git status";
     };
 
     initContent = lib.mkMerge [
