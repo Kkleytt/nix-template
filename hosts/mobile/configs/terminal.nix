@@ -5,11 +5,13 @@
     ## ClI utils
     # Система
       fastfetch                                     # Карточка ОС
+      bottom                                        # TUI мониторинг системы
+      btop                                          # TUI мониторинг системы
       zenith                                        # TUI мониторинг системы
       # zenith-nvidia                                 # TUI мониторинг системы (с поддержкой NVIDIA)
       
     # Git
-      gitu                                          # TUI для работы с GIT 
+      gitui                                         # TUI для работы с GIT 
     
     # Docker
       lazydocker                                    # TUI для управления контейнерами 
@@ -26,10 +28,12 @@
     # Дашборд / Разное
       wtfutil                                       # TUI дашборд 
       chamber                                       # TUI для хранения секретов 
+      tldr                                          # Современная замена man
       navi                                          # Интерактивные шпаргалки по командам  
     
     # Media
       termusic                                      # TUI музыкальный плеер 
+      viu                                           # TUI просмотрщик изображений
       swayimg                                       # TUI просмотрщик изображений 
       glow                                          # Markdown редактор
       
