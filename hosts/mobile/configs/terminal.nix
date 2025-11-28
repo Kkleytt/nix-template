@@ -22,7 +22,7 @@
       lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
       rainfrog                                      # TUI для работы с Postgres
       lazyssh                                       # TUI для работы с SSH подключениями 
-      termirs                                       # TUI для работы с SSH подключениями
+      # termirs                                       # TUI для работы с SSH подключениями
       
     # Tasks
       taskwarrior-tui                               # TUI менеджер задач
