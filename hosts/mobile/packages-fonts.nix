@@ -36,14 +36,7 @@
       fd                                          # Улучшенный find — в десятки раз быстрее и проще
       fzf                                         # Нечёткий поиск по файлам, истории, процессам и всему подряд
       jq                                          # Мощный процессор JSON прямо в терминале
-      httpx                                       # Улучгенный curl - быстрее и удобнее
       duf                                         # Улучшенный df — красивая таблица использования дисков
-      
-      
-    ## 🖥️ Мониторинг и диагностика
-      bottom                                      # Красивый вывод метрик устройства
-      # btop                                        # Красивый вывод метрик устройства
-      # nvtopPackages.full                          # Мониторинг Nvidia GPU
 
 
     ## 🎨 Внешний вид и темы
@@ -61,10 +54,11 @@
       loupe                                       # Красивый просмотрщик фото
       feh                                         # Просмотрщик фото + Сортировщик
       musicpod                                    # Музыкальный плеер + Радио + Подкасты
-
-      mpv                                         # Video (Fast)
-      clapper                                     # Video (Fast)
-      vlc                                         # Video 
+      amberol                                     # Музыкальный плеер
+      mpv                                         # Базовый медиа плеер
+      vlc                                         # Базовый медиа плеер
+      clapper                                     # Красивый медиа плеер
+      celluloid                                   # Красивый медиа плеер
     
     # Интернет и Bluetooth
       networkmanagerapplet                        # GUI для NetworkManager
@@ -166,46 +160,6 @@
       pkgs.xdg-desktop-portal-wlr
       pkgs.xdg-desktop-portal-hyprland
     ];
-  };
-
-  xdg.mime = {
-    defaultApplications = {
-      # Код и текст
-      "text/plain" = "dev.zed.Zed.desktop";
-      "text/x-python" = "dev.zed.Zed.desktop";
-      "text/x-nix" = "dev.zed.Zed.desktop";
-      "text/x-toml" = "dev.zed.Zed.desktop";
-      "inode/directory" = "yazi.desktop";
-
-      # Фото
-      "image/png" = "org.gnome.Loupe.desktop";
-      "image/jpeg" = "org.gnome.Loupe.desktop";
-      "image/webp" = "org.gnome.Loupe.desktop";
-
-      # Видео
-      "video/mp4" = "io.github.celluloid_player.Celluloid.desktop";
-      "video/webm" = "io.github.celluloid_player.Celluloid.desktop";
-      "video/x-matroska" = "io.github.celluloid_player.Celluloid.desktop";
-
-      # Музыка
-      "audio/mpeg" = "io.bassi.Amberol.desktop";  # MP3
-      "audio/ogg" = "io.bassi.Amberol.desktop";   # OGG
-      "audio/flac" = "io.bassi.Amberol.desktop";  # FLAC
-
-      # Офисные (OnlyOffice)
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "onlyoffice-desktopeditors.desktop";  # .docx
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "onlyoffice-desktopeditors.desktop";     # .xlsx
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "onlyoffice-desktopeditors.desktop";  # .pptx
-      "application/pdf" = "onlyoffice-desktopeditors.desktop";  # PDF (OnlyOffice поддерживает)
-    };
-
-    # Альтернативы (fallback)
-    addedAssociations = {
-      "image/*" = [ "org.gnome.Loupe.desktop" "dev.zed.Zed.desktop" ];
-      "video/*" = [ "io.github.celluloid_player.Celluloid.desktop" "mpv.desktop" ];
-      "audio/*" = [ "io.bassi.Amberol.desktop" "dev.zed.Zed.desktop" ];
-      "application/vnd.openxmlformats-officedocument.*" = [ "onlyoffice-desktopeditors.desktop" "org.gnome.LibreOffice.desktop" ];
-    };
   };
 
   services = {
