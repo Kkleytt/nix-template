@@ -69,9 +69,8 @@
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
 						home-manager.backupFileExtension = "backup";
-						home-manager.users.${username} = import ./hosts/${host}/home.nix {
-							inherit inputs pkgs system;
-						};
+						home-manager.extraSpecialArgs = { inherit inputs username host pkgs; };
+						home-manager.users.${username} = import ./hosts/${host}/home.nix
 					}
 				];
 			};
