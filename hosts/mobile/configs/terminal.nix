@@ -11,7 +11,8 @@
       # zenith-nvidia                                 # TUI мониторинг системы (с поддержкой NVIDIA)
       
     # Git
-      gitui                                         # TUI для работы с GIT 
+      gitui                                         # TUI для работы с Git
+      serie                                         # TUI для отображения Git Graph
     
     # Docker
       lazydocker                                    # TUI для управления контейнерами 
@@ -19,7 +20,9 @@
     # БД / Журналы / SSH
       lazyjournal                                   # TUI для просмотра Linux журнала 
       lazysql                                       # TUI для работы с СУБД (Postgres, MySQL)
+      rainfrog                                      # TUI для работы с Postgres
       lazyssh                                       # TUI для работы с SSH подключениями 
+      termirs                                       # TUI для работы с SSH подключениями
       
     # Tasks
       taskwarrior-tui                               # TUI менеджер задач
@@ -27,18 +30,19 @@
       
     # Дашборд / Разное
       wtfutil                                       # TUI дашборд 
-      chamber                                       # TUI для хранения секретов 
       tldr                                          # Современная замена man
       navi                                          # Интерактивные шпаргалки по командам  
     
     # Media
+      gtt                                           # TUI переводчик
+      tdf                                           # TUI просмотр PDF
       termusic                                      # TUI музыкальный плеер 
-      viu                                           # TUI просмотрщик изображений
       swayimg                                       # TUI просмотрщик изображений 
       glow                                          # Markdown редактор
       
     # Сеть и интернет
       xh                                            # HTTP-клиент нового поколения
+      oha                                           # TUI нагрузочное тестирование
       sniffnet                                      # TUI трафик сети
       gping                                         # Ping с графиком
       bluetui                                       # TUI для работы с Bluetooth 
