@@ -132,6 +132,7 @@
       lg        = "gitui";
       
       # Утилиты
+      toy       = "pipes.sh -p 4 -t 3 -c 8 -r 0";
       http      = "xh -F -j -f";
       gt        = "gtt -src English -src Russian";
       nv        = "navi";
