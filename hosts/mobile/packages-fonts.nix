@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, config, ...}:
+{ pkgs, ...}:
 
 {
   environment.systemPackages = (with pkgs; [
@@ -18,7 +18,7 @@
       xdg-user-dirs                               # Стандартные пользовательские каталоги
       xdg-utils                                   # Утилиты XDG
       unzip                                       # CLI архиватор
-      ntfs3g									                    # Поддержка NTFS файловых систем
+      ntfs3g                                      # Поддержка NTFS файловых систем
       exfat									                      # Поддержка ExFat файловых системы
       bc                                          # Компилятор для калькулятора 
       inotify-tools                               # Наблюдатель за файлами
@@ -46,7 +46,7 @@
       pywal16                                     # Выборка цветов из обоев
       
     # Просмотрщики (Audio/Video/Pictures)
-      # fancy-cat                                   # PDF
+      # fancy-cat                                 # PDF
       loupe                                       # Красивый просмотрщик фото
       feh                                         # Просмотрщик фото + Сортировщик
       musicpod                                    # Музыкальный плеер + Радио + Подкасты
