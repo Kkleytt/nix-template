@@ -95,7 +95,7 @@
       polkit_gnome                                # Агент аутентификации  
       flatpak                                     # Менеджер пакетов Flatpak  
       
-      ydotool
+      enry
 
 
     
