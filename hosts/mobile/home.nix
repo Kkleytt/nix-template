@@ -20,6 +20,15 @@
         uv                                          # Сверхбыстрый заменитель pip, virtualenv, poetry
         mypy                                        # Статический анализатор типов
         ruff                                        # Быстрый линтер и автоисправитель на Rust
+        ty                                          # Статический анализатор типов
+        
+      #### LSP
+        nixd                                        # Языковой сервер Nix
+        vscode-css-languageserver                   # CSS
+        vscode-json-languageserver                  # JSON
+        bash-language-server                        # Bash
+        yaml-language-server                        # YAML
+        rust-analyzer                               # Rust
 
       #### Rust
         rustc                                       # Компилятор языка Rust.
