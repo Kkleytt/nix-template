@@ -70,8 +70,6 @@
         # windsurf                                  # IDE для работы совместно с агентом
         # code-cursor                               # IDE для работы совместно с агентом
 
-
-
       #### Utils
         postman                                   # Авто-тесты для API
         devtoolbox                                # Дополнительные функции для программиста
@@ -105,8 +103,6 @@
     ## Office
       onlyoffice-desktopeditors                   # Аналог Microsoft Office
       thunderbird                                 # Mail клиент
-      mailspring                                   # Mail клиент
-      # wpsoffice                                   # Wps Office
       # figma-linux                                 # Неофициальный клиент Figma
 
 
@@ -192,6 +188,7 @@
       # Test new packages 
       wev                                           # Проверка названий клавиш клавиатуры
       miro                                          # Быстрый PDF viewer
+      gradia
   ]); 
 
   programs = {

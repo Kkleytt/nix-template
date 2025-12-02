@@ -50,7 +50,7 @@
       loupe                                       # Красивый просмотрщик фото
       feh                                         # Просмотрщик фото + Сортировщик
       musicpod                                    # Музыкальный плеер + Радио + Подкасты
-      amberol                                     # Музыкальный плеер
+      gapless                                     # Музыкальный плеер 
       mpv                                         # Базовый медиа плеер
       vlc                                         # Базовый медиа плеер
       clapper                                     # Красивый медиа плеер
@@ -164,6 +164,10 @@
         "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
         "app.fotema.Fotema"                         # Менеджер фото 
         "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
+        "com.wps.Office"                            #
+        "com.getmailspring.Mailspring"
+        "io.github.lainsce.Countdown"
+        "io.github.lainsce.Emulsion"
       ];
     };
 
