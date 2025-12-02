@@ -182,7 +182,6 @@ in {
     fwupd.enable = true;
     upower.enable = true;
     gnome.gnome-keyring.enable = true;
-    # gnome3.gnome-keyring.enable = true;
     
     ipp-usb.enable = true;
   };

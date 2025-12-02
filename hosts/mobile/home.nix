@@ -101,7 +101,7 @@
       
 
     ## Office
-      onlyoffice-desktopeditors                   # Аналог Microsoft Office
+      # onlyoffice-desktopeditors                   # Аналог Microsoft Office
       thunderbird                                 # Mail клиент
       # figma-linux                                 # Неофициальный клиент Figma
 

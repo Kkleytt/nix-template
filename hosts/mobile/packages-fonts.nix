@@ -25,8 +25,6 @@
       curl                                        # Универсальная утилита для HTTP-запросов
       wget                                        # Классическая утилита для скачивания файлов и сайтов
       mediainfo                                   # Получение мета данных файлов
-      libgnome-keyring
-      libsecret
       
     # CLI утилиты
       bat                                         # Улучшенный cat — с подсветкой синтаксиса и номерами строк
@@ -166,10 +164,9 @@
         "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
         "app.fotema.Fotema"                         # Менеджер фото 
         "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
-        "com.wps.Office"                            #
-        "com.getmailspring.Mailspring"
         "io.github.lainsce.Countdown"
         "io.github.lainsce.Emulsion"
+        "org.onlyoffice.desktopeditors"
       ];
     };
 
