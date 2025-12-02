@@ -171,6 +171,8 @@
       # calcurse                                    # TUI календарь со списком задач
       # 
     wev
+    streamdeck-ui
+    streamcontroller
   ]); 
 
   programs = {
