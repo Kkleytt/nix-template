@@ -2,6 +2,20 @@
   home.username = "kkleytt";
   home.homeDirectory = "/home/kkleytt";
   home.stateVersion = "25.11";
+  
+  # Переопределение магазина для замены Hash суммы
+  nixpkgs.overlays = [
+      (final: prev: {
+        wpsoffice = prev.wpsoffice.overrideAttrs (old: {
+          src = pkgs.fetchurl {
+            # Заменить на реальный URL из derivation
+            url = "https://example.com/wps-office_11.1.0.11723.XA_amd64.deb";
+            # Заменить на хеш, полученный командой `nix hash file --type sha256 --base32 ./wps.deb`
+            sha256 = "0lh8lmwqj4h2x43i4l1b632gkirbrr404hli8hpgjngj58sv3j3y";
+          };
+        });
+      })
+    ];
 
   # Приложения (Apps)
   home.packages = (with pkgs; [
