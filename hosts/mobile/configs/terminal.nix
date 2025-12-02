@@ -202,7 +202,7 @@
       update_check = false;
       style = "compact";
       inline_height = 20;
-      enter_accept = "enter";
+      # enter_accept = "enter";
       search_mode = "prefix";
       filter_mode = "global";
     };

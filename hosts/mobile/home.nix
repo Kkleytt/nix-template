@@ -91,6 +91,9 @@
     ## Office
       onlyoffice-desktopeditors                   # Аналог Microsoft Office
       thunderbird                                 # Mail клиент
+      wpsoffice                                     # Wps Office
+      collabora-online
+      libreoffice 
       # figma-linux                                 # Неофициальный клиент Figma
 
 
@@ -170,10 +173,12 @@
       # lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
       # dooit                                       # TUI ToDo список задач
       # calcurse                                    # TUI календарь со списком задач
+      #
       # 
-    wev
-    streamdeck-ui
-    streamcontroller
+      # 
+      # Test new packages 
+      wev                                           # Проверка названий клавиш клавиатуры
+      miro                                          # Быстрый PDF viewer
   ]); 
 
   programs = {
