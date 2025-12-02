@@ -105,7 +105,7 @@
     ## Office
       onlyoffice-desktopeditors                   # Аналог Microsoft Office
       thunderbird                                 # Mail клиент
-      mailsping                                   # Mail клиент
+      mailspring                                   # Mail клиент
       # wpsoffice                                   # Wps Office
       # figma-linux                                 # Неофициальный клиент Figma
 
