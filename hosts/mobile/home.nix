@@ -29,6 +29,7 @@
         bash-language-server                      # Bash
         yaml-language-server                      # YAML
         rust-analyzer                             # Rust
+        hyprlang                                  # Hyprland
 
       #### Rust
         rustc                                     # Компилятор языка Rust.
