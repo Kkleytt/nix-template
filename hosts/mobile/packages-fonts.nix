@@ -166,7 +166,6 @@
         "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
         "io.github.lainsce.Countdown"
         "io.github.lainsce.Emulsion"
-        "org.onlyoffice.desktopeditors"
       ];
     };
 
