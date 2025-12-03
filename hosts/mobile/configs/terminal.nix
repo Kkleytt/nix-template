@@ -153,6 +153,9 @@
       gp        = "git push";
       gl        = "git pull";
       gs        = "git status";
+      
+      # Прочик сокращения
+      office    = "onlyoffice-desktopeditors";
     };
 
     initContent = lib.mkMerge [

@@ -166,6 +166,8 @@
         "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
         "io.github.lainsce.Countdown"
         "io.github.lainsce.Emulsion"
+        "org.gnome.Showtime"
+        "io.gitlab.guillermop.Counters"
       ];
     };
 
