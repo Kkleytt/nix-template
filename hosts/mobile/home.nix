@@ -168,46 +168,39 @@
       # lazysql                                     # TUI для работы с СУБД (Postgres, MySQL)
       # dooit                                       # TUI ToDo список задач
       # calcurse                                    # TUI календарь со списком задач
+      # culcure                                     # TUI календарь со списком задач
       #
       # 
       # 
       # Test new packages 
       wev                                           # Проверка названий клавиш клавиатуры
-      miro                                          # Быстрый PDF viewer
       gradia                                        # Аннотация скриншотов и их создание
       
-      rofi-calc
-      gnome-clocks
-      gnome-calculator
-      papers
-      dialect
-      denaro
-      sticky-notes
-      lunatask
-      pom
-      pomodoro-gtk
+      gnome-clocks # 6/10
+        gnome-calculator # 8/10
+       # 8/10
+        dialect #8/10
+      denaro # /10
+      sticky-notes # 7/10
+      pom # 7/10
+      pomodoro-gtk # 7/10
       
-      gnome-weather
-      mousam
-      wthrr
-      wego
+      gnome-weather # 8/10
+        wthrr # 10/10
       
-      clockify
-      tenki
-      peaclock
+      peaclock # 8/10
+      clock-rs
       
-      vhs
-      asciinema
-      oxker
-      s-tui 
-      dooit
-      calcure
-      hyperfine
-      chess-tui
-      tetris
-      ttyper
+      asciinema # 10/10
+      oxker # 8/10
+      s-tui # 8/10
+        dooit # 7/10
+        calcure # 8/10
+      hyperfine # 8/10
+      tetris # /10
+        ttyper # 8/10
       
-      wezterm
+      wezterm # 10/10
       
   ]); 
 

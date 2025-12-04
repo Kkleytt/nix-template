@@ -34,9 +34,10 @@
     # Media
       gtt                                           # TUI переводчик
       tdf                                           # TUI просмотр PDF
+      papers                                        # Красивый просмотр PDF
       termusic                                      # TUI музыкальный плеер 
       swayimg                                       # TUI просмотрщик изображений 
-      glow                                          # Markdown редактор
+      glow                                          # TUI Markdown редактор
       codesnap                                      # Создание скриншотов кода
       
     # Сеть и интернет
