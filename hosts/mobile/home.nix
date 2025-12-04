@@ -68,7 +68,6 @@
         # warehouse                                 # Менеджер пакетов Flatpak
 
       #### Other programming tools
-        numi                                      # Калькулятор
         pre-commit                                # Фреймворк для запуска проверок перед коммитом
         envsubst                                  # Работа с перемнными на GO
         # zeal                                      # Документация для программистов
