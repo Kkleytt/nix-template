@@ -175,22 +175,39 @@
       wev                                           # Проверка названий клавиш клавиатуры
       miro                                          # Быстрый PDF viewer
       gradia                                        # Аннотация скриншотов и их создание
+      
       rofi-calc
-      sums
-      gnome-photos
-      gnome-graphs
       gnome-clocks
-      gnome-weather
-      gnome-solanum
-      gnome-pomodoro
-      gnome-calendar
-      gnome-screenshot
       gnome-calculator
       papers
       dialect
-      endeavour
       denaro
       sticky-notes
+      lunatask
+      pom
+      pomodoro-gtk
+      
+      gnome-weather
+      mousam
+      wthrr
+      wego
+      
+      clockify
+      tenki
+      peaclock
+      
+      vhs
+      asciinema
+      oxker
+      s-tui 
+      dooit
+      calcure
+      hyperfine
+      chess-tui
+      tetris
+      ttyper
+      
+      wezterm
       
   ]); 
 

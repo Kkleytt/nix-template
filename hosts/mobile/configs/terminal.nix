@@ -8,7 +8,6 @@
       bottom                                        # TUI мониторинг системы
       btop                                          # TUI мониторинг системы
       zenith                                        # TUI мониторинг системы
-      # zenith-nvidia                                 # TUI мониторинг системы (с поддержкой NVIDIA)
       
     # Git
       gitui                                         # TUI для работы с Git
@@ -26,7 +25,6 @@
     # Tasks
       taskwarrior-tui                               # TUI менеджер задач
       calcurse                                      # TUI календарь со списком задач    
-      calcure                                       # TUI календарь со списком задач
       
     # Дашборд / Разное
       wtfutil                                       # TUI дашборд 
@@ -43,8 +41,10 @@
       
     # Сеть и интернет
       xh                                            # HTTP-клиент нового поколения
+      posting                                       # Rest API клиент
       oha                                           # TUI нагрузочное тестирование
       sniffnet                                      # TUI трафик сети
+      trippy                                        # TUI диагностика сети
       gping                                         # Ping с графиком
       bluetui                                       # TUI для работы с Bluetooth 
       impala                                        # TUI для работы с WiFi
@@ -75,7 +75,7 @@
       terminal-toys                                 # TUI вывод экрана ожидания
       pipes                                         # TUI вывод экрана ожидания
       astroterm                                     # TUI вывод звездной галактики
-      smassh                                        # TUI аналог Monkeytype              
+      smassh                                        # TUI аналог Monkeytype     
 
   ];
 
