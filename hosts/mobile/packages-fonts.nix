@@ -80,6 +80,7 @@
     ## 🧩 Hyprland и Wayland
       hyprpaper                                   # Установщик обоев для рабочего стола
       hyprpicker                                  # Получение цвета с экрана
+      hyprshot                                    # Создание скриншотов
       hyprsunset                                  # Изменение цвета экрана в зависимости от времени суток
       hypridle                                    # Блокировка и управление сном
       hyprland-qt-support                         # Поддержка QT тем
@@ -162,12 +163,8 @@
       enable = true;
       packages = [
         "app.zen_browser.zen"                       # Браузер Zen на базе Firefox 
-        "app.fotema.Fotema"                         # Менеджер фото 
         "io.beekeeperstudio.Studio"                 # Управление SQL Базами Данных 
-        "io.github.lainsce.Countdown"
-        "io.github.lainsce.Emulsion"
-        "org.gnome.Showtime"
-        "io.gitlab.guillermop.Counters"
+        "io.github.lainsce.Emulsion"                # Цветовая палетка
       ];
     };
 

@@ -188,7 +188,7 @@
       # Test new packages 
       wev                                           # Проверка названий клавиш клавиатуры
       miro                                          # Быстрый PDF viewer
-      gradia
+      gradia                                        # Аннотация скриншотов и их создание
   ]); 
 
   programs = {
