@@ -25,7 +25,8 @@
       
     # Tasks
       taskwarrior-tui                               # TUI менеджер задач
-      calcurse                                      # TUI календарь со списком задач     
+      calcurse                                      # TUI календарь со списком задач    
+      calcure                                       # TUI календарь со списком задач
       
     # Дашборд / Разное
       wtfutil                                       # TUI дашборд 
