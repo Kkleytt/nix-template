@@ -5,9 +5,7 @@
     ## ClI utils
     # Система
       fastfetch                                     # Карточка ОС
-      bottom                                        # TUI мониторинг системы
       btop                                          # TUI мониторинг системы
-      zenith                                        # TUI мониторинг системы
       
     # Git
       gitui                                         # TUI для работы с Git

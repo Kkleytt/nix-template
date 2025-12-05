@@ -75,7 +75,6 @@
     ## Необязательные приложения
       rofi-bluetooth                              # Управление Bluetooth через Rofi
       rofi-network-manager                        # Управление интернетом через Rofi
-      rofi-calc                                   # Калькулятор Rofi
       kanri                                       # GUI Kanban доска
       bandwhich                                   # Вывод трафика и информации 
 
@@ -188,8 +187,7 @@
       gnome-weather # 8/10
         wthrr # 10/10
       
-      peaclock # 8/10
-      clock-rs
+      clock-rs # 9/10
       
       asciinema # 10/10
       oxker # 8/10
@@ -197,10 +195,10 @@
         dooit # 7/10
         calcure # 8/10
       hyperfine # 8/10
-      tetris # /10
+      tetris # 10/10
         ttyper # 8/10
       
-      wezterm # 10/10
+      wezterm # 10/10 (Сомнительная настройка, быстрее kitty, есть вкладки, есть разделение окна)
       
   ]); 
 
