@@ -172,8 +172,8 @@
       # 
       # 
       # Test new packages 
-      wev                                           # Проверка названий клавиш клавиатуры
-      gradia                                        # Аннотация скриншотов и их создание
+      
+      
       
       gnome-clocks # 6/10
         gnome-calculator # 8/10
@@ -189,7 +189,7 @@
       
       clock-rs # 9/10
       
-      asciinema # 10/10
+      asciinema # 10/10     # Запись cast 
       oxker # 8/10
       s-tui # 8/10
         dooit # 7/10
@@ -199,6 +199,12 @@
         ttyper # 8/10
       
       wezterm # 10/10 (Сомнительная настройка, быстрее kitty, есть вкладки, есть разделение окна)
+      wayfarer
+      kooha
+      gpu-screen-recorder
+      wf-recorder
+      vokoscreen
+      
       
   ]); 
 
